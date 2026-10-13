@@ -1,0 +1,47 @@
+# Python & Virtual Environments
+venv/
+.venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# Node & Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+.npm
+.vite/
+
+# Environment Secrets
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+
+# Database & Runtime Uploads
+*.sqlite3
+data/uploads/*
+!data/uploads/.gitkeep
+
+# IDEs & System Files
+.idea/
+.vscode/
+*.swp
+*.swo
+Thumbs.db
+.DS_Store
+
+# Agent & Brain Caches
+.gemini/
+.agents/
+scratch/
