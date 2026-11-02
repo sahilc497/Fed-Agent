@@ -1,12 +1,11 @@
-from typing import List, Optional
-from sqlalchemy import select, and_
-from sqlalchemy.ext.asyncio import AsyncSession
+import numpy as np
+from typing import List, Optional, Any
 from app.db.models.document import Document, DocumentChunk
 from app.repositories.base import BaseRepository
 
 
 class DocumentRepository(BaseRepository[Document]):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__(Document, db)
 
     async def list_by_department(
@@ -14,13 +13,18 @@ class DocumentRepository(BaseRepository[Document]):
         department_id: Optional[int] = None,
         allowed_access_levels: Optional[List[str]] = None
     ) -> List[Document]:
+        conn = self._get_conn()
         allowed_levels = allowed_access_levels or ["public", "internal"]
-        conditions = [Document.access_level.in_(allowed_levels)]
+        placeholders = ",".join("?" for _ in allowed_levels)
+        query = f"SELECT * FROM documents WHERE access_level IN ({placeholders})"
+        params = list(allowed_levels)
         if department_id is not None:
-            conditions.append(Document.department_id == department_id)
-        stmt = select(Document).where(and_(*conditions))
-        result = await self.db.execute(stmt)
-        return list(result.scalars().all())
+            query += " AND department_id = ?"
+            params.append(department_id)
+        query += " ORDER BY id;"
+        cursor = conn.execute(query, tuple(params))
+        rows = cursor.fetchall()
+        return [Document.from_row(r) for r in rows]
 
     async def get_authorized_document(
         self,
@@ -28,20 +32,27 @@ class DocumentRepository(BaseRepository[Document]):
         department_id: Optional[int] = None,
         allowed_access_levels: Optional[List[str]] = None
     ) -> Optional[Document]:
+        conn = self._get_conn()
         allowed_levels = allowed_access_levels or ["public", "internal"]
-        conditions = [
-            Document.id == document_id,
-            Document.access_level.in_(allowed_levels)
-        ]
+        placeholders = ",".join("?" for _ in allowed_levels)
+        query = f"SELECT * FROM documents WHERE id = ? AND access_level IN ({placeholders})"
+        params = [document_id] + list(allowed_levels)
         if department_id is not None:
-            conditions.append(Document.department_id == department_id)
-        stmt = select(Document).where(and_(*conditions))
-        result = await self.db.execute(stmt)
-        return result.scalar_one_or_none()
+            query += " AND department_id = ?"
+            params.append(department_id)
+        cursor = conn.execute(query, tuple(params))
+        row = cursor.fetchone()
+        return Document.from_row(row) if row else None
+
+    async def delete_document(self, document_id: int) -> bool:
+        conn = self._get_conn()
+        conn.execute("DELETE FROM document_chunks WHERE document_id = ?;", (document_id,))
+        conn.execute("DELETE FROM documents WHERE id = ?;", (document_id,))
+        return True
 
 
 class DocumentChunkRepository(BaseRepository[DocumentChunk]):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__(DocumentChunk, db)
 
     async def list_authorized_chunks(
@@ -50,13 +61,18 @@ class DocumentChunkRepository(BaseRepository[DocumentChunk]):
         allowed_access_levels: Optional[List[str]] = None
     ) -> List[DocumentChunk]:
         """Strict in-database authorization filtering."""
+        conn = self._get_conn()
         allowed_levels = allowed_access_levels or ["public", "internal"]
-        conditions = [DocumentChunk.access_level.in_(allowed_levels)]
+        placeholders = ",".join("?" for _ in allowed_levels)
+        query = f"SELECT * FROM document_chunks WHERE access_level IN ({placeholders})"
+        params = list(allowed_levels)
         if department_id is not None:
-            conditions.append(DocumentChunk.department_id == department_id)
-        stmt = select(DocumentChunk).where(and_(*conditions))
-        result = await self.db.execute(stmt)
-        return list(result.scalars().all())
+            query += " AND department_id = ?"
+            params.append(department_id)
+        query += " ORDER BY id;"
+        cursor = conn.execute(query, tuple(params))
+        rows = cursor.fetchall()
+        return [DocumentChunk.from_row(r) for r in rows]
 
     async def search_chunks_by_keywords(
         self,
@@ -66,18 +82,10 @@ class DocumentChunkRepository(BaseRepository[DocumentChunk]):
         limit: int = 5
     ) -> List[DocumentChunk]:
         """In-database search with strict department and access-level boundary enforcement."""
-        allowed_levels = allowed_access_levels or ["public", "internal"]
-        conditions = [DocumentChunk.access_level.in_(allowed_levels)]
-        if department_id is not None:
-            conditions.append(DocumentChunk.department_id == department_id)
-        stmt = select(DocumentChunk).where(and_(*conditions))
-        result = await self.db.execute(stmt)
-        chunks = list(result.scalars().all())
-
+        chunks = await self.list_authorized_chunks(department_id, allowed_access_levels)
         if not query_terms:
             return chunks[:limit]
 
-        # Score matching keywords safely
         scored = []
         for ch in chunks:
             text = ch.content.lower()
@@ -87,3 +95,40 @@ class DocumentChunkRepository(BaseRepository[DocumentChunk]):
 
         scored.sort(key=lambda x: x[0], reverse=True)
         return [ch for _, ch in scored][:limit]
+
+    async def save_chunk(
+        self,
+        document_id: int,
+        chunk_index: int,
+        content: str,
+        department_id: int,
+        access_level: str = "internal",
+        page_number: Optional[int] = None,
+        embedding: Optional[List[float]] = None
+    ) -> DocumentChunk:
+        conn = self._get_conn()
+        blob = None
+        dim = 384
+        if embedding is not None:
+            arr = np.array(embedding, dtype=np.float32)
+            blob = arr.tobytes()
+            dim = len(embedding)
+
+        cursor = conn.execute(
+            """INSERT INTO document_chunks (
+                document_id, chunk_index, content, page_number,
+                department_id, access_level, embedding_blob, embedding_dimension
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?);""",
+            (document_id, chunk_index, content, page_number, department_id, access_level, blob, dim)
+        )
+        return DocumentChunk(
+            id=cursor.lastrowid,
+            document_id=document_id,
+            chunk_index=chunk_index,
+            content=content,
+            page_number=page_number,
+            department_id=department_id,
+            access_level=access_level,
+            embedding_blob=blob,
+            embedding_dimension=dim
+        )

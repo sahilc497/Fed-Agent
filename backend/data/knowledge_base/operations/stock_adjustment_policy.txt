@@ -1,0 +1,8 @@
+# Physical Stock Discrepancy Adjustment
+Document ID: DOC-OPS-004
+Department: Operations
+Version: 1.5 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Variance Investigation
+Any physical count variance exceeding 5 units or $1,000 value requires formal supervisor sign-off and an incident log.

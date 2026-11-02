@@ -57,22 +57,26 @@ def test_missing_sentence_transformers_model_raises_clear_error(monkeypatch):
 
 @pytest.mark.asyncio
 async def test_semantic_retrieval_service_filters(db_session):
-    from sqlalchemy import select
-    from app.db.models.department import Department
+    from app.repositories.user_repo import DepartmentRepository
+    from app.repositories.document_repo import DocumentRepository, DocumentChunkRepository
     from app.rag.retrieval import RAGRetrievalService
-    from app.db.models.document import Document, DocumentChunk
+    from app.db.models.document import Document
 
-    sales_dept = (await db_session.execute(select(Department).where(Department.code == "sales"))).scalars().first()
-    hr_dept = (await db_session.execute(select(Department).where(Department.code == "hr"))).scalars().first()
+    dept_repo = DepartmentRepository(db_session)
+    sales_dept = await dept_repo.get_by_code("sales")
+    hr_dept = await dept_repo.get_by_code("hr")
 
     reset_embedding_service()
     embedder = get_embedding_service()
 
-    # Create test docs
+    # Create test docs via repository
+    doc_repo = DocumentRepository(db_session)
+    chunk_repo = DocumentChunkRepository(db_session)
+
     doc_sales = Document(
-        title="Sales Discount Guidelines",
-        filename="sales_discount.txt",
-        file_path="data/sales_discount.txt",
+        title="Sales Discount Guidelines Test",
+        filename="sales_discount_test.txt",
+        file_path="data/sales_discount_test.txt",
         file_type="txt",
         department_id=sales_dept.id,
         access_level="internal",
@@ -80,39 +84,37 @@ async def test_semantic_retrieval_service_filters(db_session):
         status="indexed"
     )
     doc_hr = Document(
-        title="HR Secret Compensation",
-        filename="hr_secret.txt",
-        file_path="data/hr_secret.txt",
+        title="HR Secret Compensation Test",
+        filename="hr_secret_test.txt",
+        file_path="data/hr_secret_test.txt",
         file_type="txt",
         department_id=hr_dept.id,
         access_level="confidential",
         uploaded_by=1,
         status="indexed"
     )
-    db_session.add_all([doc_sales, doc_hr])
-    await db_session.flush()
+    saved_doc_sales = await doc_repo.create(doc_sales)
+    saved_doc_hr = await doc_repo.create(doc_hr)
 
     content_sales = "Sales representatives can grant discounts up to ten percent before finance review."
     content_hr = "Executive compensation packages are strictly confidential."
 
-    chunk_sales = DocumentChunk(
-        document_id=doc_sales.id,
+    await chunk_repo.save_chunk(
+        document_id=saved_doc_sales.id,
         chunk_index=0,
         content=content_sales,
         department_id=sales_dept.id,
         access_level="internal",
         embedding=embedder.embed_text(content_sales)
     )
-    chunk_hr = DocumentChunk(
-        document_id=doc_hr.id,
+    await chunk_repo.save_chunk(
+        document_id=saved_doc_hr.id,
         chunk_index=0,
         content=content_hr,
         department_id=hr_dept.id,
         access_level="confidential",
         embedding=embedder.embed_text(content_hr)
     )
-    db_session.add_all([chunk_sales, chunk_hr])
-    await db_session.commit()
 
     retriever = RAGRetrievalService(db_session)
 

@@ -1,0 +1,8 @@
+# Automated Stock Reorder and Safety Levels
+Document ID: DOC-OPS-002
+Department: Operations
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Minimum Threshold Rules
+When quantity on hand drops below the defined reorder threshold, an automated purchase order recommendation is triggered to the primary supplier.

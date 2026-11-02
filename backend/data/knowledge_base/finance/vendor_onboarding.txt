@@ -1,0 +1,8 @@
+# Vendor Financial Verification and Setup
+Document ID: DOC-FIN-006
+Department: Finance
+Version: 1.8 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Mandatory Compliance Checks
+All new vendors must supply a verified W-9 / W-8BEN, certificate of insurance, and bank account validation letter before receiving disbursements.

@@ -1,5 +1,4 @@
 from typing import Any, Dict, List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.agents.base import BaseAgent, AgentTaskResult
 from app.db.models.user import User
 from app.gateway.service import FederationGatewayService
@@ -12,7 +11,7 @@ from app.schemas.chat import EvidenceReference
 
 
 class SalesAgent(BaseAgent):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__("sales", db)
         self.sales_repo = SalesRepository(db)
         self.doc_repo = DocumentChunkRepository(db)
@@ -75,8 +74,21 @@ class SalesAgent(BaseAgent):
             )
 
         # Standard Sales query: fetch opportunities and authorized sales documents
-        opps = await self.sales_repo.list_for_department(user.department_id)
-        for op in opps[:5]:
+        from app.repositories.user_repo import DepartmentRepository
+        dept_repo = DepartmentRepository(self.db)
+        sales_dept = await dept_repo.get_by_code("sales")
+        dept_id = sales_dept.id if sales_dept else 1
+
+        opps = await self.sales_repo.list_for_department(dept_id)
+        # Match specific opportunities if query mentions deal titles or client names
+        matched_opps = [
+            op for op in opps
+            if any(term in op.title.lower() or term in op.client_name.lower() or term in op.stage.lower()
+                   for term in query_lower.split() if len(term) > 2 and term not in ["the", "and", "for", "with", "from", "deal", "deals", "show", "what"])
+        ]
+        target_opps = matched_opps[:5] if matched_opps else opps[:5]
+
+        for op in target_opps:
             ev = EvidenceReference(
                 source_type="business_record",
                 title=f"Opportunity: {op.title}",
@@ -89,7 +101,7 @@ class SalesAgent(BaseAgent):
         terms = [t for t in query_lower.split() if len(t) > 3]
         doc_chunks = await self.doc_repo.search_chunks_by_keywords(
             query_terms=terms,
-            department_id=user.department_id,
+            department_id=dept_id,
             allowed_access_levels=["public", "internal"]
         )
         for ch in doc_chunks:

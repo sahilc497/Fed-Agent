@@ -1,5 +1,4 @@
 from typing import Any, Dict, List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.agents.base import BaseAgent, AgentTaskResult
 from app.db.models.user import User
 from app.repositories.business_repo import FinanceRepository
@@ -10,7 +9,7 @@ from app.schemas.chat import EvidenceReference
 
 
 class FinanceAgent(BaseAgent):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__("finance", db)
         self.finance_repo = FinanceRepository(db)
         self.doc_repo = DocumentChunkRepository(db)
@@ -43,25 +42,39 @@ class FinanceAgent(BaseAgent):
                 }
             )
 
+        from app.repositories.user_repo import DepartmentRepository
+        dept_repo = DepartmentRepository(self.db)
+        fin_dept = await dept_repo.get_by_code("finance")
+        dept_id = fin_dept.id if fin_dept else 3
+
         # Overdue invoice query
         if "overdue" in query_lower:
-            invoices = await self.finance_repo.list_overdue_invoices(department_id=user.department_id)
+            invoices = await self.finance_repo.list_overdue_invoices(department_id=dept_id)
         else:
-            invoices = await self.finance_repo.list_invoices(department_id=user.department_id)
+            invoices = await self.finance_repo.list_invoices(department_id=dept_id)
 
-        for inv in invoices[:5]:
+        # Match specific invoices if query mentions invoice numbers or client names
+        matched_invs = [
+            inv for inv in invoices
+            if any(term in inv.invoice_number.lower() or term in inv.client_name.lower()
+                   for term in query_lower.split() if len(term) > 2 and term not in ["the", "and", "for", "with", "from", "invoice", "invoices", "status", "show", "what"])
+        ]
+        target_invoices = matched_invs[:5] if matched_invs else invoices[:5]
+
+        for inv in target_invoices:
+            due_str = inv.due_date[:10] if isinstance(inv.due_date, str) else (inv.due_date.strftime('%Y-%m-%d') if hasattr(inv.due_date, 'strftime') else str(inv.due_date))
             evidence_list.append(EvidenceReference(
                 source_type="business_record",
                 title=f"Invoice {inv.invoice_number}",
                 department="finance",
-                snippet=f"Invoice {inv.invoice_number} for client '{inv.client_name}': Amount ${inv.amount:,.2f}, Status: {inv.status}, Due: {inv.due_date.strftime('%Y-%m-%d')}."
+                snippet=f"Invoice {inv.invoice_number} for client '{inv.client_name}': Amount ${inv.amount:,.2f}, Status: {inv.status}, Due: {due_str}."
             ))
 
         # Search authorized finance documents
         terms = [t for t in query_lower.split() if len(t) > 3]
         doc_chunks = await self.doc_repo.search_chunks_by_keywords(
             query_terms=terms,
-            department_id=user.department_id,
+            department_id=dept_id,
             allowed_access_levels=["public", "internal"]
         )
         for ch in doc_chunks:

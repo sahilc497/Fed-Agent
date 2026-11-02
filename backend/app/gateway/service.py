@@ -1,6 +1,5 @@
 import logging
 from typing import Any, Dict, List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.exceptions import GatewayPolicyError
 from app.db.models.user import User
 from app.gateway.schemas import FederationRequest, FederationResponse
@@ -50,7 +49,7 @@ PERMITTED_POLICIES = {
 
 
 class FederationGatewayService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
         self.audit_repo = AuditRepository(db)
         self.sales_repo = SalesRepository(db)

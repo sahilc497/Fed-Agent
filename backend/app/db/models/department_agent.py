@@ -1,30 +1,36 @@
-import datetime
 from typing import Optional
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text
-from sqlalchemy.orm import Mapped, mapped_column
 from app.db.base import Base
 
 
 class DepartmentAgent(Base):
     __tablename__ = "department_agents"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    department_id: Mapped[int] = mapped_column(Integer, ForeignKey("departments.id"), unique=True, nullable=False, index=True)
-    agent_code: Mapped[str] = mapped_column(String(50), unique=True, index=True, nullable=False)
-    name: Mapped[str] = mapped_column(String(100), nullable=False)
-    description: Mapped[str] = mapped_column(Text, default="", nullable=False)
-    system_prompt: Mapped[str] = mapped_column(Text, default="", nullable=False)
-    is_enabled: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
-    error_count: Mapped[int] = mapped_column(Integer, default=0, nullable=False)
-    last_error: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
-    created_at: Mapped[datetime.datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.datetime.now(datetime.timezone.utc),
-        nullable=False
-    )
-    updated_at: Mapped[datetime.datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.datetime.now(datetime.timezone.utc),
-        onupdate=lambda: datetime.datetime.now(datetime.timezone.utc),
-        nullable=False
-    )
+    def __init__(
+        self,
+        id: Optional[int] = None,
+        department_id: int = 1,
+        agent_code: str = "",
+        name: str = "",
+        description: str = "",
+        system_prompt: str = "",
+        is_enabled: bool = True,
+        error_count: int = 0,
+        last_error: Optional[str] = None,
+        created_at: Optional[str] = None,
+        updated_at: Optional[str] = None,
+        **kwargs
+    ):
+        super().__init__(
+            id=id,
+            department_id=department_id,
+            agent_code=agent_code,
+            name=name,
+            description=description,
+            system_prompt=system_prompt,
+            is_enabled=bool(is_enabled),
+            error_count=int(error_count or 0),
+            last_error=last_error,
+            created_at=created_at,
+            updated_at=updated_at,
+            **kwargs
+        )

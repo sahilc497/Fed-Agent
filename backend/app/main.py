@@ -1,10 +1,13 @@
 import uuid
+import logging
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from app.core.config import settings
 from app.core.logging import setup_logging, correlation_id_ctx
 from app.core.exceptions import MeshBaseException, PermissionDeniedError, AuthenticationError
+from app.db.schema import init_db
 from app.api.v1.health import router as health_router
 from app.api.v1.auth import router as auth_router
 from app.api.v1.users import router as users_router
@@ -17,9 +20,19 @@ from app.api.v1.audit import router as audit_router
 from app.api.v1.agents import router as agents_router
 from app.api.v1.federation import router as federation_router
 
+logger = logging.getLogger("federated_mesh.main")
 
 # Initialize structured logging
 setup_logging(debug=settings.DEBUG)
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Idempotent SQLite schema initialization
+    init_db()
+    logger.info("Federated Agentic Mesh SQLite database verified.")
+    yield
+
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -27,16 +40,23 @@ app = FastAPI(
     description="Federated Agentic Mesh — Secure Multi-Agent Enterprise AI Backend",
     docs_url="/docs",
     redoc_url="/redoc",
-    openapi_url="/openapi.json"
+    openapi_url="/openapi.json",
+    lifespan=lifespan
 )
 
-# CORS configuration
+# CORS configuration supporting Localhost, private LAN Wi-Fi IPs, and configured origins
+cors_kwargs = {
+    "allow_credentials": True,
+    "allow_methods": ["*"],
+    "allow_headers": ["*"],
+    # Allow any HTTP / HTTPS origin on private LAN, Wi-Fi, or localhost with full credentials
+    "allow_origin_regex": r"^https?:\/\/.*$",
+    "allow_origins": []
+}
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    **cors_kwargs
 )
 
 

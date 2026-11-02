@@ -1,0 +1,8 @@
+# Operations Department Frequently Asked Questions
+Document ID: DOC-OPS-012
+Department: Operations
+Version: 3.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## FAQ 1: Can Sales query our inventory stock levels?
+Yes. The Federation Gateway allows the Sales Agent to query item SKUs, descriptions, quantity on hand, and stock status.

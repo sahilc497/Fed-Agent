@@ -1,0 +1,8 @@
+# Warehouse Inbound Receiving and Inspection
+Document ID: DOC-OPS-003
+Department: Operations
+Version: 1.8 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Delivery Check-In
+Shipments arriving at warehouse docks must be verified against vendor packing slips within 4 hours. Damaged containers must be documented photographically.

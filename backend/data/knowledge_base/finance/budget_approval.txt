@@ -1,0 +1,8 @@
+# Departmental Budget Allocation and Approval
+Document ID: DOC-FIN-005
+Department: Finance
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Annual Budget Preparation
+Departmental managers must submit annual operating expenditure proposals by October 15 for Finance review.

@@ -1,0 +1,8 @@
+# Facility Equipment and Preventive Maintenance
+Document ID: DOC-OPS-007
+Department: Operations
+Version: 1.4 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Scheduled Servicing
+Forklifts, conveyor belts, and packing machines undergo quarterly mechanical inspections and electrical safety certification.

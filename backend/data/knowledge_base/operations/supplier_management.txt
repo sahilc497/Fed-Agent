@@ -1,0 +1,8 @@
+# Supplier Quality and Performance SLA
+Document ID: DOC-OPS-005
+Department: Operations
+Version: 2.1 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Scorecard Metrics
+Suppliers must maintain 98% on-time delivery rate and $<1\%$ defect rate over each rolling 6-month period.

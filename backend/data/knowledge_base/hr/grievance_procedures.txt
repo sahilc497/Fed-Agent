@@ -1,0 +1,8 @@
+# Formal Employee Grievance Procedure
+Document ID: DOC-HR-008
+Department: Human Resources
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Filing Process
+Employees may submit formal grievances directly to HR Management or via the anonymous internal ethics hotline. Retaliation against any reporting employee is strictly illegal and grounds for immediate termination.

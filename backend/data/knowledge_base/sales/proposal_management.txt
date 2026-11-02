@@ -1,0 +1,15 @@
+# Enterprise Proposal Management Standard
+Document ID: DOC-SALES-004
+Department: Sales
+Version: 1.5 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Proposal Requirements
+Formal written proposals must include:
+- Executive Summary outlining business problem and ROI projection.
+- Scope of Work (SOW) with clear milestone deliverables.
+- SLA commitments and support tier specification.
+- Payment terms: Standard Net 30 days upon invoice delivery.
+
+## 2. Legal Review Gateway
+Any proposal with custom liability caps or modified indemnification clauses must be submitted to Legal counsel 5 business days prior to client delivery.

@@ -1,0 +1,10 @@
+# Sales Reporting and Dashboard Standards
+Document ID: DOC-SALES-010
+Department: Sales
+Version: 1.1 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Core KPIs
+- Win Rate: Closed won opportunities divided by total completed opportunities.
+- Average Sales Cycle: Elapsed days from lead creation to contract signature.
+- Average Deal Size: Total closed ARR divided by closed deal volume.

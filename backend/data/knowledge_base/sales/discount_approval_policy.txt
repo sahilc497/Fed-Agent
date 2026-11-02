@@ -1,0 +1,14 @@
+# Commercial Discount Approval Matrix
+Document ID: DOC-SALES-003
+Department: Sales
+Version: 3.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Discount Thresholds
+- 0% to 5% Discount: Authorized autonomously by Sales Representative.
+- 5.1% to 15% Discount: Requires written authorization from Sales Department Head.
+- 15.1% to 25% Discount: Requires dual authorization from Sales Head and Finance Controller.
+- Above 25% Discount: Strictly prohibited without Executive Committee sign-off.
+
+## 2. Mandatory Pre-Conditions
+No discount exceeding 10% may be offered unless client commits to minimum 24-month contract term and annual upfront billing.

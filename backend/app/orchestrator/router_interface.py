@@ -1,3 +1,4 @@
+import re
 from abc import ABC, abstractmethod
 from enum import Enum
 from typing import Dict, Any
@@ -34,21 +35,23 @@ class RuleBasedIntentRouter(BaseIntentRouter):
     def __init__(self):
         self.keywords = {
             IntentLabel.OPERATIONS: [
-                "operations", "supply chain", "warehouse", "logistics", "shipping", "inventory tracking"
+                "operations", "supply chain", "warehouse", "warehouses", "logistics", "shipping", "inventory",
+                "inventory tracking", "stock", "stocks", "sku", "skus", "fulfillment", "shipment", "shipments", "backorder", "backorders"
             ],
             IntentLabel.SALES: [
                 "sales", "deal", "deals", "pipeline", "lead", "leads", "client", "clients",
-                "opportunity", "opportunities", "contract", "contracts", "proposal", "revenue quota"
+                "opportunity", "opportunities", "contract", "contracts", "proposal", "proposals",
+                "discount", "discounts", "revenue quota"
             ],
             IntentLabel.HR: [
-                "hr", "leave", "leaves", "employee", "employees", "vacation", "sick leave",
+                "hr", "leave", "leaves", "employee", "employees", "vacation", "vacations", "sick leave",
                 "salary", "salaries", "payroll", "benefits", "hiring", "onboarding",
                 "pto", "paid time off", "time off"
             ],
 
             IntentLabel.FINANCE: [
-                "finance", "invoice", "invoices", "payment", "payments", "wire transfer",
-                "billing", "budget", "tax", "overdue", "accounts payable"
+                "finance", "invoice", "invoices", "payment", "payments", "wire", "wires",
+                "wire transfer", "wire transfers", "billing", "budget", "budgets", "tax", "overdue", "accounts payable"
             ]
         }
 
@@ -73,7 +76,7 @@ class RuleBasedIntentRouter(BaseIntentRouter):
             (IntentLabel.FINANCE, self.keywords[IntentLabel.FINANCE]),
             (IntentLabel.OPERATIONS, self.keywords[IntentLabel.OPERATIONS]),
         ]:
-            if any(w in q_lower for w in kw_list):
+            if any(re.search(r"\b" + re.escape(w) + r"\b", q_lower) for w in kw_list):
                 matched_intents.append(intent)
 
         # Multi-department check (e.g. Sales + Finance general summary)

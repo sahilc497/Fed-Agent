@@ -1,0 +1,8 @@
+# Workplace Safety and Ergonomics Protocol
+Document ID: DOC-HR-009
+Department: Human Resources
+Version: 1.3 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Ergonomic Standards
+The company provides ergonomic assessments and adjustable workstations to prevent repetitive strain injuries.

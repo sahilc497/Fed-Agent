@@ -4,7 +4,11 @@ import { api, type User, type Department } from '../api/client';
 import { 
   UserPlus, 
   X,
-  AlertCircle
+  AlertCircle,
+  Edit3,
+  UserCheck,
+  UserX,
+  Save
 } from 'lucide-react';
 
 export const UserAdmin: React.FC = () => {
@@ -23,6 +27,15 @@ export const UserAdmin: React.FC = () => {
   const [newRole, setNewRole] = useState<string>('department_employee');
   const [createLoading, setCreateLoading] = useState<boolean>(false);
   const [createError, setCreateError] = useState<string | null>(null);
+
+  // Edit user modal state
+  const [editingUser, setEditingUser] = useState<User | null>(null);
+  const [editFullName, setEditFullName] = useState('');
+  const [editDeptId, setEditDeptId] = useState<number>(1);
+  const [editRole, setEditRole] = useState<string>('department_employee');
+  const [editIsActive, setEditIsActive] = useState<boolean>(true);
+  const [editLoading, setEditLoading] = useState<boolean>(false);
+  const [editError, setEditError] = useState<string | null>(null);
 
   const loadData = async () => {
     setLoading(true);
@@ -70,6 +83,48 @@ export const UserAdmin: React.FC = () => {
     }
   };
 
+  const handleStartEdit = (u: User) => {
+    setEditingUser(u);
+    setEditFullName(u.full_name);
+    setEditDeptId(u.department_id);
+    setEditRole(u.role);
+    setEditIsActive(u.is_active);
+    setEditError(null);
+  };
+
+  const handleSaveEdit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingUser) return;
+    setEditLoading(true);
+    setEditError(null);
+
+    try {
+      await api.updateUser(editingUser.id, {
+        full_name: editFullName.trim(),
+        role: editRole,
+        department_id: editDeptId,
+        is_active: editIsActive
+      });
+      setEditingUser(null);
+      loadData();
+    } catch (err: any) {
+      setEditError(err.message || 'Failed to update user.');
+    } finally {
+      setEditLoading(false);
+    }
+  };
+
+  const handleToggleActive = async (u: User) => {
+    try {
+      await api.updateUser(u.id, {
+        is_active: !u.is_active
+      });
+      loadData();
+    } catch (err: any) {
+      alert(`Failed to toggle user status: ${err.message}`);
+    }
+  };
+
   const getDeptName = (deptId: number) => {
     const d = departments.find((dept) => dept.id === deptId);
     return d ? d.name : `Dept #${deptId}`;
@@ -78,7 +133,6 @@ export const UserAdmin: React.FC = () => {
   const formatRole = (role: string) => {
     switch (role) {
       case 'admin': return 'Administrator';
-      case 'auditor': return 'Security Auditor';
       case 'department_manager': return 'Department Manager';
       case 'department_employee': return 'Staff Employee';
       default: return role;
@@ -129,6 +183,7 @@ export const UserAdmin: React.FC = () => {
                 <th>Assigned Role</th>
                 <th>Status</th>
                 <th>Created</th>
+                {currentUser?.role === 'admin' && <th>Actions</th>}
               </tr>
             </thead>
             <tbody>
@@ -153,6 +208,28 @@ export const UserAdmin: React.FC = () => {
                     </span>
                   </td>
                   <td>{new Date(u.created_at).toLocaleDateString()}</td>
+                  {currentUser?.role === 'admin' && (
+                    <td>
+                      <div style={{ display: 'flex', gap: '6px' }}>
+                        <button
+                          className="btn btn-secondary btn-sm"
+                          onClick={() => handleStartEdit(u)}
+                          title="Edit employee"
+                          style={{ padding: '4px 8px' }}
+                        >
+                          <Edit3 size={13} />
+                        </button>
+                        <button
+                          className={`btn btn-sm ${u.is_active ? 'btn-secondary' : 'btn-primary'}`}
+                          onClick={() => handleToggleActive(u)}
+                          title={u.is_active ? "Deactivate employee" : "Activate employee"}
+                          style={{ padding: '4px 8px' }}
+                        >
+                          {u.is_active ? <UserX size={13} color="#ef4444" /> : <UserCheck size={13} color="#10b981" />}
+                        </button>
+                      </div>
+                    </td>
+                  )}
                 </tr>
               ))}
             </tbody>
@@ -245,7 +322,6 @@ export const UserAdmin: React.FC = () => {
                   >
                     <option value="department_employee">Staff Employee (Department Scoped)</option>
                     <option value="department_manager">Department Manager (Approvals & Direct Access)</option>
-                    <option value="auditor">Security Auditor (Read-Only Cross-Dept Audit)</option>
                     <option value="admin">Administrator (Full Enterprise Mesh Access)</option>
                   </select>
                 </div>
@@ -266,6 +342,108 @@ export const UserAdmin: React.FC = () => {
                   disabled={createLoading}
                 >
                   {createLoading ? 'Provisioning...' : 'Provision User'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* Edit User Modal */}
+      {editingUser && (
+        <div className="modal-overlay" onClick={() => setEditingUser(null)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <div style={{ fontWeight: 700, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Edit3 size={20} color="#2563eb" />
+                <span>Edit User Details — {editingUser.email}</span>
+              </div>
+              <button 
+                onClick={() => setEditingUser(null)}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#64748b' }}
+              >
+                <X size={20} />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveEdit}>
+              <div className="modal-body">
+                {editError && (
+                  <div style={{ padding: '10px 14px', backgroundColor: '#fef2f2', border: '1px solid #fecaca', color: '#b91c1c', borderRadius: '6px', fontSize: '0.85rem', marginBottom: '16px' }}>
+                    {editError}
+                  </div>
+                )}
+
+                <div className="form-group">
+                  <label htmlFor="editFullName">Full Name</label>
+                  <input
+                    id="editFullName"
+                    type="text"
+                    value={editFullName}
+                    onChange={(e) => setEditFullName(e.target.value)}
+                    required
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="editDept">Department Assignment</label>
+                  <select
+                    id="editDept"
+                    value={editDeptId}
+                    onChange={(e) => setEditDeptId(Number(e.target.value))}
+                  >
+                    {departments.map((dept) => (
+                      <option key={dept.id} value={dept.id}>
+                        {dept.name} ({dept.code.toUpperCase()})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label htmlFor="editRole">Assigned Access Role</label>
+                  <select
+                    id="editRole"
+                    value={editRole}
+                    onChange={(e) => setEditRole(e.target.value)}
+                  >
+                    <option value="department_employee">Staff Employee (Department Scoped)</option>
+                    <option value="department_manager">Department Manager (Approvals & Direct Access)</option>
+                    <option value="admin">Administrator (Full Enterprise Mesh Access)</option>
+                  </select>
+                </div>
+
+                <div className="form-group" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <input
+                    id="editActive"
+                    type="checkbox"
+                    checked={editIsActive}
+                    onChange={(e) => setEditIsActive(e.target.checked)}
+                    style={{ width: 'auto' }}
+                  />
+                  <label htmlFor="editActive" style={{ marginBottom: 0, fontWeight: 500 }}>
+                    Account Active & Permitted
+                  </label>
+                </div>
+              </div>
+
+              <div className="modal-footer">
+                <button 
+                  type="button" 
+                  className="btn btn-secondary" 
+                  onClick={() => setEditingUser(null)}
+                  disabled={editLoading}
+                >
+                  Cancel
+                </button>
+                <button 
+                  type="submit" 
+                  className="btn btn-primary"
+                  disabled={editLoading}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <Save size={15} />
+                  <span>{editLoading ? 'Saving...' : 'Save Changes'}</span>
                 </button>
               </div>
             </form>

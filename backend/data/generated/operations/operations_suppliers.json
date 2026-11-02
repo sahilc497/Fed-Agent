@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "supplier_code": "SUPP-0001",
+    "name": "Crestview Hospitality Group Supply #1",
+    "contact_email": "logistics@supp1.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-02T00:00:00"
+  },
+  {
+    "id": 2,
+    "supplier_code": "SUPP-0002",
+    "name": "Ironclad Cyber Systems Supply #2",
+    "contact_email": "logistics@supp2.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-13T00:00:00"
+  },
+  {
+    "id": 3,
+    "supplier_code": "SUPP-0003",
+    "name": "Meridian Shipping Lines Supply #3",
+    "contact_email": "logistics@supp3.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-27T00:00:00"
+  },
+  {
+    "id": 4,
+    "supplier_code": "SUPP-0004",
+    "name": "Solaria Solar Technologies Supply #4",
+    "contact_email": "logistics@supp4.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-04T00:00:00"
+  },
+  {
+    "id": 5,
+    "supplier_code": "SUPP-0005",
+    "name": "Titan Heavy Industries Supply #5",
+    "contact_email": "logistics@supp5.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-11T00:00:00"
+  },
+  {
+    "id": 6,
+    "supplier_code": "SUPP-0006",
+    "name": "Ironclad Cyber Systems Supply #6",
+    "contact_email": "logistics@supp6.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-30T00:00:00"
+  },
+  {
+    "id": 7,
+    "supplier_code": "SUPP-0007",
+    "name": "Triton Marine Solutions Supply #7",
+    "contact_email": "logistics@supp7.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-22T00:00:00"
+  },
+  {
+    "id": 8,
+    "supplier_code": "SUPP-0008",
+    "name": "Silverline Transit Supply #8",
+    "contact_email": "logistics@supp8.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-24T00:00:00"
+  },
+  {
+    "id": 9,
+    "supplier_code": "SUPP-0009",
+    "name": "Zenith BioHealth Supply #9",
+    "contact_email": "logistics@supp9.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-14T00:00:00"
+  },
+  {
+    "id": 10,
+    "supplier_code": "SUPP-0010",
+    "name": "Solaria Solar Technologies Supply #10",
+    "contact_email": "logistics@supp10.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": 11,
+    "supplier_code": "SUPP-0011",
+    "name": "Apex Global Systems Supply #11",
+    "contact_email": "logistics@supp11.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-23T00:00:00"
+  },
+  {
+    "id": 12,
+    "supplier_code": "SUPP-0012",
+    "name": "Meridian Shipping Lines Supply #12",
+    "contact_email": "logistics@supp12.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-03T00:00:00"
+  },
+  {
+    "id": 13,
+    "supplier_code": "SUPP-0013",
+    "name": "Titan Heavy Industries Supply #13",
+    "contact_email": "logistics@supp13.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-13T00:00:00"
+  },
+  {
+    "id": 14,
+    "supplier_code": "SUPP-0014",
+    "name": "Triton Marine Solutions Supply #14",
+    "contact_email": "logistics@supp14.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-06T00:00:00"
+  },
+  {
+    "id": 15,
+    "supplier_code": "SUPP-0015",
+    "name": "Valence Chemical Corp Supply #15",
+    "contact_email": "logistics@supp15.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-18T00:00:00"
+  },
+  {
+    "id": 16,
+    "supplier_code": "SUPP-0016",
+    "name": "Meridian Shipping Lines Supply #16",
+    "contact_email": "logistics@supp16.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-06T00:00:00"
+  },
+  {
+    "id": 17,
+    "supplier_code": "SUPP-0017",
+    "name": "Silverline Transit Supply #17",
+    "contact_email": "logistics@supp17.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-22T00:00:00"
+  },
+  {
+    "id": 18,
+    "supplier_code": "SUPP-0018",
+    "name": "NextGen Mobility Supply #18",
+    "contact_email": "logistics@supp18.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-08T00:00:00"
+  },
+  {
+    "id": 19,
+    "supplier_code": "SUPP-0019",
+    "name": "Lumina Optics Supply #19",
+    "contact_email": "logistics@supp19.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-19T00:00:00"
+  },
+  {
+    "id": 20,
+    "supplier_code": "SUPP-0020",
+    "name": "Elysium Therapeutics Supply #20",
+    "contact_email": "logistics@supp20.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-18T00:00:00"
+  },
+  {
+    "id": 21,
+    "supplier_code": "SUPP-0021",
+    "name": "Pacific Trade Winds Supply #21",
+    "contact_email": "logistics@supp21.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-25T00:00:00"
+  },
+  {
+    "id": 22,
+    "supplier_code": "SUPP-0022",
+    "name": "Nordic Supermarkets Supply #22",
+    "contact_email": "logistics@supp22.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-22T00:00:00"
+  },
+  {
+    "id": 23,
+    "supplier_code": "SUPP-0023",
+    "name": "Novus Materials Supply #23",
+    "contact_email": "logistics@supp23.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-06T00:00:00"
+  },
+  {
+    "id": 24,
+    "supplier_code": "SUPP-0024",
+    "name": "Lumina Optics Supply #24",
+    "contact_email": "logistics@supp24.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-17T00:00:00"
+  },
+  {
+    "id": 25,
+    "supplier_code": "SUPP-0025",
+    "name": "Cascade Water Utilities Supply #25",
+    "contact_email": "logistics@supp25.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": 26,
+    "supplier_code": "SUPP-0026",
+    "name": "Elysium Therapeutics Supply #26",
+    "contact_email": "logistics@supp26.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-20T00:00:00"
+  },
+  {
+    "id": 27,
+    "supplier_code": "SUPP-0027",
+    "name": "Helios Energy Grid Supply #27",
+    "contact_email": "logistics@supp27.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-09T00:00:00"
+  },
+  {
+    "id": 28,
+    "supplier_code": "SUPP-0028",
+    "name": "Atlas Infrastructure Supply #28",
+    "contact_email": "logistics@supp28.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-25T00:00:00"
+  },
+  {
+    "id": 29,
+    "supplier_code": "SUPP-0029",
+    "name": "Zenith BioHealth Supply #29",
+    "contact_email": "logistics@supp29.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-10T00:00:00"
+  },
+  {
+    "id": 30,
+    "supplier_code": "SUPP-0030",
+    "name": "Elysium Therapeutics Supply #30",
+    "contact_email": "logistics@supp30.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-14T00:00:00"
+  },
+  {
+    "id": 31,
+    "supplier_code": "SUPP-0031",
+    "name": "Atlas Infrastructure Supply #31",
+    "contact_email": "logistics@supp31.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-29T00:00:00"
+  },
+  {
+    "id": 32,
+    "supplier_code": "SUPP-0032",
+    "name": "Cascade Water Utilities Supply #32",
+    "contact_email": "logistics@supp32.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-18T00:00:00"
+  },
+  {
+    "id": 33,
+    "supplier_code": "SUPP-0033",
+    "name": "Astraea Aerospace Supply #33",
+    "contact_email": "logistics@supp33.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-21T00:00:00"
+  },
+  {
+    "id": 34,
+    "supplier_code": "SUPP-0034",
+    "name": "Zephyr Environmental Supply #34",
+    "contact_email": "logistics@supp34.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-13T00:00:00"
+  },
+  {
+    "id": 35,
+    "supplier_code": "SUPP-0035",
+    "name": "Cascade Water Utilities Supply #35",
+    "contact_email": "logistics@supp35.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-18T00:00:00"
+  },
+  {
+    "id": 36,
+    "supplier_code": "SUPP-0036",
+    "name": "Solaria Solar Technologies Supply #36",
+    "contact_email": "logistics@supp36.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-09T00:00:00"
+  },
+  {
+    "id": 37,
+    "supplier_code": "SUPP-0037",
+    "name": "Beacon Analytics Supply #37",
+    "contact_email": "logistics@supp37.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-07T00:00:00"
+  },
+  {
+    "id": 38,
+    "supplier_code": "SUPP-0038",
+    "name": "Monolith Datacenters Supply #38",
+    "contact_email": "logistics@supp38.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-13T00:00:00"
+  },
+  {
+    "id": 39,
+    "supplier_code": "SUPP-0039",
+    "name": "Valence Chemical Corp Supply #39",
+    "contact_email": "logistics@supp39.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-09T00:00:00"
+  },
+  {
+    "id": 40,
+    "supplier_code": "SUPP-0040",
+    "name": "Vanguard Financial Technologies Supply #40",
+    "contact_email": "logistics@supp40.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-18T00:00:00"
+  },
+  {
+    "id": 41,
+    "supplier_code": "SUPP-0041",
+    "name": "Monolith Datacenters Supply #41",
+    "contact_email": "logistics@supp41.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-15T00:00:00"
+  },
+  {
+    "id": 42,
+    "supplier_code": "SUPP-0042",
+    "name": "Silverline Transit Supply #42",
+    "contact_email": "logistics@supp42.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-11T00:00:00"
+  },
+  {
+    "id": 43,
+    "supplier_code": "SUPP-0043",
+    "name": "Zephyr Environmental Supply #43",
+    "contact_email": "logistics@supp43.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-30T00:00:00"
+  },
+  {
+    "id": 44,
+    "supplier_code": "SUPP-0044",
+    "name": "Solaria Solar Technologies Supply #44",
+    "contact_email": "logistics@supp44.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-27T00:00:00"
+  },
+  {
+    "id": 45,
+    "supplier_code": "SUPP-0045",
+    "name": "Onyx Security Networks Supply #45",
+    "contact_email": "logistics@supp45.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-18T00:00:00"
+  },
+  {
+    "id": 46,
+    "supplier_code": "SUPP-0046",
+    "name": "Helios Energy Grid Supply #46",
+    "contact_email": "logistics@supp46.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-21T00:00:00"
+  },
+  {
+    "id": 47,
+    "supplier_code": "SUPP-0047",
+    "name": "Novus Materials Supply #47",
+    "contact_email": "logistics@supp47.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-12T00:00:00"
+  },
+  {
+    "id": 48,
+    "supplier_code": "SUPP-0048",
+    "name": "Hyperion Telecom Supply #48",
+    "contact_email": "logistics@supp48.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-24T00:00:00"
+  },
+  {
+    "id": 49,
+    "supplier_code": "SUPP-0049",
+    "name": "Zephyr Environmental Supply #49",
+    "contact_email": "logistics@supp49.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-26T00:00:00"
+  },
+  {
+    "id": 50,
+    "supplier_code": "SUPP-0050",
+    "name": "Meridian Shipping Lines Supply #50",
+    "contact_email": "logistics@supp50.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-03T00:00:00"
+  },
+  {
+    "id": 51,
+    "supplier_code": "SUPP-0051",
+    "name": "Krypton Robotics Ltd Supply #51",
+    "contact_email": "logistics@supp51.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-04T00:00:00"
+  },
+  {
+    "id": 52,
+    "supplier_code": "SUPP-0052",
+    "name": "Silverline Transit Supply #52",
+    "contact_email": "logistics@supp52.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-07T00:00:00"
+  },
+  {
+    "id": 53,
+    "supplier_code": "SUPP-0053",
+    "name": "NextGen Mobility Supply #53",
+    "contact_email": "logistics@supp53.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": 54,
+    "supplier_code": "SUPP-0054",
+    "name": "Frontier Mining Group Supply #54",
+    "contact_email": "logistics@supp54.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-05T00:00:00"
+  },
+  {
+    "id": 55,
+    "supplier_code": "SUPP-0055",
+    "name": "Monolith Datacenters Supply #55",
+    "contact_email": "logistics@supp55.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-13T00:00:00"
+  },
+  {
+    "id": 56,
+    "supplier_code": "SUPP-0056",
+    "name": "Hyperion Telecom Supply #56",
+    "contact_email": "logistics@supp56.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-15T00:00:00"
+  },
+  {
+    "id": 57,
+    "supplier_code": "SUPP-0057",
+    "name": "Beacon Analytics Supply #57",
+    "contact_email": "logistics@supp57.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-29T00:00:00"
+  },
+  {
+    "id": 58,
+    "supplier_code": "SUPP-0058",
+    "name": "Zephyr Environmental Supply #58",
+    "contact_email": "logistics@supp58.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-12T00:00:00"
+  },
+  {
+    "id": 59,
+    "supplier_code": "SUPP-0059",
+    "name": "Hyperion Telecom Supply #59",
+    "contact_email": "logistics@supp59.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-30T00:00:00"
+  },
+  {
+    "id": 60,
+    "supplier_code": "SUPP-0060",
+    "name": "Elysium Therapeutics Supply #60",
+    "contact_email": "logistics@supp60.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-14T00:00:00"
+  }
+]

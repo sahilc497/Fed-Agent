@@ -2,11 +2,11 @@ import uuid
 import datetime
 import logging
 from typing import List, Optional, Dict, Any
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.exceptions import LLMServiceUnavailableError
 from app.core.logging import get_correlation_id
 from app.db.models.user import User
 from app.orchestrator.router_interface import BaseIntentRouter, RuleBasedIntentRouter, IntentLabel
+from app.orchestrator.ml_router import MLIntentRouter
 from app.agents.sales_agent import SalesAgent
 from app.agents.hr_agent import HRAgent
 from app.agents.finance_agent import FinanceAgent
@@ -20,6 +20,7 @@ from app.repositories.federation_repo import FederationRequestRepository
 from app.schemas.chat import ChatRequest, ChatResponse, EvidenceReference
 from app.schemas.approval import ApprovalCreate
 from app.gateway.service import PERMITTED_POLICIES
+from app.services.federation_service import parse_dt, STRICTLY_FORBIDDEN_FIELDS
 
 logger = logging.getLogger("federated_mesh.orchestrator")
 
@@ -27,12 +28,12 @@ logger = logging.getLogger("federated_mesh.orchestrator")
 class Orchestrator:
     def __init__(
         self,
-        db: AsyncSession,
+        db: Any,
         router: Optional[BaseIntentRouter] = None,
         ollama_service: Optional[OllamaService] = None
     ):
         self.db = db
-        self.router = router or RuleBasedIntentRouter()
+        self.router = router or MLIntentRouter()
         self.ollama = ollama_service or get_shared_ollama_service()
         self.approval_service = ApprovalService(db)
         self.audit_repo = AuditRepository(db)
@@ -57,6 +58,20 @@ class Orchestrator:
         route_result = self.router.classify_intent(request.message)
         intent = route_result.intent
 
+        # If intent is UNKNOWN but a valid department_hint is provided (e.g. from an active Cross-Department session),
+        # route to that target department agent while strictly enforcing zero-trust grant checks
+        if intent == IntentLabel.UNKNOWN and request.department_hint:
+            hint_clean = request.department_hint.lower().strip()
+            valid_hints = {
+                "sales": IntentLabel.SALES,
+                "hr": IntentLabel.HR,
+                "finance": IntentLabel.FINANCE,
+                "operations": IntentLabel.OPERATIONS,
+            }
+            if hint_clean in valid_hints:
+                intent = valid_hints[hint_clean]
+                logger.info(f"Adopted department_hint '{hint_clean}' for ambiguous query intent.")
+
         # 2. Handle Unknown / Ambiguous queries
         if intent == IntentLabel.UNKNOWN:
             msg = (
@@ -73,21 +88,70 @@ class Orchestrator:
 
         routed_depts: List[str] = []
         collected_evidence: List[EvidenceReference] = []
+        grant_notice: Optional[str] = None
 
         # 3. Multi-Department Handling
         if intent == IntentLabel.MULTI_DEPARTMENT:
-            routed_depts = ["sales", "finance"]  # Primary multi-dept scenario
+            # Determine departments dynamically from route result explanation or default to sales/finance
+            possible_depts = ["sales", "hr", "finance", "operations"]
+            target_multi = [d for d in possible_depts if d in route_result.explanation.lower()]
+            routed_depts = target_multi if target_multi else ["sales", "finance"]
+
+            denied_depts = []
             for dept_code in routed_depts:
                 # Check agent enabled status
                 agent_rec = await self.agent_repo.get_by_code(dept_code)
                 if agent_rec and not agent_rec.is_enabled:
                     continue
 
+                # Cross-department check within multi-dept query
+                if user.role != "admin" and user_dept_code != dept_code:
+                    target_dept_obj = await self.dept_repo.get_by_code(dept_code)
+                    active_grant = None
+                    if target_dept_obj:
+                        all_reqs = await self.fed_repo.list_requests(department_id=user.department_id, status="APPROVED")
+                        now = datetime.datetime.now(datetime.timezone.utc)
+                        active_grant = next(
+                            (g for g in all_reqs if g.requester_user_id == user.id and g.source_department_id == target_dept_obj.id and parse_dt(g.expires_at) and parse_dt(g.expires_at) > now and g.revoked_at is None),
+                            None
+                        )
+                    if not active_grant:
+                        denied_depts.append(dept_code)
+                        continue
+
                 agent = self.agents.get(dept_code)
                 if agent:
                     res = await agent.execute_task(user, request.message, cid)
                     if res.success:
                         collected_evidence.extend(res.evidence)
+
+            # Zero-Trust enforcement: If non-admin user queried foreign departments without active grants
+            if user.role != "admin" and denied_depts and not collected_evidence:
+                denied_str = ", ".join([d.upper() for d in denied_depts])
+                denial_msg = (
+                    f"Access Denied: Cross-department direct access to {denied_str} records is restricted under Zero-Trust policy. "
+                    f"Your access grant is either not yet approved, expired, or has been revoked by an administrator. "
+                    f"Please submit an active Federation Access Request in the Approvals & Federation tab."
+                )
+                await self.audit_repo.log_event(
+                    action="orchestrator:cross_dept_denial",
+                    resource_type="multi_department_resource",
+                    outcome="deny",
+                    reason=denial_msg,
+                    correlation_id=cid,
+                    actor_id=user.id,
+                    actor_email=user.email,
+                    actor_role=user.role,
+                    actor_department=user_dept_code
+                )
+                await self.db.commit()
+                return ChatResponse(
+                    answer=denial_msg,
+                    intent=intent.value,
+                    routed_departments=routed_depts,
+                    error="Unauthorized cross-department access.",
+                    correlation_id=cid
+                )
 
         # 4. Single Department Handling (Sales, HR, Finance, Operations)
         elif intent in [IntentLabel.SALES, IntentLabel.HR, IntentLabel.FINANCE, IntentLabel.OPERATIONS]:
@@ -108,50 +172,143 @@ class Orchestrator:
 
             # Cross-department security boundary check:
             if user.role != "admin" and user_dept_code != target_dept:
-                # Check whether user has an active APPROVED Federation grant for target_dept
                 target_dept_obj = await self.dept_repo.get_by_code(target_dept)
-                fed_grants = []
+                user_requests = []
                 if target_dept_obj:
-                    fed_grants = await self.fed_repo.list_requests(
-                        department_id=user.department_id,
-                        status="APPROVED"
-                    )
-                # Filter to active grants from this user for this target department
+                    all_reqs = await self.fed_repo.list_requests(department_id=user.department_id)
+                    user_requests = [
+                        r for r in all_reqs 
+                        if r.requester_user_id == user.id and r.source_department_id == target_dept_obj.id
+                    ]
+
                 now = datetime.datetime.now(datetime.timezone.utc)
+                # First check for an active approved grant
                 active_grant = next(
-                    (g for g in fed_grants if g.requester_user_id == user.id and target_dept_obj and g.source_department_id == target_dept_obj.id and g.expires_at > now and g.revoked_at is None),
+                    (r for r in user_requests 
+                     if r.status == "APPROVED" 
+                     and r.revoked_at is None 
+                     and (parse_dt(r.expires_at) is None or parse_dt(r.expires_at) > now)),
                     None
                 )
 
                 if active_grant:
                     # Authorized via Federation Access Request grant
-                    own_agent = self.agents.get(user_dept_code)
-                    if own_agent:
-                        res = await own_agent.execute_task(user, request.message, cid)
-                    else:
-                        target_agent = self.agents.get(target_dept)
-                        res = await target_agent.execute_task(user, request.message, cid)
-                elif (user_dept_code, target_dept) in PERMITTED_POLICIES:
-                    # Pre-authorized Gateway policy bridge (e.g. Sales checking Finance status of opportunity)
-                    own_agent = self.agents.get(user_dept_code)
-                    if own_agent:
-                        res = await own_agent.execute_task(user, request.message, cid)
-                    else:
-                        denial_msg = f"Access Denied: Direct invocation of {target_dept} agent is restricted."
+                    target_agent = self.agents.get(target_dept)
+                    if not target_agent:
                         return ChatResponse(
-                            answer=denial_msg,
+                            answer=f"Target agent for department {target_dept} is unavailable.",
                             intent=intent.value,
                             routed_departments=routed_depts,
-                            error="Unauthorized agent invocation.",
+                            is_incomplete_or_uncertain=True,
                             correlation_id=cid
                         )
-                else:
-                    denial_msg = (
-                        f"Access Denied: Cross-department direct access from {user_dept_code.upper()} to {target_dept.upper()} "
-                        f"is prohibited. Please submit a Federation Access Request for administrator approval."
+
+                    res = await target_agent.execute_task(user, request.message, cid)
+
+                    # Strictly sanitize forbidden fields from evidence
+                    clean_evidence = []
+                    for ev in res.evidence:
+                        snippet_lower = ev.snippet.lower()
+                        if any(f in snippet_lower for f in ["base salary:", "salary:", "payroll:", "bank_details"]):
+                            continue
+                        clean_evidence.append(ev)
+                    res.evidence = clean_evidence
+
+                    # Record grant usage timestamp (maintaining APPROVED state for repeated queries during time limit)
+                    conn = getattr(self.db, "conn", self.db)
+                    conn.execute(
+                        "UPDATE federation_access_requests SET used_at = ? WHERE id = ?;",
+                        (now.isoformat(), active_grant.id)
                     )
+
                     await self.audit_repo.log_event(
-                        action="orchestrator:cross_dept_denial",
+                        action="gateway:federated_request",
+                        resource_type=f"cross_dept:{target_dept}",
+                        outcome="allow",
+                        reason=f"Federated cross-department access authorized via grant {active_grant.id}",
+                        correlation_id=cid,
+                        actor_id=user.id,
+                        actor_email=user.email,
+                        actor_role=user.role,
+                        actor_department=user_dept_code,
+                        resource_id=active_grant.id,
+                        details={
+                            "source_department": target_dept,
+                            "grant_id": active_grant.id,
+                            "expires_at": str(active_grant.expires_at),
+                            "approved_fields": active_grant.approved_fields
+                        }
+                    )
+                    await self.db.commit()
+
+                    routed_depts = [user_dept_code, "gateway", target_dept]
+                    grant_notice = f"[Federated Access via Approved Grant #{active_grant.id[:8]} - {target_dept.upper()} Scope]"
+                else:
+                    # Inspect the user's most recent request for this target department
+                    latest_req = user_requests[0] if user_requests else None
+                    if latest_req:
+                        exp_dt = parse_dt(latest_req.expires_at)
+                        is_expired = (exp_dt is not None and exp_dt < now)
+                        is_revoked = (latest_req.status == "REVOKED" or latest_req.revoked_at is not None)
+
+                        if latest_req.status == "PENDING":
+                            if is_expired:
+                                denial_msg = (
+                                    f"Access Denied: Your Federation Access Request for {target_dept.upper()} department records "
+                                    f"(Request #{latest_req.id[:8]}) has EXPIRED. The approved time limit has elapsed. "
+                                    f"Please submit a new Federation Access Request in the Approvals & Federation tab."
+                                )
+                                err_type = "Federation grant expired."
+                                action_name = "orchestrator:cross_dept_expired"
+                            else:
+                                denial_msg = (
+                                    f"Access Denied: Your Federation Access Request for {target_dept.upper()} department records "
+                                    f"(Request #{latest_req.id[:8]}) is currently pending Administrator approval. "
+                                    f"Once approved, you will be able to query {target_dept.upper()} data here until the approved time limit expires."
+                                )
+                                err_type = "Federation request pending approval."
+                                action_name = "orchestrator:cross_dept_pending"
+                        elif is_revoked:
+                            denial_msg = (
+                                f"Access Denied: Your Federation Access Grant for {target_dept.upper()} department records "
+                                f"(Request #{latest_req.id[:8]}) has been REVOKED by an Administrator. Direct access is prohibited."
+                            )
+                            err_type = "Federation grant revoked."
+                            action_name = "orchestrator:cross_dept_revoked"
+                        elif is_expired or latest_req.status == "EXPIRED":
+                            denial_msg = (
+                                f"Access Denied: Your Federation Access Grant for {target_dept.upper()} department records "
+                                f"(Request #{latest_req.id[:8]}) has EXPIRED. The approved time limit has elapsed. "
+                                f"Please submit a new Federation Access Request in the Approvals & Federation tab."
+                            )
+                            err_type = "Federation grant expired."
+                            action_name = "orchestrator:cross_dept_expired"
+                        elif latest_req.status == "REJECTED":
+                            denial_msg = (
+                                f"Access Denied: Your Federation Access Request for {target_dept.upper()} department records "
+                                f"(Request #{latest_req.id[:8]}) was REJECTED by an Administrator. "
+                                f"Reason: {latest_req.decision_reason or 'Policy denial'}."
+                            )
+                            err_type = "Federation request rejected."
+                            action_name = "orchestrator:cross_dept_denial"
+                        else:
+                            denial_msg = (
+                                f"Access Denied: Your Federation Access Grant for {target_dept.upper()} department records "
+                                f"(Request #{latest_req.id[:8]}) has EXPIRED. The approved time limit has elapsed. "
+                                f"Please submit a new Federation Access Request in the Approvals & Federation tab."
+                            )
+                            err_type = "Federation grant expired."
+                            action_name = "orchestrator:cross_dept_expired"
+                    else:
+                        denial_msg = (
+                            f"Access Denied: Cross-department direct access from {user_dept_code.upper()} to {target_dept.upper()} "
+                            f"is prohibited. Please submit a Federation Access Request for administrator approval."
+                        )
+                        err_type = "Unauthorized cross-department access."
+                        action_name = "orchestrator:cross_dept_denial"
+
+                    await self.audit_repo.log_event(
+                        action=action_name,
                         resource_type=f"{target_dept}_resource",
                         outcome="deny",
                         reason=denial_msg,
@@ -166,7 +323,7 @@ class Orchestrator:
                         answer=denial_msg,
                         intent=intent.value,
                         routed_departments=routed_depts,
-                        error="Unauthorized cross-department access.",
+                        error=err_type,
                         correlation_id=cid
                     )
             else:
@@ -226,7 +383,11 @@ class Orchestrator:
             else:
                 llm_answer = f"No authorized records or evidence found. (Local Ollama inference status: {str(llm_err)})"
 
-        # 7. Audit Request and Commit to PostgreSQL
+        # If granted via active federation grant, prepend the grant notice badge
+        if grant_notice:
+            llm_answer = f"{grant_notice}\n\n{llm_answer}"
+
+        # 7. Audit Request and Commit to SQLite
         await self.audit_repo.log_event(
             action="chat:completed",
             resource_type="chat_orchestration",

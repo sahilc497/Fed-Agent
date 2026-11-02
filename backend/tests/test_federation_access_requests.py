@@ -158,9 +158,9 @@ async def test_expired_grant_denies_access(
     )
 
     # Artificially set expires_at in the past
-    fed_repo = FederationRequestRepository(db_session)
-    req = await fed_repo.get_by_id(req_id)
-    req.expires_at = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(minutes=10)
+    past_iso = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(minutes=10)).isoformat()
+    conn = getattr(db_session, "conn", db_session)
+    conn.execute("UPDATE federation_access_requests SET expires_at = ? WHERE id = ?;", (past_iso, req_id))
     await db_session.commit()
 
     # Attempt to consume expired grant

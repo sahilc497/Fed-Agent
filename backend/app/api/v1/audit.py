@@ -1,6 +1,5 @@
-from typing import List, Optional
+from typing import Any, List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status, Query
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.db.models.user import User
 from app.services.audit_service import AuditService
@@ -19,11 +18,11 @@ async def list_audit_logs(
     limit: int = Query(50, le=200),
     offset: int = Query(0, ge=0),
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """
     Retrieves audit logs.
-    Restricted to Admins, Auditors, and Department Managers (scoped to department).
+    Restricted to Admins and Department Managers (scoped to department).
     """
     audit_service = AuditService(db)
     params = AuditFilterParams(

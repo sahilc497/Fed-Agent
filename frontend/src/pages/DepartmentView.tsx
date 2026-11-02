@@ -18,7 +18,7 @@ export const DepartmentView: React.FC = () => {
 
   useEffect(() => {
     if (user) {
-      if (user.role === 'admin' || user.role === 'auditor') {
+      if (user.role === 'admin') {
         setSelectedDept('sales');
       } else {
         const userDeptCode = user.department_id === 1 ? 'sales' : (user.department_id === 2 ? 'hr' : (user.department_id === 3 ? 'finance' : 'operations'));
@@ -49,7 +49,7 @@ export const DepartmentView: React.FC = () => {
     return () => { isMounted = false; };
   }, [selectedDept]);
 
-  const canSwitchDepts = user?.role === 'admin' || user?.role === 'auditor';
+  const canSwitchDepts = user?.role === 'admin';
 
   return (
     <div>
@@ -67,28 +67,48 @@ export const DepartmentView: React.FC = () => {
             <div style={{ display: 'flex', gap: '6px' }}>
               <button 
                 type="button"
-                className={`btn btn-sm ${selectedDept === 'sales' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`theme-pill-btn ${selectedDept === 'sales' ? 'active' : ''}`}
+                style={{
+                  background: selectedDept === 'sales' ? 'linear-gradient(135deg, #2563eb, #1d4ed8)' : '#ffffff',
+                  color: selectedDept === 'sales' ? '#ffffff' : '#1e40af',
+                  borderColor: selectedDept === 'sales' ? 'transparent' : '#bfdbfe'
+                }}
                 onClick={() => setSelectedDept('sales')}
               >
                 Sales Pipeline
               </button>
               <button 
                 type="button"
-                className={`btn btn-sm ${selectedDept === 'hr' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`theme-pill-btn ${selectedDept === 'hr' ? 'active' : ''}`}
+                style={{
+                  background: selectedDept === 'hr' ? 'linear-gradient(135deg, #059669, #047857)' : '#ffffff',
+                  color: selectedDept === 'hr' ? '#ffffff' : '#065f46',
+                  borderColor: selectedDept === 'hr' ? 'transparent' : '#a7f3d0'
+                }}
                 onClick={() => setSelectedDept('hr')}
               >
                 HR Roster
               </button>
               <button 
                 type="button"
-                className={`btn btn-sm ${selectedDept === 'finance' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`theme-pill-btn ${selectedDept === 'finance' ? 'active' : ''}`}
+                style={{
+                  background: selectedDept === 'finance' ? 'linear-gradient(135deg, #d97706, #b45309)' : '#ffffff',
+                  color: selectedDept === 'finance' ? '#ffffff' : '#92400e',
+                  borderColor: selectedDept === 'finance' ? 'transparent' : '#fde68a'
+                }}
                 onClick={() => setSelectedDept('finance')}
               >
                 Finance Invoices
               </button>
               <button 
                 type="button"
-                className={`btn btn-sm ${selectedDept === 'operations' ? 'btn-primary' : 'btn-secondary'}`}
+                className={`theme-pill-btn ${selectedDept === 'operations' ? 'active' : ''}`}
+                style={{
+                  background: selectedDept === 'operations' ? 'linear-gradient(135deg, #ea580c, #c2410c)' : '#ffffff',
+                  color: selectedDept === 'operations' ? '#ffffff' : '#9a3412',
+                  borderColor: selectedDept === 'operations' ? 'transparent' : '#fed7aa'
+                }}
                 onClick={() => setSelectedDept('operations')}
               >
                 Operations Inventory
@@ -96,7 +116,7 @@ export const DepartmentView: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="badge badge-neutral">
+          <div className={`badge badge-theme-${selectedDept}`}>
             Scoped to: {selectedDept.toUpperCase()}
           </div>
         )}

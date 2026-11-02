@@ -1,5 +1,4 @@
 from typing import Any, Dict, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.exceptions import PermissionDeniedError
 from app.core.logging import get_correlation_id
 from app.db.models.user import User
@@ -9,7 +8,7 @@ from app.repositories.user_repo import DepartmentRepository
 
 
 class PermissionService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
         self.audit_repo = AuditRepository(db)
         self.dept_repo = DepartmentRepository(db)

@@ -1,0 +1,10 @@
+# New Hire Onboarding Roadmap
+Document ID: DOC-HR-003
+Department: Human Resources
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Day 1 Deliverables
+- Completion of employment contract and tax withholding verification.
+- IT asset allocation and workstation security posture validation.
+- Review of enterprise Code of Conduct and Zero-Trust Data Security protocols.

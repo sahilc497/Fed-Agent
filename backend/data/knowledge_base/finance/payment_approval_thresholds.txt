@@ -1,0 +1,10 @@
+# Payment Authorization and Dual Control Thresholds
+Document ID: DOC-FIN-007
+Department: Finance
+Version: 4.1 (Synthetic Enterprise Policy Demo)
+Access Level: confidential
+
+## 1. Authorization Levels
+- Up to $10,000: Single authorization by Department Manager.
+- $10,001 to $50,000: Controller authorization required.
+- Over $50,000: Mandatory Dual Authorization by Controller and CFO.

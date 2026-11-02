@@ -1,0 +1,992 @@
+[
+  {
+    "id": 1,
+    "vendor_code": "VEN-0001",
+    "name": "Atlas Infrastructure Services #1",
+    "category": "Consulting",
+    "contact_email": "accounts@ven1.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-16T00:00:00"
+  },
+  {
+    "id": 2,
+    "vendor_code": "VEN-0002",
+    "name": "Krypton Robotics Ltd Services #2",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven2.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-27T00:00:00"
+  },
+  {
+    "id": 3,
+    "vendor_code": "VEN-0003",
+    "name": "Zephyr Environmental Services #3",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven3.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-19T00:00:00"
+  },
+  {
+    "id": 4,
+    "vendor_code": "VEN-0004",
+    "name": "Solaria Solar Technologies Services #4",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven4.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-19T00:00:00"
+  },
+  {
+    "id": 5,
+    "vendor_code": "VEN-0005",
+    "name": "Monolith Datacenters Services #5",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven5.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-29T00:00:00"
+  },
+  {
+    "id": 6,
+    "vendor_code": "VEN-0006",
+    "name": "Frontier Mining Group Services #6",
+    "category": "Consulting",
+    "contact_email": "accounts@ven6.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-24T00:00:00"
+  },
+  {
+    "id": 7,
+    "vendor_code": "VEN-0007",
+    "name": "Nordic Supermarkets Services #7",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven7.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-23T00:00:00"
+  },
+  {
+    "id": 8,
+    "vendor_code": "VEN-0008",
+    "name": "Helios Energy Grid Services #8",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven8.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-15T00:00:00"
+  },
+  {
+    "id": 9,
+    "vendor_code": "VEN-0009",
+    "name": "Triton Marine Solutions Services #9",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven9.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-29T00:00:00"
+  },
+  {
+    "id": 10,
+    "vendor_code": "VEN-0010",
+    "name": "Cascade Water Utilities Services #10",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven10.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-11T00:00:00"
+  },
+  {
+    "id": 11,
+    "vendor_code": "VEN-0011",
+    "name": "Novus Materials Services #11",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven11.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-06T00:00:00"
+  },
+  {
+    "id": 12,
+    "vendor_code": "VEN-0012",
+    "name": "Ironclad Cyber Systems Services #12",
+    "category": "Consulting",
+    "contact_email": "accounts@ven12.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-18T00:00:00"
+  },
+  {
+    "id": 13,
+    "vendor_code": "VEN-0013",
+    "name": "Quantum Logistics Services #13",
+    "category": "Consulting",
+    "contact_email": "accounts@ven13.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-03T00:00:00"
+  },
+  {
+    "id": 14,
+    "vendor_code": "VEN-0014",
+    "name": "Aegis Defense Dynamics Services #14",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven14.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-30T00:00:00"
+  },
+  {
+    "id": 15,
+    "vendor_code": "VEN-0015",
+    "name": "Beacon Analytics Services #15",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven15.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-13T00:00:00"
+  },
+  {
+    "id": 16,
+    "vendor_code": "VEN-0016",
+    "name": "Vanguard Financial Technologies Services #16",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven16.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-16T00:00:00"
+  },
+  {
+    "id": 17,
+    "vendor_code": "VEN-0017",
+    "name": "Meridian Shipping Lines Services #17",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven17.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-07T00:00:00"
+  },
+  {
+    "id": 18,
+    "vendor_code": "VEN-0018",
+    "name": "OmniChannel Retailers Services #18",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven18.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-12T00:00:00"
+  },
+  {
+    "id": 19,
+    "vendor_code": "VEN-0019",
+    "name": "Onyx Security Networks Services #19",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven19.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-08T00:00:00"
+  },
+  {
+    "id": 20,
+    "vendor_code": "VEN-0020",
+    "name": "Summit Financial Partners Services #20",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven20.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-17T00:00:00"
+  },
+  {
+    "id": 21,
+    "vendor_code": "VEN-0021",
+    "name": "Ironclad Cyber Systems Services #21",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven21.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-14T00:00:00"
+  },
+  {
+    "id": 22,
+    "vendor_code": "VEN-0022",
+    "name": "Valence Chemical Corp Services #22",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven22.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-06T00:00:00"
+  },
+  {
+    "id": 23,
+    "vendor_code": "VEN-0023",
+    "name": "Hyperion Telecom Services #23",
+    "category": "Consulting",
+    "contact_email": "accounts@ven23.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-10T00:00:00"
+  },
+  {
+    "id": 24,
+    "vendor_code": "VEN-0024",
+    "name": "Quantum Logistics Services #24",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven24.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-15T00:00:00"
+  },
+  {
+    "id": 25,
+    "vendor_code": "VEN-0025",
+    "name": "Onyx Security Networks Services #25",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven25.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-02T00:00:00"
+  },
+  {
+    "id": 26,
+    "vendor_code": "VEN-0026",
+    "name": "Pacific Trade Winds Services #26",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven26.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-13T00:00:00"
+  },
+  {
+    "id": 27,
+    "vendor_code": "VEN-0027",
+    "name": "Triton Marine Solutions Services #27",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven27.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-14T00:00:00"
+  },
+  {
+    "id": 28,
+    "vendor_code": "VEN-0028",
+    "name": "NextGen Mobility Services #28",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven28.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-07T00:00:00"
+  },
+  {
+    "id": 29,
+    "vendor_code": "VEN-0029",
+    "name": "Astraea Aerospace Services #29",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven29.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-26T00:00:00"
+  },
+  {
+    "id": 30,
+    "vendor_code": "VEN-0030",
+    "name": "Vortex Turbines Services #30",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven30.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-13T00:00:00"
+  },
+  {
+    "id": 31,
+    "vendor_code": "VEN-0031",
+    "name": "Beacon Analytics Services #31",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven31.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-17T00:00:00"
+  },
+  {
+    "id": 32,
+    "vendor_code": "VEN-0032",
+    "name": "Atlas Infrastructure Services #32",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven32.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-21T00:00:00"
+  },
+  {
+    "id": 33,
+    "vendor_code": "VEN-0033",
+    "name": "Aegis Defense Dynamics Services #33",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven33.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-13T00:00:00"
+  },
+  {
+    "id": 34,
+    "vendor_code": "VEN-0034",
+    "name": "Nordic Supermarkets Services #34",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven34.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-28T00:00:00"
+  },
+  {
+    "id": 35,
+    "vendor_code": "VEN-0035",
+    "name": "Valence Chemical Corp Services #35",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven35.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-09T00:00:00"
+  },
+  {
+    "id": 36,
+    "vendor_code": "VEN-0036",
+    "name": "BlueSky Cloud Solutions Services #36",
+    "category": "Consulting",
+    "contact_email": "accounts@ven36.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-05T00:00:00"
+  },
+  {
+    "id": 37,
+    "vendor_code": "VEN-0037",
+    "name": "Onyx Security Networks Services #37",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven37.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-24T00:00:00"
+  },
+  {
+    "id": 38,
+    "vendor_code": "VEN-0038",
+    "name": "Krypton Robotics Ltd Services #38",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven38.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-09T00:00:00"
+  },
+  {
+    "id": 39,
+    "vendor_code": "VEN-0039",
+    "name": "Frontier Mining Group Services #39",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven39.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-16T00:00:00"
+  },
+  {
+    "id": 40,
+    "vendor_code": "VEN-0040",
+    "name": "Cascade Water Utilities Services #40",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven40.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-08T00:00:00"
+  },
+  {
+    "id": 41,
+    "vendor_code": "VEN-0041",
+    "name": "Summit Financial Partners Services #41",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven41.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-19T00:00:00"
+  },
+  {
+    "id": 42,
+    "vendor_code": "VEN-0042",
+    "name": "Solaria Solar Technologies Services #42",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven42.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-27T00:00:00"
+  },
+  {
+    "id": 43,
+    "vendor_code": "VEN-0043",
+    "name": "Zenith BioHealth Services #43",
+    "category": "Consulting",
+    "contact_email": "accounts@ven43.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-06T00:00:00"
+  },
+  {
+    "id": 44,
+    "vendor_code": "VEN-0044",
+    "name": "Sierra Agriculture Services #44",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven44.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-24T00:00:00"
+  },
+  {
+    "id": 45,
+    "vendor_code": "VEN-0045",
+    "name": "Polaris Medical Systems Services #45",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven45.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-13T00:00:00"
+  },
+  {
+    "id": 46,
+    "vendor_code": "VEN-0046",
+    "name": "Zephyr Environmental Services #46",
+    "category": "Consulting",
+    "contact_email": "accounts@ven46.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-16T00:00:00"
+  },
+  {
+    "id": 47,
+    "vendor_code": "VEN-0047",
+    "name": "Quantum Logistics Services #47",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven47.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-22T00:00:00"
+  },
+  {
+    "id": 48,
+    "vendor_code": "VEN-0048",
+    "name": "Echo Sound Engineering Services #48",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven48.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-24T00:00:00"
+  },
+  {
+    "id": 49,
+    "vendor_code": "VEN-0049",
+    "name": "Helios Energy Grid Services #49",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven49.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-08T00:00:00"
+  },
+  {
+    "id": 50,
+    "vendor_code": "VEN-0050",
+    "name": "Lumina Optics Services #50",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven50.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-28T00:00:00"
+  },
+  {
+    "id": 51,
+    "vendor_code": "VEN-0051",
+    "name": "Vanguard Financial Technologies Services #51",
+    "category": "Consulting",
+    "contact_email": "accounts@ven51.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-29T00:00:00"
+  },
+  {
+    "id": 52,
+    "vendor_code": "VEN-0052",
+    "name": "Summit Financial Partners Services #52",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven52.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-12T00:00:00"
+  },
+  {
+    "id": 53,
+    "vendor_code": "VEN-0053",
+    "name": "Valence Chemical Corp Services #53",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven53.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-16T00:00:00"
+  },
+  {
+    "id": 54,
+    "vendor_code": "VEN-0054",
+    "name": "Polaris Medical Systems Services #54",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven54.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-28T00:00:00"
+  },
+  {
+    "id": 55,
+    "vendor_code": "VEN-0055",
+    "name": "Nordic Supermarkets Services #55",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven55.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-03T00:00:00"
+  },
+  {
+    "id": 56,
+    "vendor_code": "VEN-0056",
+    "name": "Cascade Water Utilities Services #56",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven56.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-07T00:00:00"
+  },
+  {
+    "id": 57,
+    "vendor_code": "VEN-0057",
+    "name": "Titan Heavy Industries Services #57",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven57.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-19T00:00:00"
+  },
+  {
+    "id": 58,
+    "vendor_code": "VEN-0058",
+    "name": "Titan Heavy Industries Services #58",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven58.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-12T00:00:00"
+  },
+  {
+    "id": 59,
+    "vendor_code": "VEN-0059",
+    "name": "Frontier Mining Group Services #59",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven59.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-23T00:00:00"
+  },
+  {
+    "id": 60,
+    "vendor_code": "VEN-0060",
+    "name": "Sierra Agriculture Services #60",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven60.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-09T00:00:00"
+  },
+  {
+    "id": 61,
+    "vendor_code": "VEN-0061",
+    "name": "Onyx Security Networks Services #61",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven61.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-08T00:00:00"
+  },
+  {
+    "id": 62,
+    "vendor_code": "VEN-0062",
+    "name": "BlueSky Cloud Solutions Services #62",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven62.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-15T00:00:00"
+  },
+  {
+    "id": 63,
+    "vendor_code": "VEN-0063",
+    "name": "Frontier Mining Group Services #63",
+    "category": "Consulting",
+    "contact_email": "accounts@ven63.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-20T00:00:00"
+  },
+  {
+    "id": 64,
+    "vendor_code": "VEN-0064",
+    "name": "Lumina Optics Services #64",
+    "category": "Consulting",
+    "contact_email": "accounts@ven64.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-01T00:00:00"
+  },
+  {
+    "id": 65,
+    "vendor_code": "VEN-0065",
+    "name": "Valence Chemical Corp Services #65",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven65.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-13T00:00:00"
+  },
+  {
+    "id": 66,
+    "vendor_code": "VEN-0066",
+    "name": "Krypton Robotics Ltd Services #66",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven66.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-24T00:00:00"
+  },
+  {
+    "id": 67,
+    "vendor_code": "VEN-0067",
+    "name": "Meridian Shipping Lines Services #67",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven67.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-19T00:00:00"
+  },
+  {
+    "id": 68,
+    "vendor_code": "VEN-0068",
+    "name": "Echo Sound Engineering Services #68",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven68.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": 69,
+    "vendor_code": "VEN-0069",
+    "name": "Nordic Supermarkets Services #69",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven69.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-15T00:00:00"
+  },
+  {
+    "id": 70,
+    "vendor_code": "VEN-0070",
+    "name": "Cascade Water Utilities Services #70",
+    "category": "Consulting",
+    "contact_email": "accounts@ven70.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-18T00:00:00"
+  },
+  {
+    "id": 71,
+    "vendor_code": "VEN-0071",
+    "name": "Quantum Logistics Services #71",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven71.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-31T00:00:00"
+  },
+  {
+    "id": 72,
+    "vendor_code": "VEN-0072",
+    "name": "Nordic Supermarkets Services #72",
+    "category": "Consulting",
+    "contact_email": "accounts@ven72.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-05T00:00:00"
+  },
+  {
+    "id": 73,
+    "vendor_code": "VEN-0073",
+    "name": "Zenith BioHealth Services #73",
+    "category": "Consulting",
+    "contact_email": "accounts@ven73.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": 74,
+    "vendor_code": "VEN-0074",
+    "name": "Pacific Trade Winds Services #74",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven74.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-15T00:00:00"
+  },
+  {
+    "id": 75,
+    "vendor_code": "VEN-0075",
+    "name": "Terraform GeoEngineering Services #75",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven75.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-23T00:00:00"
+  },
+  {
+    "id": 76,
+    "vendor_code": "VEN-0076",
+    "name": "Summit Financial Partners Services #76",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven76.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-25T00:00:00"
+  },
+  {
+    "id": 77,
+    "vendor_code": "VEN-0077",
+    "name": "Aegis Defense Dynamics Services #77",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven77.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-28T00:00:00"
+  },
+  {
+    "id": 78,
+    "vendor_code": "VEN-0078",
+    "name": "Frontier Mining Group Services #78",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven78.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-19T00:00:00"
+  },
+  {
+    "id": 79,
+    "vendor_code": "VEN-0079",
+    "name": "Nordic Supermarkets Services #79",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven79.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-20T00:00:00"
+  },
+  {
+    "id": 80,
+    "vendor_code": "VEN-0080",
+    "name": "Polaris Medical Systems Services #80",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven80.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-16T00:00:00"
+  },
+  {
+    "id": 81,
+    "vendor_code": "VEN-0081",
+    "name": "Echo Sound Engineering Services #81",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven81.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-26T00:00:00"
+  },
+  {
+    "id": 82,
+    "vendor_code": "VEN-0082",
+    "name": "Quantum Logistics Services #82",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven82.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-04T00:00:00"
+  },
+  {
+    "id": 83,
+    "vendor_code": "VEN-0083",
+    "name": "Silverline Transit Services #83",
+    "category": "Legal Services",
+    "contact_email": "accounts@ven83.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-19T00:00:00"
+  },
+  {
+    "id": 84,
+    "vendor_code": "VEN-0084",
+    "name": "Crestview Hospitality Group Services #84",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven84.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-23T00:00:00"
+  },
+  {
+    "id": 85,
+    "vendor_code": "VEN-0085",
+    "name": "Quantum Logistics Services #85",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven85.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-22T00:00:00"
+  },
+  {
+    "id": 86,
+    "vendor_code": "VEN-0086",
+    "name": "Summit Financial Partners Services #86",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven86.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-10T00:00:00"
+  },
+  {
+    "id": 87,
+    "vendor_code": "VEN-0087",
+    "name": "Polaris Medical Systems Services #87",
+    "category": "Consulting",
+    "contact_email": "accounts@ven87.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-23T00:00:00"
+  },
+  {
+    "id": 88,
+    "vendor_code": "VEN-0088",
+    "name": "Krypton Robotics Ltd Services #88",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven88.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-21T00:00:00"
+  },
+  {
+    "id": 89,
+    "vendor_code": "VEN-0089",
+    "name": "NextGen Mobility Services #89",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven89.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-26T00:00:00"
+  },
+  {
+    "id": 90,
+    "vendor_code": "VEN-0090",
+    "name": "Summit Financial Partners Services #90",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven90.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-23T00:00:00"
+  },
+  {
+    "id": 91,
+    "vendor_code": "VEN-0091",
+    "name": "Hyperion Telecom Services #91",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven91.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-21T00:00:00"
+  },
+  {
+    "id": 92,
+    "vendor_code": "VEN-0092",
+    "name": "Vortex Turbines Services #92",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven92.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-21T00:00:00"
+  },
+  {
+    "id": 93,
+    "vendor_code": "VEN-0093",
+    "name": "Ironclad Cyber Systems Services #93",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven93.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-16T00:00:00"
+  },
+  {
+    "id": 94,
+    "vendor_code": "VEN-0094",
+    "name": "Sierra Agriculture Services #94",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven94.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-16T00:00:00"
+  },
+  {
+    "id": 95,
+    "vendor_code": "VEN-0095",
+    "name": "Terraform GeoEngineering Services #95",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven95.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-26T00:00:00"
+  },
+  {
+    "id": 96,
+    "vendor_code": "VEN-0096",
+    "name": "Hyperion Telecom Services #96",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven96.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-25T00:00:00"
+  },
+  {
+    "id": 97,
+    "vendor_code": "VEN-0097",
+    "name": "Meridian Shipping Lines Services #97",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven97.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-19T00:00:00"
+  },
+  {
+    "id": 98,
+    "vendor_code": "VEN-0098",
+    "name": "Pinnacle Automation Corp Services #98",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven98.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-15T00:00:00"
+  },
+  {
+    "id": 99,
+    "vendor_code": "VEN-0099",
+    "name": "Helios Energy Grid Services #99",
+    "category": "Software Licenses",
+    "contact_email": "accounts@ven99.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-12T00:00:00"
+  },
+  {
+    "id": 100,
+    "vendor_code": "VEN-0100",
+    "name": "Frontier Mining Group Services #100",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven100.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-12T00:00:00"
+  },
+  {
+    "id": 101,
+    "vendor_code": "VEN-0101",
+    "name": "Triton Marine Solutions Services #101",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven101.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-25T00:00:00"
+  },
+  {
+    "id": 102,
+    "vendor_code": "VEN-0102",
+    "name": "Hyperion Telecom Services #102",
+    "category": "Consulting",
+    "contact_email": "accounts@ven102.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-29T00:00:00"
+  },
+  {
+    "id": 103,
+    "vendor_code": "VEN-0103",
+    "name": "Monolith Datacenters Services #103",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven103.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-12T00:00:00"
+  },
+  {
+    "id": 104,
+    "vendor_code": "VEN-0104",
+    "name": "Ironclad Cyber Systems Services #104",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven104.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-25T00:00:00"
+  },
+  {
+    "id": 105,
+    "vendor_code": "VEN-0105",
+    "name": "Apex Global Systems Services #105",
+    "category": "Cloud Infrastructure",
+    "contact_email": "accounts@ven105.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-30T00:00:00"
+  },
+  {
+    "id": 106,
+    "vendor_code": "VEN-0106",
+    "name": "BlueSky Cloud Solutions Services #106",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven106.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-16T00:00:00"
+  },
+  {
+    "id": 107,
+    "vendor_code": "VEN-0107",
+    "name": "Vanguard Financial Technologies Services #107",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven107.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-05T00:00:00"
+  },
+  {
+    "id": 108,
+    "vendor_code": "VEN-0108",
+    "name": "Onyx Security Networks Services #108",
+    "category": "Consulting",
+    "contact_email": "accounts@ven108.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-31T00:00:00"
+  },
+  {
+    "id": 109,
+    "vendor_code": "VEN-0109",
+    "name": "Monolith Datacenters Services #109",
+    "category": "Office Facilities",
+    "contact_email": "accounts@ven109.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-13T00:00:00"
+  },
+  {
+    "id": 110,
+    "vendor_code": "VEN-0110",
+    "name": "Cascade Water Utilities Services #110",
+    "category": "Hardware Supplies",
+    "contact_email": "accounts@ven110.synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-28T00:00:00"
+  }
+]

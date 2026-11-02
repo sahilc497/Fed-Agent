@@ -1,19 +1,19 @@
-from typing import List, Optional
-from sqlalchemy import select, and_
-from sqlalchemy.ext.asyncio import AsyncSession
+import json
+import datetime
+from typing import List, Optional, Any
 from app.db.models.audit import AuditLog
 from app.repositories.base import BaseRepository
 
 
 class AuditRepository(BaseRepository[AuditLog]):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__(AuditLog, db)
 
     async def log_event(
         self,
         action: str,
         resource_type: str,
-        outcome: str,  # allow, deny, error
+        outcome: str,
         reason: str,
         correlation_id: str,
         actor_id: Optional[int] = None,
@@ -24,8 +24,27 @@ class AuditRepository(BaseRepository[AuditLog]):
         gateway_decision: Optional[dict] = None,
         details: Optional[dict] = None
     ) -> AuditLog:
-        """Appends an immutable audit event record."""
-        log = AuditLog(
+        """Appends an immutable audit event record to SQLite."""
+        conn = self._get_conn()
+        now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        gw_str = json.dumps(gateway_decision) if gateway_decision is not None else None
+        det_str = json.dumps(details or {})
+
+        cursor = conn.execute(
+            """INSERT INTO audit_logs (
+                timestamp, action, resource_type, outcome, reason, correlation_id,
+                actor_id, actor_email, actor_role, actor_department, resource_id,
+                gateway_decision, details
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);""",
+            (
+                now, action, resource_type, outcome, reason, correlation_id,
+                actor_id, actor_email, actor_role, actor_department, resource_id,
+                gw_str, det_str
+            )
+        )
+        return AuditLog(
+            id=cursor.lastrowid,
+            timestamp=now,
             action=action,
             resource_type=resource_type,
             outcome=outcome,
@@ -39,9 +58,6 @@ class AuditRepository(BaseRepository[AuditLog]):
             gateway_decision=gateway_decision,
             details=details or {}
         )
-        self.db.add(log)
-        await self.db.flush()
-        return log
 
     async def list_audit_logs(
         self,
@@ -51,16 +67,24 @@ class AuditRepository(BaseRepository[AuditLog]):
         skip: int = 0,
         limit: int = 100
     ) -> List[AuditLog]:
-        stmt = select(AuditLog)
-        conditions = []
+        conn = self._get_conn()
+        query = "SELECT * FROM audit_logs"
+        clauses = []
+        params = []
         if department and department != "all":
-            conditions.append(AuditLog.actor_department == department)
+            clauses.append("actor_department = ?")
+            params.append(department)
         if action:
-            conditions.append(AuditLog.action == action)
+            clauses.append("action = ?")
+            params.append(action)
         if outcome:
-            conditions.append(AuditLog.outcome == outcome)
-        if conditions:
-            stmt = stmt.where(and_(*conditions))
-        stmt = stmt.order_by(AuditLog.timestamp.desc()).offset(skip).limit(limit)
-        result = await self.db.execute(stmt)
-        return list(result.scalars().all())
+            clauses.append("outcome = ?")
+            params.append(outcome)
+        if clauses:
+            query += " WHERE " + " AND ".join(clauses)
+        query += " ORDER BY id DESC LIMIT ? OFFSET ?;"
+        params.extend([limit, skip])
+
+        cursor = conn.execute(query, tuple(params))
+        rows = cursor.fetchall()
+        return [AuditLog.from_row(r) for r in rows]

@@ -1,0 +1,11 @@
+# Contract Review and Signature Delegation
+Document ID: DOC-SALES-007
+Department: Sales
+Version: 1.4 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Signature Authority
+- Deals up to $100,000: Sales Department Manager.
+- Deals $100,001 to $500,000: Sales Director and Corporate Controller.
+- Deals above $500,000: Chief Executive Officer or Chief Financial Officer.
+Sales Representatives cannot execute binding client contracts.

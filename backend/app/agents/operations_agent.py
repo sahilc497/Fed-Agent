@@ -1,6 +1,5 @@
 import logging
 from typing import Any, Dict, List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.agents.base import BaseAgent, AgentTaskResult
 from app.db.models.user import User
 from app.gateway.service import FederationGatewayService
@@ -14,7 +13,7 @@ logger = logging.getLogger("federated_mesh.agents.operations")
 
 
 class OperationsAgent(BaseAgent):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__("operations", db)
         self.ops_repo = OperationsRepository(db)
         self.doc_repo = DocumentChunkRepository(db)
@@ -36,7 +35,7 @@ class OperationsAgent(BaseAgent):
         from app.repositories.user_repo import DepartmentRepository
         dept_repo = DepartmentRepository(self.db)
         ops_dept = await dept_repo.get_by_code("operations")
-        dept_id = ops_dept.id if ops_dept else user.department_id
+        dept_id = ops_dept.id if ops_dept else 4
         items = await self.ops_repo.list_items(department_id=dept_id)
 
 

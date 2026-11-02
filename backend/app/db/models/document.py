@@ -1,49 +1,92 @@
-import datetime
-from sqlalchemy import DateTime, ForeignKey, Integer, String, Text
-from sqlalchemy.dialects.postgresql import ARRAY
-from sqlalchemy import Float
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from typing import Optional, List, Any
+import numpy as np
 from app.db.base import Base
 
 
 class Document(Base):
     __tablename__ = "documents"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    title: Mapped[str] = mapped_column(String(255), nullable=False)
-    filename: Mapped[str] = mapped_column(String(255), nullable=False)
-    file_path: Mapped[str] = mapped_column(String(500), nullable=False)
-    file_type: Mapped[str] = mapped_column(String(20), nullable=False)  # pdf, docx, txt
-    department_id: Mapped[int] = mapped_column(Integer, ForeignKey("departments.id"), nullable=False, index=True)
-    access_level: Mapped[str] = mapped_column(String(50), default="internal", nullable=False)  # public, internal, confidential, restricted
-    uploaded_by: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
-    status: Mapped[str] = mapped_column(String(50), default="processing", nullable=False)  # processing, indexed, error
-    created_at: Mapped[datetime.datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.datetime.now(datetime.timezone.utc),
-        nullable=False
-    )
-
-    # Relationships
-    chunks = relationship("DocumentChunk", back_populates="document", cascade="all, delete-orphan", lazy="selectin")
+    def __init__(
+        self,
+        id: Optional[int] = None,
+        title: str = "",
+        filename: str = "",
+        file_path: str = "",
+        file_type: str = "txt",
+        department_id: int = 1,
+        access_level: str = "internal",
+        uploaded_by: int = 1,
+        status: str = "indexed",
+        created_at: Optional[str] = None,
+        chunks: Optional[List[Any]] = None,
+        **kwargs
+    ):
+        super().__init__(
+            id=id,
+            title=title,
+            filename=filename,
+            file_path=file_path,
+            file_type=file_type,
+            department_id=department_id,
+            access_level=access_level,
+            uploaded_by=uploaded_by,
+            status=status,
+            created_at=created_at,
+            chunks=chunks or [],
+            **kwargs
+        )
 
 
 class DocumentChunk(Base):
     __tablename__ = "document_chunks"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    document_id: Mapped[int] = mapped_column(Integer, ForeignKey("documents.id", ondelete="CASCADE"), nullable=False, index=True)
-    chunk_index: Mapped[int] = mapped_column(Integer, nullable=False)
-    content: Mapped[str] = mapped_column(Text, nullable=False)
-    page_number: Mapped[int] = mapped_column(Integer, nullable=True)
-    department_id: Mapped[int] = mapped_column(Integer, ForeignKey("departments.id"), nullable=False, index=True)
-    access_level: Mapped[str] = mapped_column(String(50), default="internal", nullable=False)
-    embedding: Mapped[list[float]] = mapped_column(ARRAY(Float), nullable=True)
-    created_at: Mapped[datetime.datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.datetime.now(datetime.timezone.utc),
-        nullable=False
-    )
+    def __init__(
+        self,
+        id: Optional[int] = None,
+        document_id: int = 1,
+        chunk_index: int = 0,
+        content: str = "",
+        page_number: Optional[int] = None,
+        department_id: int = 1,
+        access_level: str = "internal",
+        embedding: Optional[List[float]] = None,
+        embedding_blob: Optional[bytes] = None,
+        embedding_dimension: int = 384,
+        created_at: Optional[str] = None,
+        **kwargs
+    ):
+        blob = embedding_blob
+        if embedding is not None and blob is None:
+            arr = np.array(embedding, dtype=np.float32)
+            blob = arr.tobytes()
+            embedding_dimension = len(embedding)
 
-    # Relationships
-    document = relationship("Document", back_populates="chunks")
+        super().__init__(
+            id=id,
+            document_id=document_id,
+            chunk_index=chunk_index,
+            content=content,
+            page_number=page_number,
+            department_id=department_id,
+            access_level=access_level,
+            embedding_blob=blob,
+            embedding_dimension=embedding_dimension,
+            created_at=created_at,
+            **kwargs
+        )
+
+    @property
+    def embedding(self) -> Optional[List[float]]:
+        if getattr(self, "embedding_blob", None):
+            arr = np.frombuffer(self.embedding_blob, dtype=np.float32)
+            return arr.tolist()
+        return None
+
+    @embedding.setter
+    def embedding(self, val: Optional[List[float]]):
+        if val is not None:
+            arr = np.array(val, dtype=np.float32)
+            self.embedding_blob = arr.tobytes()
+            self.embedding_dimension = len(val)
+        else:
+            self.embedding_blob = None

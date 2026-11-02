@@ -1,6 +1,5 @@
-from typing import List, Optional
+from typing import Any, List, Optional
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.db.models.user import User
 from app.services.approval_service import ApprovalService
@@ -15,7 +14,7 @@ router = APIRouter(prefix="/approvals", tags=["Approvals"])
 async def list_approvals(
     status_filter: Optional[str] = None,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Lists approval requests within user's department scope."""
     app_service = ApprovalService(db)
@@ -26,7 +25,7 @@ async def list_approvals(
 async def get_approval(
     approval_id: str,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Retrieves an approval request."""
     app_service = ApprovalService(db)
@@ -41,7 +40,7 @@ async def approve_request(
     approval_id: str,
     req_body: ApprovalDecisionRequest,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Approves a sensitive action request. Self-approval is rejected."""
     app_service = ApprovalService(db)
@@ -63,7 +62,7 @@ async def reject_request(
     approval_id: str,
     req_body: ApprovalDecisionRequest,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Rejects a sensitive action request."""
     app_service = ApprovalService(db)
@@ -84,7 +83,7 @@ async def reject_request(
 async def execute_request(
     approval_id: str,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Executes an approved sensitive action with idempotency enforcement."""
     app_service = ApprovalService(db)

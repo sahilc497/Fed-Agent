@@ -1,0 +1,8 @@
+# Financial Record Classification and Access Policy
+Document ID: DOC-FIN-009
+Department: Finance
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: confidential
+
+## 1. Perimeter Restrictions
+General ledger, profit margin calculations, and tax filings are restricted strictly to Finance personnel.

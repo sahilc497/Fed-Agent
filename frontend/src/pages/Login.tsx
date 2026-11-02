@@ -37,14 +37,13 @@ export const Login: React.FC = () => {
   };
 
   const demoAccounts = [
-    { role: 'Admin (Full Mesh)', email: 'admin@mesh.enterprise.internal', dept: 'Finance/Admin' },
-    { role: 'Sales Manager', email: 'sales.manager@mesh.enterprise.internal', dept: 'Sales' },
-    { role: 'Sales Representative', email: 'sales.rep@mesh.enterprise.internal', dept: 'Sales' },
-    { role: 'HR Director', email: 'hr.manager@mesh.enterprise.internal', dept: 'HR' },
-    { role: 'HR Specialist', email: 'hr.specialist@mesh.enterprise.internal', dept: 'HR' },
-    { role: 'Finance Controller', email: 'finance.manager@mesh.enterprise.internal', dept: 'Finance' },
-    { role: 'Finance Analyst', email: 'finance.analyst@mesh.enterprise.internal', dept: 'Finance' },
-    { role: 'Security Auditor', email: 'auditor@mesh.enterprise.internal', dept: 'Compliance' },
+    { role: 'Admin (Full Mesh)', email: 'admin@mesh.enterprise.internal', dept: 'Enterprise Admin', color: '#6366f1', lightBg: '#eef2ff', borderColor: '#c7d2fe' },
+    { role: 'Sales Manager', email: 'sales.manager@mesh.enterprise.internal', dept: 'Sales Dept', color: '#2563eb', lightBg: '#eff6ff', borderColor: '#bfdbfe' },
+    { role: 'Sales Representative', email: 'sales.rep@mesh.enterprise.internal', dept: 'Sales Dept', color: '#2563eb', lightBg: '#eff6ff', borderColor: '#bfdbfe' },
+    { role: 'HR Director', email: 'hr.manager@mesh.enterprise.internal', dept: 'HR Dept', color: '#059669', lightBg: '#ecfdf5', borderColor: '#a7f3d0' },
+    { role: 'Finance Controller', email: 'finance.manager@mesh.enterprise.internal', dept: 'Finance Dept', color: '#d97706', lightBg: '#fffbeb', borderColor: '#fde68a' },
+    { role: 'Operations Lead', email: 'ops.manager@mesh.enterprise.internal', dept: 'Operations Dept', color: '#ea580c', lightBg: '#fff7ed', borderColor: '#fed7aa' },
+    { role: 'Operations Specialist', email: 'ops.specialist@mesh.enterprise.internal', dept: 'Operations Dept', color: '#ea580c', lightBg: '#fff7ed', borderColor: '#fed7aa' },
   ];
 
   return (
@@ -167,27 +166,40 @@ export const Login: React.FC = () => {
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px' }}>
-              {demoAccounts.map((acc) => (
-                <button
-                  key={acc.email}
-                  type="button"
-                  onClick={() => handleQuickSelect(acc.email)}
-                  style={{
-                    textAlign: 'left',
-                    padding: '8px 10px',
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '6px',
-                    backgroundColor: email === acc.email ? '#eff6ff' : '#f8fafc',
-                    borderColor: email === acc.email ? '#3b82f6' : '#e2e8f0',
-                    cursor: 'pointer',
-                    fontSize: '0.75rem',
-                    transition: 'all 0.15s ease'
-                  }}
-                >
-                  <div style={{ fontWeight: 600, color: '#1e293b' }}>{acc.role}</div>
-                  <div style={{ color: '#64748b', fontSize: '0.7rem' }}>{acc.dept}</div>
-                </button>
-              ))}
+              {demoAccounts.map((acc) => {
+                const isSelected = email === acc.email;
+                return (
+                  <button
+                    key={acc.email}
+                    type="button"
+                    onClick={() => handleQuickSelect(acc.email)}
+                    style={{
+                      textAlign: 'left',
+                      padding: '8px 10px',
+                      border: `1px solid ${isSelected ? acc.color : acc.borderColor}`,
+                      borderRadius: '8px',
+                      backgroundColor: isSelected ? acc.lightBg : '#ffffff',
+                      boxShadow: isSelected ? `0 0 0 2px ${acc.color}33` : '0 1px 2px rgba(0,0,0,0.03)',
+                      cursor: 'pointer',
+                      fontSize: '0.75rem',
+                      transition: 'all 0.15s ease',
+                      borderLeft: `4px solid ${acc.color}`
+                    }}
+                  >
+                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 4 }}>
+                      <span style={{ fontWeight: 600, color: '#1e293b' }}>{acc.role}</span>
+                      <span style={{
+                        width: 6,
+                        height: 6,
+                        borderRadius: '50%',
+                        backgroundColor: acc.color,
+                        flexShrink: 0
+                      }}></span>
+                    </div>
+                    <div style={{ color: acc.color, fontSize: '0.7rem', fontWeight: 500, marginTop: 2 }}>{acc.dept}</div>
+                  </button>
+                );
+              })}
             </div>
           </div>
         </div>

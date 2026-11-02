@@ -1,0 +1,8 @@
+# HR Data Privacy and Compensation Masking Policy
+Document ID: DOC-HR-010
+Department: Human Resources
+Version: 3.2 (Synthetic Enterprise Policy Demo)
+Access Level: confidential
+
+## 1. Salary and Compensation Masking
+Compensation, bonuses, and equity grants are strictly classified. Non-managerial staff cannot view compensation data of any colleague. Only the HR Director and Corporate Controller possess unmasked salary access.

@@ -1,0 +1,10 @@
+# Employee Business Expense Reimbursement
+Document ID: DOC-FIN-004
+Department: Finance
+Version: 3.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Allowable Daily Limits
+- Travel Meals: Up to $85 per diem.
+- Domestic Lodging: Up to $250 per night (metropolitan areas adjusted to $350).
+- Receipts mandatory for all items exceeding $25.

@@ -1,28 +1,46 @@
-import datetime
-from sqlalchemy import DateTime, Integer, JSON, String, Text
-from sqlalchemy.orm import Mapped, mapped_column
+import json
+from typing import Optional, Dict, Any
 from app.db.base import Base
 
 
 class AuditLog(Base):
     __tablename__ = "audit_logs"
 
-    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
-    actor_id: Mapped[int] = mapped_column(Integer, nullable=True, index=True)
-    actor_email: Mapped[str] = mapped_column(String(255), nullable=True)
-    actor_role: Mapped[str] = mapped_column(String(50), nullable=False)
-    actor_department: Mapped[str] = mapped_column(String(50), nullable=False)
-    action: Mapped[str] = mapped_column(String(100), nullable=False, index=True)
-    resource_type: Mapped[str] = mapped_column(String(100), nullable=False)
-    resource_id: Mapped[str] = mapped_column(String(255), nullable=True)
-    outcome: Mapped[str] = mapped_column(String(50), nullable=False, index=True)  # allow, deny, error
-    reason: Mapped[str] = mapped_column(Text, default="", nullable=False)
-    correlation_id: Mapped[str] = mapped_column(String(64), index=True, nullable=False)
-    gateway_decision: Mapped[dict] = mapped_column(JSON, nullable=True)
-    details: Mapped[dict] = mapped_column(JSON, default=dict, nullable=False)
-    timestamp: Mapped[datetime.datetime] = mapped_column(
-        DateTime(timezone=True),
-        default=lambda: datetime.datetime.now(datetime.timezone.utc),
-        nullable=False,
-        index=True
-    )
+    def __init__(
+        self,
+        id: Optional[int] = None,
+        timestamp: Optional[Any] = None,
+        action: str = "",
+        resource_type: str = "",
+        outcome: str = "allow",
+        reason: str = "",
+        correlation_id: str = "",
+        actor_id: Optional[int] = None,
+        actor_email: Optional[str] = None,
+        actor_role: str = "system",
+        actor_department: str = "system",
+        resource_id: Optional[str] = None,
+        gateway_decision: Optional[Any] = None,
+        details: Optional[Any] = None,
+        **kwargs
+    ):
+        gw = gateway_decision if isinstance(gateway_decision, dict) else (json.loads(gateway_decision) if isinstance(gateway_decision, str) else gateway_decision)
+        det = details if isinstance(details, dict) else (json.loads(details) if isinstance(details, str) else {})
+
+        super().__init__(
+            id=id,
+            timestamp=timestamp,
+            action=action,
+            resource_type=resource_type,
+            outcome=outcome,
+            reason=reason,
+            correlation_id=correlation_id,
+            actor_id=actor_id,
+            actor_email=actor_email,
+            actor_role=actor_role,
+            actor_department=actor_department,
+            resource_id=resource_id,
+            gateway_decision=gw,
+            details=det,
+            **kwargs
+        )

@@ -1,5 +1,4 @@
 from typing import Any, Dict, List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.agents.base import BaseAgent, AgentTaskResult
 from app.db.models.user import User
 from app.repositories.business_repo import HRRepository
@@ -11,7 +10,7 @@ from app.schemas.chat import EvidenceReference
 
 
 class HRAgent(BaseAgent):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__("hr", db)
         self.hr_repo = HRRepository(db)
         self.doc_repo = DocumentChunkRepository(db)
@@ -63,12 +62,25 @@ class HRAgent(BaseAgent):
                 )
 
         # Authorized HR query: fetch employees and documents
+        from app.repositories.user_repo import DepartmentRepository
+        dept_repo = DepartmentRepository(self.db)
+        hr_dept = await dept_repo.get_by_code("hr")
+        dept_id = hr_dept.id if hr_dept else 2
+
         employees = await self.hr_repo.list_employees(
-            department_id=user.department_id,
+            department_id=dept_id,
             include_sensitive=(user.role == Role.DEPARTMENT_MANAGER.value)
         )
 
-        for emp in employees[:5]:
+        # Match specific employee records if query mentions names, codes, or positions
+        matched_emps = [
+            emp for emp in employees
+            if any(term in emp.full_name.lower() or term in emp.employee_code.lower() or term in emp.position.lower() 
+                   for term in query_lower.split() if len(term) > 2 and term not in ["the", "and", "for", "with", "from", "info", "what", "tell", "show"])
+        ]
+        target_employees = matched_emps[:5] if matched_emps else employees[:5]
+
+        for emp in target_employees:
             snippet = f"Employee {emp.full_name} ({emp.employee_code}): Position: {emp.position}, Leave Balance: {emp.leave_balance} days."
             if is_salary_query and user.role == Role.DEPARTMENT_MANAGER.value:
                 snippet += f" [Sensitive] Base Salary: ${emp.salary:,.2f}."
@@ -83,7 +95,7 @@ class HRAgent(BaseAgent):
         terms = [t for t in query_lower.split() if len(t) > 3]
         doc_chunks = await self.doc_repo.search_chunks_by_keywords(
             query_terms=terms,
-            department_id=user.department_id,
+            department_id=dept_id,
             allowed_access_levels=["public", "internal"]
         )
         for ch in doc_chunks:

@@ -1,7 +1,6 @@
 import datetime
 import uuid
 from typing import List, Optional, Dict, Any
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.exceptions import PermissionDeniedError, NotFoundError
 from app.core.logging import get_correlation_id
 from app.db.models.federation_request import FederationAccessRequest
@@ -35,8 +34,26 @@ STRICTLY_FORBIDDEN_FIELDS = {
 }
 
 
+def parse_dt(v) -> Optional[datetime.datetime]:
+    if v is None:
+        return None
+    if isinstance(v, datetime.datetime):
+        return v.replace(tzinfo=datetime.timezone.utc) if v.tzinfo is None else v
+    if isinstance(v, str):
+        try:
+            dt = datetime.datetime.fromisoformat(v.replace("Z", "+00:00"))
+            return dt.replace(tzinfo=datetime.timezone.utc) if dt.tzinfo is None else dt
+        except Exception:
+            try:
+                dt = datetime.datetime.strptime(v, "%Y-%m-%d %H:%M:%S")
+                return dt.replace(tzinfo=datetime.timezone.utc)
+            except Exception:
+                pass
+    return None
+
+
 class FederationService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
         self.fed_repo = FederationRequestRepository(db)
         self.dept_repo = DepartmentRepository(db)
@@ -87,6 +104,7 @@ class FederationService:
 
         req_agent = f"{requester_dept_code}_agent"
 
+        now_iso = datetime.datetime.now(datetime.timezone.utc).isoformat()
         req = FederationAccessRequest(
             id=str(uuid.uuid4()),
             requester_user_id=requester.id,
@@ -99,6 +117,7 @@ class FederationService:
             access_duration_minutes=data.access_duration_minutes or 60,
             status="PENDING",
             idempotency_key=idempotency_key,
+            created_at=now_iso,
             expires_at=expires_at
         )
         created = await self.fed_repo.create(req)
@@ -161,7 +180,8 @@ class FederationService:
 
         # Check expiration
         now = datetime.datetime.now(datetime.timezone.utc)
-        if req.expires_at < now:
+        exp_dt = parse_dt(req.expires_at)
+        if exp_dt and exp_dt < now:
             req.status = "EXPIRED"
             await self.db.commit()
             raise PermissionDeniedError("Cannot decide request: it has already expired.")
@@ -177,13 +197,20 @@ class FederationService:
         approved_fields = [f for f in approved_fields if f not in STRICTLY_FORBIDDEN_FIELDS]
         approved_records = data.approved_record_ids or req.record_identifiers
 
+        # When approved, refresh expires_at starting from the approval moment for the full duration
+        new_expires_at = None
+        if new_status == "APPROVED":
+            duration_mins = req.access_duration_minutes or 60
+            new_expires_at = (now + datetime.timedelta(minutes=duration_mins)).isoformat()
+
         updated = await self.fed_repo.mark_decision(
             request_id=request_id,
             status=new_status,
             approver_id=approver.id,
             reason=data.reason,
             approved_fields=approved_fields,
-            approved_record_ids=approved_records
+            approved_record_ids=approved_records,
+            expires_at=new_expires_at
         )
 
         await self.audit_repo.log_event(
@@ -252,7 +279,8 @@ class FederationService:
 
         # Check expiry
         now = datetime.datetime.now(datetime.timezone.utc)
-        if req.expires_at < now:
+        exp_dt = parse_dt(req.expires_at)
+        if exp_dt and exp_dt < now:
             req.status = "EXPIRED"
             await self.db.commit()
             raise PermissionDeniedError("Federation access grant has expired.")
@@ -319,7 +347,16 @@ class FederationService:
         if source_dept_code == "finance":
             invoices = await self.finance_repo.list_invoices(department_id=dept_id)
             if record_identifiers:
-                invoices = [inv for inv in invoices if inv.invoice_number in record_identifiers or str(inv.id) in record_identifiers]
+                invoices = [
+                    inv for inv in invoices 
+                    if any(
+                        rid == inv.invoice_number 
+                        or str(inv.id) == rid 
+                        or rid.replace("-00", "-0000") == inv.invoice_number
+                        or rid in inv.invoice_number
+                        for rid in record_identifiers
+                    )
+                ]
             for inv in invoices:
                 item = {}
                 if "id" in allowed_fields: item["id"] = inv.id
@@ -327,14 +364,15 @@ class FederationService:
                 if "client_name" in allowed_fields: item["client_name"] = inv.client_name
                 if "amount" in allowed_fields: item["amount"] = inv.amount
                 if "status" in allowed_fields: item["status"] = inv.status
-                if "due_date" in allowed_fields: item["due_date"] = inv.due_date.isoformat()
+                if "due_date" in allowed_fields: 
+                    item["due_date"] = inv.due_date.isoformat() if hasattr(inv.due_date, "isoformat") else str(inv.due_date)
                 if "related_opportunity_id" in allowed_fields: item["related_opportunity_id"] = inv.related_opportunity_id
                 results.append(item)
 
         elif source_dept_code == "sales":
             opps = await self.sales_repo.list_for_department(department_id=dept_id)
             if record_identifiers:
-                opps = [op for op in opps if op.title in record_identifiers or str(op.id) in record_identifiers]
+                opps = [op for op in opps if any(rid == op.title or str(op.id) == rid or rid in op.title for rid in record_identifiers)]
             for op in opps:
                 item = {}
                 if "id" in allowed_fields: item["id"] = op.id
@@ -343,7 +381,8 @@ class FederationService:
                 if "deal_value" in allowed_fields: item["deal_value"] = op.deal_value
                 if "stage" in allowed_fields: item["stage"] = op.stage
                 if "finance_status" in allowed_fields: item["finance_status"] = op.finance_status
-                if "created_at" in allowed_fields: item["created_at"] = op.created_at.isoformat()
+                if "created_at" in allowed_fields: 
+                    item["created_at"] = op.created_at.isoformat() if hasattr(op.created_at, "isoformat") else str(op.created_at)
                 results.append(item)
 
         elif source_dept_code == "hr":

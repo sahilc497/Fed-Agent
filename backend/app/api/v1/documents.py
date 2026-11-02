@@ -1,6 +1,5 @@
-from typing import List, Optional
+from typing import Any, List, Optional
 from fastapi import APIRouter, Depends, UploadFile, File, Form, HTTPException, status
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.db.models.user import User
 from app.repositories.document_repo import DocumentRepository
@@ -18,7 +17,7 @@ async def upload_document(
     title: Optional[str] = Form(None),
     access_level: str = Form("internal"),
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Uploads, validates, chunks, embeds, and stores an internal document."""
     if access_level in ["confidential", "restricted"] and current_user.role not in ["admin", "department_manager"]:
@@ -49,7 +48,7 @@ async def upload_document(
 @router.get("", response_model=List[DocumentOut])
 async def list_documents(
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Lists documents accessible to current user within their department."""
     doc_repo = DocumentRepository(db)
@@ -69,7 +68,7 @@ async def list_documents(
 async def get_document(
     document_id: int,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Retrieves document metadata if authorized."""
     doc_repo = DocumentRepository(db)
@@ -92,7 +91,7 @@ async def get_document(
 async def delete_document(
     document_id: int,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Deletes a document if caller is manager or administrator."""
     if current_user.role not in ["admin", "department_manager"]:
@@ -103,5 +102,5 @@ async def delete_document(
     if not doc or (current_user.role != "admin" and doc.department_id != current_user.department_id):
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Document not found or access denied.")
 
-    await db.delete(doc)
+    await doc_repo.delete_document(document_id)
     return {"status": "deleted", "document_id": document_id}

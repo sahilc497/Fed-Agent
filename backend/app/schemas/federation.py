@@ -1,5 +1,5 @@
 import datetime
-from typing import List, Optional, Any
+from typing import List, Optional, Any, Union
 from pydantic import BaseModel, Field, ConfigDict
 
 
@@ -20,7 +20,7 @@ class FederationRequestDecision(BaseModel):
 
 
 class FederationRequestOut(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(from_attributes=True, extra="ignore")
 
     id: str
     requester_user_id: int
@@ -37,11 +37,11 @@ class FederationRequestOut(BaseModel):
     approved_fields: Optional[List[str]] = None
     approved_record_ids: Optional[List[str]] = None
     idempotency_key: str
-    created_at: datetime.datetime
-    decided_at: Optional[datetime.datetime] = None
-    expires_at: datetime.datetime
-    revoked_at: Optional[datetime.datetime] = None
-    used_at: Optional[datetime.datetime] = None
+    created_at: Optional[Union[datetime.datetime, str]] = None
+    decided_at: Optional[Union[datetime.datetime, str]] = None
+    expires_at: Optional[Union[datetime.datetime, str]] = None
+    revoked_at: Optional[Union[datetime.datetime, str]] = None
+    used_at: Optional[Union[datetime.datetime, str]] = None
     requester_email: Optional[str] = None
     source_department_code: Optional[str] = None
     requester_department_code: Optional[str] = None

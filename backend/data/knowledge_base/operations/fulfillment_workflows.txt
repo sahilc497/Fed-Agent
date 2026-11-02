@@ -1,0 +1,8 @@
+# Order Fulfillment and Dispatch Protocol
+Document ID: DOC-OPS-006
+Department: Operations
+Version: 2.3 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Pick, Pack, and Ship Timeline
+Customer orders approved prior to 14:00 local time must be dispatched the same business day.

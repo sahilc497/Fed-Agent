@@ -1,0 +1,11 @@
+# Comprehensive Leave and Attendance Policy
+Document ID: DOC-HR-001
+Department: Human Resources
+Version: 2.5 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Annual Paid Time Off (PTO)
+Full-time employees accrue 20 days of paid vacation per calendar year. Up to 5 unused PTO days can be rolled over into the subsequent calendar year.
+
+## 2. Sick and Medical Leave
+Employees receive 10 days of paid sick leave annually. Medical absences exceeding 3 consecutive business days require a physician's note submitted to HR.

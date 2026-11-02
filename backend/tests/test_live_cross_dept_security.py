@@ -1,9 +1,8 @@
 import pytest
 import httpx
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-from app.db.models.document import Document
-from app.db.models.audit import AuditLog
+from app.db.session import AsyncSession
+from app.repositories.document_repo import DocumentRepository
+from app.repositories.audit_repo import AuditRepository
 
 
 @pytest.mark.asyncio
@@ -21,11 +20,15 @@ async def test_cross_dept_document_direct_id_isolation(
     Admin can retrieve documents across departments.
     """
     # 1. Locate an HR document and a Sales document from database
-    hr_doc = (await db_session.execute(select(Document).where(Document.department_id == 2))).scalars().first()
-    sales_doc = (await db_session.execute(select(Document).where(Document.department_id == 1))).scalars().first()
+    doc_repo = DocumentRepository(db_session)
+    hr_docs = await doc_repo.list_by_department(department_id=2)
+    sales_docs = await doc_repo.list_by_department(department_id=1)
 
-    assert hr_doc is not None, "HR document must exist in database"
-    assert sales_doc is not None, "Sales document must exist in database"
+    assert len(hr_docs) > 0, "HR document must exist in database"
+    assert len(sales_docs) > 0, "Sales document must exist in database"
+
+    hr_doc = hr_docs[0]
+    sales_doc = sales_docs[0]
 
     # 2. Sales rep attempts to fetch HR document by ID -> must fail with 404/Access Denied
     resp1 = await async_client.get(f"/api/v1/documents/{hr_doc.id}", headers=sales_rep_headers)
@@ -75,9 +78,9 @@ async def test_cross_dept_chat_unauthorized_bridges_denied_and_audited(
     sales_data = sales_chat_resp.json()
     assert "access denied" in sales_data["answer"].lower()
 
-    # 3. Verify actual AuditLog records were persisted in PostgreSQL
-    audit_stmt = select(AuditLog).where(AuditLog.outcome == "deny").order_by(AuditLog.id.desc())
-    denial_logs = (await db_session.execute(audit_stmt)).scalars().all()
+    # 3. Verify actual AuditLog records were persisted in SQLite
+    audit_repo = AuditRepository(db_session)
+    denial_logs = await audit_repo.list_audit_logs(outcome="deny")
     assert len(denial_logs) >= 2, "Real denial audit records must be saved in the database"
     actions = [log.action for log in denial_logs]
     assert any("denial" in a.lower() for a in actions)
@@ -93,7 +96,7 @@ async def test_federation_gateway_field_filtering_and_audit(
     Verify Scenario B: Sales querying Finance status via Federation Gateway.
     - Returns permitted opportunity finance status fields.
     - Prohibits forbidden fields (e.g. salary/profit margin).
-    - Logs Gateway audit decisions into PostgreSQL.
+    - Logs Gateway audit decisions into SQLite.
     """
     payload = {"message": "Which opportunities are awaiting finance approval?"}
     resp = await async_client.post("/api/v1/chat", json=payload, headers=sales_rep_headers)
@@ -107,7 +110,7 @@ async def test_federation_gateway_field_filtering_and_audit(
         assert "bank_account" not in ev["snippet"].lower()
         assert "profit_margin" not in ev["snippet"].lower()
 
-    # Verify Gateway audit event exists in PostgreSQL
-    stmt = select(AuditLog).where(AuditLog.action == "gateway:federated_request")
-    gw_logs = (await db_session.execute(stmt)).scalars().all()
+    # Verify Gateway audit event exists in SQLite
+    audit_repo = AuditRepository(db_session)
+    gw_logs = await audit_repo.list_audit_logs(action="gateway:federated_request")
     assert len(gw_logs) > 0, "Gateway invocation must be audited in the database"

@@ -1,0 +1,32 @@
+{
+  "sales": {
+    "dataset_name": "sales_synthetic_v1",
+    "customers_count": 120,
+    "opportunities_count": 550,
+    "customers_checksum": "c2808cbadb1793365eafcc39e550461c6aa3f888f4f64e37960680da4d813a1d",
+    "opportunities_checksum": "68f7bf18972b8b99c4d031e751a044a342aa195f02006ae536eb00987f416e22"
+  },
+  "hr": {
+    "dataset_name": "hr_synthetic_v1",
+    "employees_count": 160,
+    "leaves_count": 240,
+    "employees_checksum": "d5e570efc3dde26d09bb405b33c22ae32bbfc9c590a20c04875971d6f1f2785a",
+    "leaves_checksum": "282f2286a813fa55de7318c4ed384fd04c89e15cf0061ac6948d5e6b8753044e"
+  },
+  "finance": {
+    "dataset_name": "finance_synthetic_v1",
+    "vendors_count": 110,
+    "invoices_count": 350,
+    "payments_count": 160,
+    "invoices_checksum": "169d1587ae72532f311605636eeb3dc0adc0a9c842c4de1b0511e38e373576db"
+  },
+  "operations": {
+    "dataset_name": "operations_synthetic_v1",
+    "suppliers_count": 60,
+    "inventory_count": 320,
+    "purchase_orders_count": 120,
+    "inventory_checksum": "bb068bcf10d3b8ddb297cbda8aaa3a1a4e135d9f5cd5d304860b6265d177761a"
+  },
+  "generated_timestamp": "2026-10-21T17:16:04.123132+00:00",
+  "random_seed": 20260421
+}

@@ -1,20 +1,22 @@
 import os
 import io
 import re
-from typing import List, Tuple
+from typing import List, Tuple, Any
 from pypdf import PdfReader
 from docx import Document as DocxDocument
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.config import settings
 from app.core.exceptions import DocumentProcessingError
 from app.db.models.document import Document, DocumentChunk
+from app.repositories.document_repo import DocumentRepository, DocumentChunkRepository
 from app.rag.chunking import chunk_text
 from app.rag.embeddings import get_embedding_service
 
 
 class DocumentIngestionService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
+        self.doc_repo = DocumentRepository(db)
+        self.chunk_repo = DocumentChunkRepository(db)
         self.embedder = get_embedding_service()
 
     def sanitize_text(self, text: str) -> str:
@@ -69,7 +71,7 @@ class DocumentIngestionService:
         access_level: str,
         uploaded_by_id: int
     ) -> Document:
-        """Ingests, chunks, embeds, and stores a document."""
+        """Ingests, chunks, embeds, and stores a document into SQLite."""
         # 1. Size check
         size_mb = len(file_bytes) / (1024 * 1024)
         if size_mb > settings.MAX_UPLOAD_SIZE_MB:
@@ -84,44 +86,37 @@ class DocumentIngestionService:
         doc = Document(
             title=title,
             filename=filename,
-            file_path=f"memory://{filename}",
+            file_path=f"data/knowledge_base/{filename}",
             file_type=ext,
             department_id=department_id,
             access_level=access_level,
             uploaded_by=uploaded_by_id,
             status="processing"
         )
-        self.db.add(doc)
-        await self.db.flush()
+        created_doc = await self.doc_repo.create(doc)
 
         # 4. Extract text per page
         pages = self.extract_text(file_bytes, ext)
         if not pages:
-            doc.status = "empty"
-            await self.db.flush()
-            return doc
+            created_doc.status = "empty"
+            return created_doc
 
-        # 5. Chunk and embed
-        chunk_objects = []
+        # 5. Chunk and embed locally
         global_chunk_idx = 0
         for page_num, page_content in pages:
             chunks = chunk_text(page_content, chunk_size=300, chunk_overlap=30, page_number=page_num)
             for c in chunks:
                 vec = self.embedder.embed_text(c["content"])
-                chunk_obj = DocumentChunk(
-                    document_id=doc.id,
+                await self.chunk_repo.save_chunk(
+                    document_id=created_doc.id,
                     chunk_index=global_chunk_idx,
                     content=c["content"],
-                    page_number=page_num,
                     department_id=department_id,
                     access_level=access_level,
+                    page_number=page_num,
                     embedding=vec
                 )
-                chunk_objects.append(chunk_obj)
                 global_chunk_idx += 1
 
-        self.db.add_all(chunk_objects)
-        doc.status = "indexed"
-        await self.db.flush()
-
-        return doc
+        created_doc.status = "indexed"
+        return created_doc

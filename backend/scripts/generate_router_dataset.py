@@ -1,0 +1,458 @@
+import os
+import sys
+import json
+import random
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+ROUTER_DIR = BASE_DIR / "data" / "router"
+ROUTER_DIR.mkdir(parents=True, exist_ok=True)
+
+# Fixed seed for reproducibility
+random.seed(20260421)
+
+SALES_PROMPTS = [
+    "What deals are currently in the proposal stage?",
+    "Show me all sales opportunities for Apex Global.",
+    "Which pipeline leads have a value exceeding $100,000?",
+    "Can you list our top 5 closed won accounts this quarter?",
+    "How many active prospects are assigned to Account Executive David Miller?",
+    "Check the stage of the Quantum Logistics enterprise expansion.",
+    "What is our projected sales revenue for Q3 based on pipeline weighting?",
+    "What is the deal value of the Titan Security project?",
+    "Show all sales opportunities needing finance approval.",
+    "Can a sales rep offer a 10% discount without manager approval?",
+    "Find all leads sourced from the website channel.",
+    "What is the average sales cycle duration for closed deals?",
+    "Give me the contact email for customer Nordic Supermarkets.",
+    "Has the BlueSky CRM contract been signed yet?",
+    "List all sales proposals submitted last month.",
+    "Which prospects have a BANT qualification verified?",
+    "Show me all qualified leads in the healthcare industry.",
+    "What are the opportunity probability guidelines for enterprise bids?",
+    "Check client history for Apex Corp Cloud Migration.",
+    "How many sales deals were lost to competitors this year?",
+    "Find opportunities with deal value under $50,000.",
+    "Who is the account owner for Vanguard Financial Technologies?",
+    "What is the discount threshold before Controller review is needed?",
+    "List all sales leads currently in negotiation stage.",
+    "Show customer details for client code CUST-0042.",
+    "Can we provide a 20% discount on 3-year enterprise deals?",
+    "Retrieve client opportunities awaiting credit review.",
+    "Show me all prospect companies in the energy sector.",
+    "Are there any proposal documents uploaded for BlueSky Aviation?",
+    "What leads came through our partner channel in February?",
+    "Show me the pipeline summary for Elena Rostova's team.",
+    "Which opportunities have a close date scheduled for next month?",
+    "Check if customer Pinnacle Automation is an active customer.",
+    "Display all closed lost opportunities with lost reasons.",
+    "What is the status of the Helios Energy Grid expansion deal?",
+    "Give me the total deal value across all qualified opportunities.",
+    "How many customer accounts were onboarded this quarter?",
+    "Find sales opportunities with probability greater than 80%.",
+    "List all enterprise proposals awaiting client signature.",
+    "What is the BANT qualification criteria for leads over $50k?",
+    "Are there any discounts pending approval for customer Astraea?",
+    "Show me the customer contact for Monolith Datacenters.",
+    "Show pipeline health metrics and velocity indicators.",
+    "What is the customer code for Solaria Solar Technologies?",
+    "Find leads that have been in proposal stage for over 45 days.",
+    "Show all accounts currently managed by Sales Rep David.",
+    "Check proposal pricing terms for Zenith BioHealth contract.",
+    "Retrieve opportunities originated from outbound prospecting.",
+    "What is the standard payment terms in our sales proposals?",
+    "Can you find the customer contact name for CUST-0088?",
+    "List sales deals in the manufacturing industry.",
+    "Show all qualified enterprise deals for Q4 forecast.",
+    "What is the win rate for sales opportunities this fiscal year?",
+    "Check if any sales proposals are awaiting legal review.",
+    "Show me customer expansion opportunities in Europe.",
+    "Which deals have a deal value above $500,000?",
+    "Display the pipeline stage of the Atlas Infrastructure project.",
+    "How many new sales leads were generated this week?",
+    "Give me the proposal submission checklist for enterprise clients.",
+    "Check sales pipeline status for Hyperion Telecom."
+]
+
+HR_PROMPTS = [
+    "What is my remaining annual leave balance?",
+    "How many days of paid sick leave do employees receive?",
+    "Can I roll over unused PTO into the next calendar year?",
+    "What is the procedure for requesting parental leave?",
+    "Show me the employee directory for Human Resources.",
+    "Who is the HR Specialist responsible for onboarding?",
+    "What health insurance benefits does the company provide?",
+    "What is the company 401(k) matching percentage?",
+    "Where can I find the employee Code of Conduct handbook?",
+    "How do I submit an anonymous grievance to HR?",
+    "What is the policy on doctor notes for sick leave?",
+    "Can employees see colleague compensation in the system?",
+    "Who is authorized to review sensitive employee salaries?",
+    "What is the annual training and education stipend limit?",
+    "How does the annual performance appraisal process work?",
+    "Show me the employee record for EMP-0012.",
+    "What are the core stages of the recruitment workflow?",
+    "Are there any ergonomic assessments available for remote staff?",
+    "How many sick days did employee Rachel Vance use this year?",
+    "What is the policy regarding retaliation for reporting misconduct?",
+    "What documentation is required on the first day of employment?",
+    "How long are employee medical and personnel records retained?",
+    "Show me all approved vacation requests for next week.",
+    "What is the procedure for bereavement time off?",
+    "Can an employee take unpaid leave if PTO is exhausted?",
+    "Find employee full name and position for employee code EMP-0045.",
+    "What are the working hours and attendance expectations?",
+    "Who leads the Human Resources Department?",
+    "What is the annual learning allowance tenure requirement?",
+    "Show the leave records for employee ID 14.",
+    "What are the weights for the 360 peer review evaluation?",
+    "How do I request a workplace safety ergonomic evaluation?",
+    "Can I view my own employee performance rating?",
+    "What are the steps for filing an internal harassment complaint?",
+    "When does the annual employee compensation review take place?",
+    "Show active employees working in the Sales department.",
+    "What is the policy for reporting emergency absences?",
+    "How do I update my personal emergency contact information?",
+    "What dental and vision coverage options are offered?",
+    "Are interns eligible for the annual professional training stipend?",
+    "Show me all pending leave requests awaiting manager signoff.",
+    "How many total employees are active in the organization?",
+    "Can I transfer unused sick leave to another employee?",
+    "What is the company policy on jury duty leave?",
+    "Find employee position details for Marcus Aurelius.",
+    "What are the steps for new hire security badge issuance?",
+    "Are mental health counseling sessions covered by benefits?",
+    "Show the joining date and position for employee EMP-0080.",
+    "How many days in advance must annual vacation be scheduled?",
+    "What is the procedure when an employee submits their resignation?",
+    "Show all employees who have a leave balance below 5 days.",
+    "What is the severance policy for organizational restructuring?",
+    "Can an employee work remotely while traveling abroad?",
+    "Who signs off on new job requisition postings?",
+    "Show me the HR policy document for workplace ergonomics.",
+    "What is the maximum consecutive sick leave permitted before disability?",
+    "Find the department manager for the Human Resources team.",
+    "What is the company policy regarding outside employment and moonlighting?",
+    "How do I access my annual benefits enrollment portal?",
+    "Show employee attendance history for the past quarter."
+]
+
+FINANCE_PROMPTS = [
+    "What invoices are currently overdue for payment?",
+    "Show me the payment status of invoice INV-2026-00045.",
+    "Can you list all unpaid vendor invoices over $50,000?",
+    "What are the standard payment terms for enterprise vendors?",
+    "What is the per diem limit for employee business travel meals?",
+    "Who must authorize payments exceeding $50,000?",
+    "What is the hotel lodging reimbursement cap in New York?",
+    "When are receipts mandatory for expense reimbursements?",
+    "Show all invoices associated with vendor Quantum Logistics.",
+    "Can an AI agent execute a wire payment automatically?",
+    "What is the procedure for monthly bank account reconciliation?",
+    "Who is the corporate controller authorized to approve wires?",
+    "What documentation is needed to onboard a new vendor?",
+    "What happens when a customer invoice is overdue by 30 days?",
+    "Show all wire transfers completed during the current week.",
+    "What is the early payment discount for Net 10 settlement?",
+    "When must departmental annual budget proposals be submitted?",
+    "What is the total accounts payable balance due this month?",
+    "List all vendor payments processed through ACH transfer.",
+    "What security verification is required before changing vendor bank details?",
+    "Find invoice amount and due date for invoice INV-2026-00120.",
+    "What is the penalty for fraudulent expense report submissions?",
+    "Show me the approved operating budget for the Operations department.",
+    "How are disputed invoices handled between vendor and purchasing?",
+    "What is the threshold for single manager payment authorization?",
+    "Can you retrieve all invoices in draft or sent status?",
+    "Who authorizes capital expenditure exceeding the approved budget?",
+    "What tax forms are required for international overseas vendors?",
+    "Show all invoices currently in pending_approval status.",
+    "What is the procedure if a duplicate vendor payment is discovered?",
+    "Show me the total dollar amount of all overdue client invoices.",
+    "What is the expense reimbursement approval deadline each month?",
+    "Find vendor details for vendor code VEN-0033.",
+    "What are the audit rules for corporate credit card expenditures?",
+    "List all vendor invoices due within the next 10 days.",
+    "How does the finance team handle credit hold customer accounts?",
+    "Show payment reference details for wire transfer PAY-REF-000210.",
+    "What is the mileage reimbursement rate for company travel?",
+    "Find the invoice number for client BlueSky Cloud Solutions.",
+    "What internal controls govern electronic funds transfers?",
+    "List all vendors categorized under Cloud Infrastructure.",
+    "Show me the accounts receivable aging report summary.",
+    "What is the fiscal year closing timeline for ledger adjustments?",
+    "Are independent contractors subject to standard Net 30 terms?",
+    "Show total disbursements processed across all vendors last quarter.",
+    "What is the policy for petty cash expense reimbursement?",
+    "Find the status of invoice INV-2026-00300.",
+    "Who reviews the quarterly financial reconciliation statements?",
+    "Show invoices awaiting finance manager approval.",
+    "What is the dual-authorization rule for corporate wire transfers?",
+    "Can I see all vendor invoices under $1,000 paid this month?",
+    "What are the compliance requirements under anti-money laundering policies?",
+    "Show the budget spent versus allocated for the Sales department.",
+    "How are currency exchange rate fluctuations recognized in billing?",
+    "Find the contact email for vendor Apex Global Systems Services.",
+    "What is the procedure for writing off uncollectible bad debt?",
+    "List all payment records with method wire_transfer.",
+    "Show me the financial guidelines document for vendor onboarding.",
+    "What is the deadline for submitting Q4 travel expense reports?",
+    "Check invoice status for Nordic Supermarkets Point of Sale."
+]
+
+OPERATIONS_PROMPTS = [
+    "What is the current stock level for SKU-SER-0045?",
+    "Show me all inventory items currently in low_stock status.",
+    "Which warehouse location stores item Robotics Industrial Model #12?",
+    "What items are currently out of stock in Warehouse Alpha?",
+    "When does inventory drop below the reorder threshold?",
+    "Show all purchase orders currently in ordered status.",
+    "What is the required on-time delivery SLA for our suppliers?",
+    "Within how many hours must inbound shipments be checked at the dock?",
+    "What physical discrepancy threshold requires an incident report?",
+    "What personal protective equipment is mandatory in warehouse zones?",
+    "Show the supplier contact details for supplier SUPP-0015.",
+    "What is the daily cutoff time for same-day order dispatch?",
+    "How often do forklifts and conveyor belts undergo maintenance?",
+    "What procedure is followed when freight carriers are delayed 48 hours?",
+    "Can the Sales department query warehouse inventory quantities?",
+    "Find all SKUs categorized under Networking Gear.",
+    "Show the quantity on hand and reserved stock for SKU-SEN-0010.",
+    "List all purchase orders generated for supplier Apex Supply.",
+    "What is the barcode labeling standard for warehouse items?",
+    "How is inventory segmented across Warehouse Alpha Zones A and B?",
+    "Find all items stored in Depot Gamma.",
+    "What are the primary KPIs tracked in logistics reporting?",
+    "Show inventory items with quantity on hand greater than 200 units.",
+    "What happens when damaged inbound freight arrives at the dock?",
+    "Show purchase order details for PO-2026-00050.",
+    "Who is the Operations Director overseeing logistics?",
+    "What is the maximum allowable supplier defect rate?",
+    "Find all items with reorder threshold above 40 units.",
+    "List all suppliers categorized as active in the system.",
+    "What is the standard nomenclature for purchase order numbering?",
+    "Show all stock items with zero units currently on hand.",
+    "What safety protocols apply when operating motorized pallet jacks?",
+    "Find the supplier assigned to SKU-POW-0080.",
+    "What is the inventory turnover ratio target for this year?",
+    "Show all warehouse shipments dispatched today.",
+    "How are hazardous materials labeled and segregated in storage?",
+    "Find inventory records located in Warehouse Beta Hub 1.",
+    "What steps are taken during quarterly physical cycle counts?",
+    "Show the purchase orders associated with SKU-ROB-0022.",
+    "What is the lead time for emergency replacement hardware parts?",
+    "Can operations items be transferred between Alpha and Beta warehouses?",
+    "Show me all items in the Sensors & IoT category.",
+    "What is the escalation path for supply chain port delays?",
+    "Find supplier contact email for supplier SUPP-0040.",
+    "What is the procedure for updating reserved inventory stock?",
+    "Show all low stock items in the Cables & Power category.",
+    "How are obsolete or end-of-life inventory items liquidated?",
+    "Check quantity on hand for SKU-SER-0100.",
+    "Show purchase orders with status received this month.",
+    "What is the temperature monitoring standard for climate-controlled zones?",
+    "List all items with warehouse location in Zone A.",
+    "What is the warehouse incident escalation protocol for equipment breakdown?",
+    "Show total inventory valuation across all warehouse facilities.",
+    "What is the supplier scorecard review frequency?",
+    "Find inventory item details for SKU-NET-0035.",
+    "What is the protocol for emergency warehouse evacuation?",
+    "Show all shipments delayed by carrier weather disruptions.",
+    "How many purchase orders were fulfilled by supplier SUPP-0005?",
+    "Check available stock for industrial robotics components.",
+    "What is the On-Time In-Full delivery rate target for operations?"
+]
+
+MULTI_DEPT_PROMPTS = [
+    "Check sales opportunities and verify invoice status from finance.",
+    "Can sales see inventory quantities for pending client orders?",
+    "Does this closed won deal have an approved finance payment?",
+    "Compare sales revenue targets with finance accounts receivable.",
+    "Show sales orders that are awaiting operations fulfillment and finance invoicing.",
+    "Is the client invoice paid before operations ships the hardware?",
+    "Can HR cross-reference sales commissions with the finance payroll ledger?",
+    "Check if the opportunity awaiting finance approval has inventory reserved in operations.",
+    "Show me deals requiring finance approval and check their warehouse stock.",
+    "Verify whether invoice INV-2026-00010 relates to opportunity Apex Cloud Migration.",
+    "Can an operations purchase order be billed directly to the finance ledger?",
+    "What is the status of the deal and has the initial client deposit been received?",
+    "Check customer payment history in finance before approving the sales discount.",
+    "Show all sales deals that have pending shipments in the operations warehouse.",
+    "Cross-reference employee travel expenses in finance with the HR travel policy.",
+    "Check warehouse stock for the Titan Heavy Industries sales proposal.",
+    "Can we reconcile closed sales contracts with the finance accounts payable?",
+    "Are the hardware SKUs for the BlueSky contract in stock and has the invoice cleared?",
+    "Check employee roster in HR to verify sales account ownership.",
+    "Verify if client invoice payment is completed before operations releases delivery.",
+    "Show finance revenue recognition status for all closed won sales opportunities.",
+    "Check operations stock levels for the top 5 sales opportunities in the pipeline.",
+    "Compare departmental budget allocation in finance with HR hiring requisitions.",
+    "Does the sales contract with Nordic Supermarkets require dual finance approval?",
+    "Show purchase orders in operations linked to finance vendor invoices.",
+    "Verify if the sales representative's proposed discount violates the finance profit policy.",
+    "Can HR check employee expense reports against the finance travel limits?",
+    "Check whether the sales customer has any overdue invoices in finance before expanding credit.",
+    "Verify inventory availability in warehouse Alpha for the pending sales proposal.",
+    "Show cross-department status of opportunity 45: sales stage, finance approval, and ops delivery.",
+    "Reconcile operations warehouse equipment asset value with the finance general ledger.",
+    "Can sales check the shipping tracking number from operations for client Apex?",
+    "Show me the customer invoice and the corresponding delivery note from operations.",
+    "Does customer Quantum Logistics have open sales deals and overdue finance invoices?",
+    "Check employee bonus eligibility in HR against annual finance revenue performance.",
+    "Verify if the warehouse lease payment was processed by finance accounts payable.",
+    "Check sales pipeline deal size against operations warehouse capacity for Q3.",
+    "Show all client opportunities where finance status is pending and stock is low.",
+    "Compare operations procurement costs with finance vendor payment records.",
+    "Can HR verify department manager authorization for finance wire transfers?",
+    "Check if sales opportunity 12 requires operations supplier backorders.",
+    "Show customer credit rating from finance alongside current sales pipeline value.",
+    "Reconcile sales forecasting projections with finance quarterly cashflow expectations.",
+    "Verify if operations has received the parts required for the enterprise client project.",
+    "Show me invoices that belong to sales opportunities closed this month.",
+    "Can finance check employee leave records to calculate accrued vacation liability?",
+    "Verify customer delivery schedule in operations with the sales contract milestone dates.",
+    "Check if the sales proposal discount requires approval from both HR and Finance.",
+    "Show operations suppliers who also have active consulting invoices in finance.",
+    "Cross-reference sales pipeline stages with logistics shipping capacity.",
+    "Check whether customer BlueSky has settled their invoice before dispatching parts.",
+    "Show me sales deals in closed won stage that are still awaiting operations fulfillment.",
+    "Can finance cross-check contractor invoices against HR onboarding records?",
+    "Check if operations stock reorder threshold affects pending sales delivery commitments.",
+    "Show customer order history spanning sales deals, finance invoices, and ops fulfillment.",
+    "Verify if the client's finance status allows operations to release reserved inventory.",
+    "Can sales request an inventory reservation from operations before finance approval?",
+    "Compare finance actual revenue with sales weighted pipeline projections.",
+    "Show me all cross-department data requests between sales and operations.",
+    "Verify employee credentials in HR before granting finance payment approval rights."
+]
+
+UNKNOWN_PROMPTS = [
+    "What is the weather forecast in Tokyo tomorrow?",
+    "Can you write a poem about autumn leaves falling?",
+    "What is the capital city of Australia?",
+    "Explain Einstein's theory of general relativity in simple terms.",
+    "How do I bake a chocolate chip cookie from scratch?",
+    "Who directed the movie Inception in 2010?",
+    "What is the distance between the Earth and the Moon in miles?",
+    "Can you solve this math equation: 45 * 12 + 89?",
+    "What are the rules of professional chess?",
+    "Write a short bedtime story about a friendly dragon.",
+    "What is the population of Brazil in 2026?",
+    "How does a four-stroke internal combustion engine work?",
+    "What are the health benefits of drinking green tea?",
+    "Can you recommend a good book to read about World War II?",
+    "What is the chemical formula for photosynthesis?",
+    "Who painted the Mona Lisa in the Louvre museum?",
+    "How do airplanes generate lift during takeoff?",
+    "What is the difference between an alligator and a crocodile?",
+    "Translate the sentence 'Hello, how are you?' into Japanese.",
+    "What is the highest mountain peak in North America?",
+    "How do black holes form in deep space?",
+    "Can you write a python script to reverse a linked list?",
+    "What is the currency used in Switzerland?",
+    "How does blockchain proof-of-work consensus operate?",
+    "What is the speed of light in vacuum?",
+    "Can you give me travel recommendations for Rome, Italy?",
+    "What is the difference between a violin and a viola?",
+    "How do solar panels convert sunlight into electricity?",
+    "What is the plot summary of Hamlet by Shakespeare?",
+    "Can you compose a funny joke about computer programmers?",
+    "What is the deepest ocean trench on planet Earth?",
+    "How do vaccines stimulate the human immune system?",
+    "What is the square root of 144?",
+    "Can you give me advice on training a puppy to sit?",
+    "What are the primary colors in the RGB color model?",
+    "How does GPS satellite triangulation work?",
+    "What is the boiling point of water in Fahrenheit?",
+    "Can you write a haiku about a mountain stream?",
+    "What is the main language spoken in Argentina?",
+    "How do telescopes observe distant galaxies?",
+    "What is the life cycle of a monarch butterfly?",
+    "Can you explain quantum computing superposition?",
+    "What is the recipe for traditional Italian carbonara pasta?",
+    "Who was the first person to walk on the Moon?",
+    "What causes earthquakes and tectonic plate movements?",
+    "Can you recommend exercises to improve cardiovascular endurance?",
+    "What is the difference between espresso and drip coffee?",
+    "How do electric cars regenerative brakes function?",
+    "What is the historical significance of the Magna Carta in 1215?",
+    "Can you write an essay about the Renaissance period?",
+    "What is the lifespan of a giant Galapagos tortoise?",
+    "How does acoustic noise-cancelling technology operate?",
+    "What is the chemical symbol for gold on the periodic table?",
+    "Can you explain the rules of rugby union?",
+    "What is the tallest building in the world today?",
+    "How do submarines regulate buoyancy underwater?",
+    "What is the difference between weather and climate?",
+    "Can you generate a random 8-character alphanumeric string?",
+    "What is the origin of the Olympic Games in ancient Greece?",
+    "Hello there! How are you doing today?"
+]
+
+
+def create_balanced_dataset():
+    label_pools = {
+        "sales": SALES_PROMPTS,
+        "hr": HR_PROMPTS,
+        "finance": FINANCE_PROMPTS,
+        "operations": OPERATIONS_PROMPTS,
+        "multi_department": MULTI_DEPT_PROMPTS,
+        "unknown": UNKNOWN_PROMPTS
+    }
+
+    train_data = []
+    val_data = []
+    test_data = []
+
+    for label, prompts in label_pools.items():
+        # Ensure exact deduplication
+        unique_prompts = list(dict.fromkeys(prompts))
+        random.shuffle(unique_prompts)
+        
+        # Split: 70% train (42), 15% val (9), 15% test (9) out of 60
+        n_total = len(unique_prompts)
+        n_train = int(n_total * 0.70)
+        n_val = int(n_total * 0.15)
+        
+        train_slice = unique_prompts[:n_train]
+        val_slice = unique_prompts[n_train:n_train + n_val]
+        test_slice = unique_prompts[n_train + n_val:]
+
+        for q in train_slice:
+            train_data.append({"query": q, "label": label})
+        for q in val_slice:
+            val_data.append({"query": q, "label": label})
+        for q in test_slice:
+            test_data.append({"query": q, "label": label})
+
+    random.shuffle(train_data)
+    random.shuffle(val_data)
+    random.shuffle(test_data)
+
+    dataset = {
+        "metadata": {
+            "version": "1.0.0",
+            "classes": list(label_pools.keys()),
+            "total_examples": len(train_data) + len(val_data) + len(test_data),
+            "train_count": len(train_data),
+            "val_count": len(val_data),
+            "test_count": len(test_data),
+            "random_seed": 20260421
+        },
+        "train": train_data,
+        "validation": val_data,
+        "test": test_data
+    }
+
+    out_path = ROUTER_DIR / "router_dataset.json"
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(dataset, f, indent=2)
+
+    print(f"Generated balanced intent router dataset: {dataset['metadata']['total_examples']} examples.")
+    print(f"Train: {len(train_data)}, Validation: {len(val_data)}, Test: {len(test_data)}")
+    print(f"Saved to {out_path}")
+    return dataset
+
+
+if __name__ == "__main__":
+    create_balanced_dataset()

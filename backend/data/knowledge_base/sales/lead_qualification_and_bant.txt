@@ -1,0 +1,15 @@
+# Lead Qualification and BANT Framework
+Document ID: DOC-SALES-002
+Department: Sales
+Version: 1.8 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. The BANT Criteria
+All enterprise opportunities exceeding $50,000 must satisfy strict BANT qualification:
+- Budget: Prospect must possess allocated capital or verified line of business authority.
+- Authority: The primary stakeholder must possess VP or C-level signing power.
+- Need: Specific technological or operational pain point verifiable against our capabilities.
+- Timeline: Target implementation date within 3 to 12 months.
+
+## 2. Disqualification Criteria
+Leads with indefinite budget cycles (>18 months) or unresolved regulatory blocks must be moved to 'nurture' status rather than remaining in active pipeline.

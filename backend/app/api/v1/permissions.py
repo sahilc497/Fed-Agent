@@ -1,6 +1,5 @@
 from typing import Dict, Any
 from fastapi import APIRouter, Depends
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.db.models.user import User
 from app.services.permission_service import PermissionService
@@ -28,7 +27,7 @@ async def get_my_permissions(
 async def check_action_permission(
     data: PermissionCheckRequest,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Evaluates whether an action is authorized under current policy matrix."""
     perm_service = PermissionService(db)

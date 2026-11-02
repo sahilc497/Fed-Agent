@@ -5,42 +5,29 @@ import pytest
 import pytest_asyncio
 import httpx
 from httpx import ASGITransport
-from sqlalchemy.pool import NullPool
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 
 # Ensure backend directory is in sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app.core.config import settings
 from app.main import app
+from app.db.sqlite import create_connection, SqliteSession
 from app.db.session import get_db
+from app.db.schema import init_db
 from app.core.security import create_access_token
 from app.services.ollama_service import OllamaService
 
-# Use NullPool for tests to guarantee each test gets a fresh connection
-# and closes it cleanly within its own asyncio event loop
-test_engine = create_async_engine(
-    settings.DATABASE_URL,
-    poolclass=NullPool
-)
-TestSessionLocal = async_sessionmaker(
-    bind=test_engine,
-    class_=AsyncSession,
-    expire_on_commit=False,
-    autocommit=False,
-    autoflush=False
-)
+# Ensure SQLite schema is initialized for test execution
+init_db()
 
 
-async def override_get_db():
-    async with TestSessionLocal() as session:
-        try:
-            yield session
-        except Exception:
-            await session.rollback()
-            raise
-        finally:
-            await session.close()
+def override_get_db():
+    conn = create_connection()
+    session = SqliteSession(conn)
+    try:
+        yield session
+    finally:
+        session.close()
 
 
 app.dependency_overrides[get_db] = override_get_db
@@ -73,10 +60,14 @@ async def async_client():
         yield client
 
 
-@pytest_asyncio.fixture
-async def db_session():
-    async with TestSessionLocal() as session:
+@pytest.fixture
+def db_session():
+    conn = create_connection()
+    session = SqliteSession(conn)
+    try:
         yield session
+    finally:
+        session.close()
 
 
 def generate_auth_headers(user_id: int, email: str, role: str, dept_id: int, dept_code: str) -> dict:
@@ -102,44 +93,59 @@ def auditor_headers():
     return generate_auth_headers(2, "auditor@mesh.enterprise.internal", "auditor", 3, "finance")
 
 
+def get_user_header_by_email(email: str) -> dict:
+    conn = create_connection()
+    row = conn.execute("SELECT id, email, role, department_id FROM users WHERE email = ?;", (email,)).fetchone()
+    conn.close()
+    if row:
+        dept_code = "sales" if row["department_id"] == 1 else ("hr" if row["department_id"] == 2 else ("finance" if row["department_id"] == 3 else "operations"))
+        return generate_auth_headers(row["id"], row["email"], row["role"], row["department_id"], dept_code)
+    return {}
+
+
+@pytest.fixture
+def admin_headers():
+    return get_user_header_by_email("admin@mesh.enterprise.internal")
+
+
 @pytest.fixture
 def sales_manager_headers():
-    return generate_auth_headers(3, "sales.manager@mesh.enterprise.internal", "department_manager", 1, "sales")
+    return get_user_header_by_email("sales.manager@mesh.enterprise.internal")
 
 
 @pytest.fixture
 def sales_rep_headers():
-    return generate_auth_headers(4, "sales.rep@mesh.enterprise.internal", "department_employee", 1, "sales")
+    return get_user_header_by_email("sales.rep@mesh.enterprise.internal")
 
 
 @pytest.fixture
 def hr_manager_headers():
-    return generate_auth_headers(5, "hr.manager@mesh.enterprise.internal", "department_manager", 2, "hr")
+    return get_user_header_by_email("hr.manager@mesh.enterprise.internal")
 
 
 @pytest.fixture
 def hr_specialist_headers():
-    return generate_auth_headers(6, "hr.specialist@mesh.enterprise.internal", "department_employee", 2, "hr")
+    return get_user_header_by_email("hr.specialist@mesh.enterprise.internal")
 
 
 @pytest.fixture
 def finance_manager_headers():
-    return generate_auth_headers(7, "finance.manager@mesh.enterprise.internal", "department_manager", 3, "finance")
+    return get_user_header_by_email("finance.manager@mesh.enterprise.internal")
 
 
 @pytest.fixture
 def finance_analyst_headers():
-    return generate_auth_headers(8, "finance.analyst@mesh.enterprise.internal", "department_employee", 3, "finance")
+    return get_user_header_by_email("finance.analyst@mesh.enterprise.internal")
 
 
 @pytest.fixture
 def operations_manager_headers():
-    return generate_auth_headers(9, "operations.manager@mesh.enterprise.internal", "department_manager", 4, "operations")
+    return get_user_header_by_email("operations.manager@mesh.enterprise.internal")
 
 
 @pytest.fixture
 def operations_lead_headers():
-    return generate_auth_headers(10, "operations.lead@mesh.enterprise.internal", "department_employee", 4, "operations")
+    return get_user_header_by_email("operations.lead@mesh.enterprise.internal")
 
 
 @pytest_asyncio.fixture

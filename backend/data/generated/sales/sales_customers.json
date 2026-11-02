@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1,
+    "customer_code": "CUST-0001",
+    "company_name": "Meridian Shipping Lines 1",
+    "industry": "Finance",
+    "contact_name": "Bella Hall",
+    "contact_email": "bella.hall@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-01T00:00:00"
+  },
+  {
+    "id": 2,
+    "customer_code": "CUST-0002",
+    "company_name": "Frontier Mining Group 2",
+    "industry": "Aerospace",
+    "contact_name": "Hannah Nguyen",
+    "contact_email": "hannah.nguyen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-05T00:00:00"
+  },
+  {
+    "id": 3,
+    "customer_code": "CUST-0003",
+    "company_name": "Aegis Defense Dynamics 3",
+    "industry": "Telecommunications",
+    "contact_name": "Levi Gonzalez",
+    "contact_email": "levi.gonzalez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-30T00:00:00"
+  },
+  {
+    "id": 4,
+    "customer_code": "CUST-0004",
+    "company_name": "Sierra Agriculture 4",
+    "industry": "Aerospace",
+    "contact_name": "Skylar Martinez",
+    "contact_email": "skylar.martinez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-12T00:00:00"
+  },
+  {
+    "id": 5,
+    "customer_code": "CUST-0005",
+    "company_name": "Ironclad Cyber Systems 5",
+    "industry": "Healthcare",
+    "contact_name": "Leah Scott",
+    "contact_email": "leah.scott@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-10-23T00:00:00"
+  },
+  {
+    "id": 6,
+    "customer_code": "CUST-0006",
+    "company_name": "NextGen Mobility 6",
+    "industry": "Healthcare",
+    "contact_name": "Nora Nelson",
+    "contact_email": "nora.nelson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": 7,
+    "customer_code": "CUST-0007",
+    "company_name": "Sierra Agriculture 7",
+    "industry": "Manufacturing",
+    "contact_name": "Grayson Clark",
+    "contact_email": "grayson.clark@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-20T00:00:00"
+  },
+  {
+    "id": 8,
+    "customer_code": "CUST-0008",
+    "company_name": "BlueSky Cloud Solutions 8",
+    "industry": "Healthcare",
+    "contact_name": "Avery Young",
+    "contact_email": "avery.young@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-21T00:00:00"
+  },
+  {
+    "id": 9,
+    "customer_code": "CUST-0009",
+    "company_name": "Elysium Therapeutics 9",
+    "industry": "Finance",
+    "contact_name": "Nova Green",
+    "contact_email": "nova.green@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-08-18T00:00:00"
+  },
+  {
+    "id": 10,
+    "customer_code": "CUST-0010",
+    "company_name": "Zephyr Environmental 10",
+    "industry": "Technology",
+    "contact_name": "Anthony Perez",
+    "contact_email": "anthony.perez@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-08-03T00:00:00"
+  },
+  {
+    "id": 11,
+    "customer_code": "CUST-0011",
+    "company_name": "Lumina Optics 11",
+    "industry": "Finance",
+    "contact_name": "Emilia Flores",
+    "contact_email": "emilia.flores@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-09T00:00:00"
+  },
+  {
+    "id": 12,
+    "customer_code": "CUST-0012",
+    "company_name": "Zephyr Environmental 12",
+    "industry": "Finance",
+    "contact_name": "Addison Rivera",
+    "contact_email": "addison.rivera@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-12T00:00:00"
+  },
+  {
+    "id": 13,
+    "customer_code": "CUST-0013",
+    "company_name": "Pinnacle Automation Corp 13",
+    "industry": "Energy",
+    "contact_name": "Daniel Sanchez",
+    "contact_email": "daniel.sanchez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-31T00:00:00"
+  },
+  {
+    "id": 14,
+    "customer_code": "CUST-0014",
+    "company_name": "Valence Chemical Corp 14",
+    "industry": "Energy",
+    "contact_name": "Grayson Nguyen",
+    "contact_email": "grayson.nguyen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-13T00:00:00"
+  },
+  {
+    "id": 15,
+    "customer_code": "CUST-0015",
+    "company_name": "Sierra Agriculture 15",
+    "industry": "Telecommunications",
+    "contact_name": "Savannah Mitchell",
+    "contact_email": "savannah.mitchell@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-28T00:00:00"
+  },
+  {
+    "id": 16,
+    "customer_code": "CUST-0016",
+    "company_name": "Solaria Solar Technologies 16",
+    "industry": "Manufacturing",
+    "contact_name": "Mia White",
+    "contact_email": "mia.white@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-06-20T00:00:00"
+  },
+  {
+    "id": 17,
+    "customer_code": "CUST-0017",
+    "company_name": "Echo Sound Engineering 17",
+    "industry": "Healthcare",
+    "contact_name": "Savannah Wilson",
+    "contact_email": "savannah.wilson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-26T00:00:00"
+  },
+  {
+    "id": 18,
+    "customer_code": "CUST-0018",
+    "company_name": "NextGen Mobility 18",
+    "industry": "Retail",
+    "contact_name": "Emma Carter",
+    "contact_email": "emma.carter@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-03T00:00:00"
+  },
+  {
+    "id": 19,
+    "customer_code": "CUST-0019",
+    "company_name": "Ironclad Cyber Systems 19",
+    "industry": "Technology",
+    "contact_name": "Jaxon Ramirez",
+    "contact_email": "jaxon.ramirez@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-08-26T00:00:00"
+  },
+  {
+    "id": 20,
+    "customer_code": "CUST-0020",
+    "company_name": "Krypton Robotics Ltd 20",
+    "industry": "Manufacturing",
+    "contact_name": "Carter Perez",
+    "contact_email": "carter.perez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-30T00:00:00"
+  },
+  {
+    "id": 21,
+    "customer_code": "CUST-0021",
+    "company_name": "Onyx Security Networks 21",
+    "industry": "Consulting",
+    "contact_name": "Amelia Thomas",
+    "contact_email": "amelia.thomas@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-03T00:00:00"
+  },
+  {
+    "id": 22,
+    "customer_code": "CUST-0022",
+    "company_name": "Summit Financial Partners 22",
+    "industry": "Retail",
+    "contact_name": "Stella Jones",
+    "contact_email": "stella.jones@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-07T00:00:00"
+  },
+  {
+    "id": 23,
+    "customer_code": "CUST-0023",
+    "company_name": "Zenith BioHealth 23",
+    "industry": "Aerospace",
+    "contact_name": "Anna Hall",
+    "contact_email": "anna.hall@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-11T00:00:00"
+  },
+  {
+    "id": 24,
+    "customer_code": "CUST-0024",
+    "company_name": "Silverline Transit 24",
+    "industry": "Logistics",
+    "contact_name": "Nova Jackson",
+    "contact_email": "nova.jackson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-18T00:00:00"
+  },
+  {
+    "id": 25,
+    "customer_code": "CUST-0025",
+    "company_name": "Novus Materials 25",
+    "industry": "Telecommunications",
+    "contact_name": "Zoey Smith",
+    "contact_email": "zoey.smith@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-13T00:00:00"
+  },
+  {
+    "id": 26,
+    "customer_code": "CUST-0026",
+    "company_name": "Vanguard Financial Technologies 26",
+    "industry": "Energy",
+    "contact_name": "Matthew Baker",
+    "contact_email": "matthew.baker@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-19T00:00:00"
+  },
+  {
+    "id": 27,
+    "customer_code": "CUST-0027",
+    "company_name": "Quantum Logistics 27",
+    "industry": "Healthcare",
+    "contact_name": "Sebastian Hill",
+    "contact_email": "sebastian.hill@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-17T00:00:00"
+  },
+  {
+    "id": 28,
+    "customer_code": "CUST-0028",
+    "company_name": "Elysium Therapeutics 28",
+    "industry": "Technology",
+    "contact_name": "Samuel Roberts",
+    "contact_email": "samuel.roberts@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-06T00:00:00"
+  },
+  {
+    "id": 29,
+    "customer_code": "CUST-0029",
+    "company_name": "Triton Marine Solutions 29",
+    "industry": "Healthcare",
+    "contact_name": "Layla Nelson",
+    "contact_email": "layla.nelson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-07T00:00:00"
+  },
+  {
+    "id": 30,
+    "customer_code": "CUST-0030",
+    "company_name": "OmniChannel Retailers 30",
+    "industry": "Aerospace",
+    "contact_name": "Theodore Young",
+    "contact_email": "theodore.young@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-07T00:00:00"
+  },
+  {
+    "id": 31,
+    "customer_code": "CUST-0031",
+    "company_name": "NextGen Mobility 31",
+    "industry": "Manufacturing",
+    "contact_name": "Jaxon Mitchell",
+    "contact_email": "jaxon.mitchell@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-15T00:00:00"
+  },
+  {
+    "id": 32,
+    "customer_code": "CUST-0032",
+    "company_name": "Apex Global Systems 32",
+    "industry": "Technology",
+    "contact_name": "Hannah Hill",
+    "contact_email": "hannah.hill@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-07-12T00:00:00"
+  },
+  {
+    "id": 33,
+    "customer_code": "CUST-0033",
+    "company_name": "Quantum Logistics 33",
+    "industry": "Retail",
+    "contact_name": "Audrey Smith",
+    "contact_email": "audrey.smith@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-11T00:00:00"
+  },
+  {
+    "id": 34,
+    "customer_code": "CUST-0034",
+    "company_name": "Echo Sound Engineering 34",
+    "industry": "Aerospace",
+    "contact_name": "Luna Allen",
+    "contact_email": "luna.allen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-27T00:00:00"
+  },
+  {
+    "id": 35,
+    "customer_code": "CUST-0035",
+    "company_name": "Triton Marine Solutions 35",
+    "industry": "Energy",
+    "contact_name": "James Adams",
+    "contact_email": "james.adams@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-30T00:00:00"
+  },
+  {
+    "id": 36,
+    "customer_code": "CUST-0036",
+    "company_name": "Silverline Transit 36",
+    "industry": "Consulting",
+    "contact_name": "Aria Carter",
+    "contact_email": "aria.carter@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-22T00:00:00"
+  },
+  {
+    "id": 37,
+    "customer_code": "CUST-0037",
+    "company_name": "Triton Marine Solutions 37",
+    "industry": "Technology",
+    "contact_name": "Isaiah White",
+    "contact_email": "isaiah.white@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-24T00:00:00"
+  },
+  {
+    "id": 38,
+    "customer_code": "CUST-0038",
+    "company_name": "Elysium Therapeutics 38",
+    "industry": "Consulting",
+    "contact_name": "Claire Sanchez",
+    "contact_email": "claire.sanchez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-23T00:00:00"
+  },
+  {
+    "id": 39,
+    "customer_code": "CUST-0039",
+    "company_name": "Lumina Optics 39",
+    "industry": "Technology",
+    "contact_name": "Evelyn Roberts",
+    "contact_email": "evelyn.roberts@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-09T00:00:00"
+  },
+  {
+    "id": 40,
+    "customer_code": "CUST-0040",
+    "company_name": "Solaria Solar Technologies 40",
+    "industry": "Finance",
+    "contact_name": "Sofia Carter",
+    "contact_email": "sofia.carter@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-25T00:00:00"
+  },
+  {
+    "id": 41,
+    "customer_code": "CUST-0041",
+    "company_name": "Echo Sound Engineering 41",
+    "industry": "Consulting",
+    "contact_name": "Elizabeth Gonzalez",
+    "contact_email": "elizabeth.gonzalez@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-01-04T00:00:00"
+  },
+  {
+    "id": 42,
+    "customer_code": "CUST-0042",
+    "company_name": "Astraea Aerospace 42",
+    "industry": "Telecommunications",
+    "contact_name": "Ryan Adams",
+    "contact_email": "ryan.adams@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-04-03T00:00:00"
+  },
+  {
+    "id": 43,
+    "customer_code": "CUST-0043",
+    "company_name": "Pacific Trade Winds 43",
+    "industry": "Technology",
+    "contact_name": "Carter Rodriguez",
+    "contact_email": "carter.rodriguez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-19T00:00:00"
+  },
+  {
+    "id": 44,
+    "customer_code": "CUST-0044",
+    "company_name": "Lumina Optics 44",
+    "industry": "Technology",
+    "contact_name": "Michael Perez",
+    "contact_email": "michael.perez@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-10-23T00:00:00"
+  },
+  {
+    "id": 45,
+    "customer_code": "CUST-0045",
+    "company_name": "Monolith Datacenters 45",
+    "industry": "Energy",
+    "contact_name": "Brooklyn Baker",
+    "contact_email": "brooklyn.baker@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-12T00:00:00"
+  },
+  {
+    "id": 46,
+    "customer_code": "CUST-0046",
+    "company_name": "Aegis Defense Dynamics 46",
+    "industry": "Manufacturing",
+    "contact_name": "Violet Young",
+    "contact_email": "violet.young@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-07T00:00:00"
+  },
+  {
+    "id": 47,
+    "customer_code": "CUST-0047",
+    "company_name": "Meridian Shipping Lines 47",
+    "industry": "Logistics",
+    "contact_name": "James Young",
+    "contact_email": "james.young@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-25T00:00:00"
+  },
+  {
+    "id": 48,
+    "customer_code": "CUST-0048",
+    "company_name": "NextGen Mobility 48",
+    "industry": "Manufacturing",
+    "contact_name": "Andrew Jones",
+    "contact_email": "andrew.jones@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-09T00:00:00"
+  },
+  {
+    "id": 49,
+    "customer_code": "CUST-0049",
+    "company_name": "Echo Sound Engineering 49",
+    "industry": "Energy",
+    "contact_name": "Nova White",
+    "contact_email": "nova.white@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-09T00:00:00"
+  },
+  {
+    "id": 50,
+    "customer_code": "CUST-0050",
+    "company_name": "Zenith BioHealth 50",
+    "industry": "Aerospace",
+    "contact_name": "Hudson Ramirez",
+    "contact_email": "hudson.ramirez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-14T00:00:00"
+  },
+  {
+    "id": 51,
+    "customer_code": "CUST-0051",
+    "company_name": "Krypton Robotics Ltd 51",
+    "industry": "Logistics",
+    "contact_name": "Claire Thomas",
+    "contact_email": "claire.thomas@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-30T00:00:00"
+  },
+  {
+    "id": 52,
+    "customer_code": "CUST-0052",
+    "company_name": "Summit Financial Partners 52",
+    "industry": "Technology",
+    "contact_name": "Amelia Walker",
+    "contact_email": "amelia.walker@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-01T00:00:00"
+  },
+  {
+    "id": 53,
+    "customer_code": "CUST-0053",
+    "company_name": "Nordic Supermarkets 53",
+    "industry": "Energy",
+    "contact_name": "Theodore Allen",
+    "contact_email": "theodore.allen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-15T00:00:00"
+  },
+  {
+    "id": 54,
+    "customer_code": "CUST-0054",
+    "company_name": "Strata Media Labs 54",
+    "industry": "Energy",
+    "contact_name": "Leah Miller",
+    "contact_email": "leah.miller@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-22T00:00:00"
+  },
+  {
+    "id": 55,
+    "customer_code": "CUST-0055",
+    "company_name": "Strata Media Labs 55",
+    "industry": "Aerospace",
+    "contact_name": "Avery Martinez",
+    "contact_email": "avery.martinez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-16T00:00:00"
+  },
+  {
+    "id": 56,
+    "customer_code": "CUST-0056",
+    "company_name": "Quantum Logistics 56",
+    "industry": "Finance",
+    "contact_name": "Matthew Nelson",
+    "contact_email": "matthew.nelson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-04T00:00:00"
+  },
+  {
+    "id": 57,
+    "customer_code": "CUST-0057",
+    "company_name": "NextGen Mobility 57",
+    "industry": "Energy",
+    "contact_name": "Caroline Jackson",
+    "contact_email": "caroline.jackson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-12T00:00:00"
+  },
+  {
+    "id": 58,
+    "customer_code": "CUST-0058",
+    "company_name": "Elysium Therapeutics 58",
+    "industry": "Telecommunications",
+    "contact_name": "Aurora Adams",
+    "contact_email": "aurora.adams@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-05T00:00:00"
+  },
+  {
+    "id": 59,
+    "customer_code": "CUST-0059",
+    "company_name": "Helios Energy Grid 59",
+    "industry": "Logistics",
+    "contact_name": "Hannah Clark",
+    "contact_email": "hannah.clark@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-01T00:00:00"
+  },
+  {
+    "id": 60,
+    "customer_code": "CUST-0060",
+    "company_name": "Novus Materials 60",
+    "industry": "Finance",
+    "contact_name": "Henry Nguyen",
+    "contact_email": "henry.nguyen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-29T00:00:00"
+  },
+  {
+    "id": 61,
+    "customer_code": "CUST-0061",
+    "company_name": "Cascade Water Utilities 61",
+    "industry": "Retail",
+    "contact_name": "Natalie Davis",
+    "contact_email": "natalie.davis@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-13T00:00:00"
+  },
+  {
+    "id": 62,
+    "customer_code": "CUST-0062",
+    "company_name": "Strata Media Labs 62",
+    "industry": "Manufacturing",
+    "contact_name": "Zoe Carter",
+    "contact_email": "zoe.carter@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-28T00:00:00"
+  },
+  {
+    "id": 63,
+    "customer_code": "CUST-0063",
+    "company_name": "Echo Sound Engineering 63",
+    "industry": "Consulting",
+    "contact_name": "Grayson Thompson",
+    "contact_email": "grayson.thompson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-05T00:00:00"
+  },
+  {
+    "id": 64,
+    "customer_code": "CUST-0064",
+    "company_name": "Astraea Aerospace 64",
+    "industry": "Consulting",
+    "contact_name": "Chloe Nguyen",
+    "contact_email": "chloe.nguyen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-20T00:00:00"
+  },
+  {
+    "id": 65,
+    "customer_code": "CUST-0065",
+    "company_name": "NextGen Mobility 65",
+    "industry": "Energy",
+    "contact_name": "Hannah Baker",
+    "contact_email": "hannah.baker@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-02T00:00:00"
+  },
+  {
+    "id": 66,
+    "customer_code": "CUST-0066",
+    "company_name": "Vanguard Financial Technologies 66",
+    "industry": "Logistics",
+    "contact_name": "Theodore Rodriguez",
+    "contact_email": "theodore.rodriguez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-31T00:00:00"
+  },
+  {
+    "id": 67,
+    "customer_code": "CUST-0067",
+    "company_name": "Solaria Solar Technologies 67",
+    "industry": "Energy",
+    "contact_name": "Leah Walker",
+    "contact_email": "leah.walker@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-15T00:00:00"
+  },
+  {
+    "id": 68,
+    "customer_code": "CUST-0068",
+    "company_name": "Terraform GeoEngineering 68",
+    "industry": "Retail",
+    "contact_name": "Leah Martin",
+    "contact_email": "leah.martin@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": 69,
+    "customer_code": "CUST-0069",
+    "company_name": "Sierra Agriculture 69",
+    "industry": "Finance",
+    "contact_name": "Aurora Wright",
+    "contact_email": "aurora.wright@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-05T00:00:00"
+  },
+  {
+    "id": 70,
+    "customer_code": "CUST-0070",
+    "company_name": "Apex Global Systems 70",
+    "industry": "Energy",
+    "contact_name": "Camila Nelson",
+    "contact_email": "camila.nelson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-23T00:00:00"
+  },
+  {
+    "id": 71,
+    "customer_code": "CUST-0071",
+    "company_name": "Frontier Mining Group 71",
+    "industry": "Consulting",
+    "contact_name": "Emma Jackson",
+    "contact_email": "emma.jackson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-29T00:00:00"
+  },
+  {
+    "id": 72,
+    "customer_code": "CUST-0072",
+    "company_name": "Echo Sound Engineering 72",
+    "industry": "Finance",
+    "contact_name": "Riley King",
+    "contact_email": "riley.king@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-11-30T00:00:00"
+  },
+  {
+    "id": 73,
+    "customer_code": "CUST-0073",
+    "company_name": "Astraea Aerospace 73",
+    "industry": "Telecommunications",
+    "contact_name": "Nova Jackson",
+    "contact_email": "nova.jackson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-08T00:00:00"
+  },
+  {
+    "id": 74,
+    "customer_code": "CUST-0074",
+    "company_name": "Elysium Therapeutics 74",
+    "industry": "Energy",
+    "contact_name": "Christopher Flores",
+    "contact_email": "christopher.flores@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-16T00:00:00"
+  },
+  {
+    "id": 75,
+    "customer_code": "CUST-0075",
+    "company_name": "Polaris Medical Systems 75",
+    "industry": "Technology",
+    "contact_name": "Genesis Roberts",
+    "contact_email": "genesis.roberts@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-17T00:00:00"
+  },
+  {
+    "id": 76,
+    "customer_code": "CUST-0076",
+    "company_name": "Vortex Turbines 76",
+    "industry": "Energy",
+    "contact_name": "Logan Flores",
+    "contact_email": "logan.flores@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-16T00:00:00"
+  },
+  {
+    "id": 77,
+    "customer_code": "CUST-0077",
+    "company_name": "Triton Marine Solutions 77",
+    "industry": "Consulting",
+    "contact_name": "Hannah Walker",
+    "contact_email": "hannah.walker@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-06T00:00:00"
+  },
+  {
+    "id": 78,
+    "customer_code": "CUST-0078",
+    "company_name": "Beacon Analytics 78",
+    "industry": "Manufacturing",
+    "contact_name": "Charlotte Thompson",
+    "contact_email": "charlotte.thompson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-20T00:00:00"
+  },
+  {
+    "id": 79,
+    "customer_code": "CUST-0079",
+    "company_name": "Titan Heavy Industries 79",
+    "industry": "Finance",
+    "contact_name": "Hazel Lopez",
+    "contact_email": "hazel.lopez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-17T00:00:00"
+  },
+  {
+    "id": 80,
+    "customer_code": "CUST-0080",
+    "company_name": "Echo Sound Engineering 80",
+    "industry": "Technology",
+    "contact_name": "Ryan Lewis",
+    "contact_email": "ryan.lewis@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-12T00:00:00"
+  },
+  {
+    "id": 81,
+    "customer_code": "CUST-0081",
+    "company_name": "Atlas Infrastructure 81",
+    "industry": "Manufacturing",
+    "contact_name": "Leo Jones",
+    "contact_email": "leo.jones@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-15T00:00:00"
+  },
+  {
+    "id": 82,
+    "customer_code": "CUST-0082",
+    "company_name": "Sierra Agriculture 82",
+    "industry": "Retail",
+    "contact_name": "Jaxon Lewis",
+    "contact_email": "jaxon.lewis@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-28T00:00:00"
+  },
+  {
+    "id": 83,
+    "customer_code": "CUST-0083",
+    "company_name": "Novus Materials 83",
+    "industry": "Healthcare",
+    "contact_name": "Genesis Garcia",
+    "contact_email": "genesis.garcia@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-19T00:00:00"
+  },
+  {
+    "id": 84,
+    "customer_code": "CUST-0084",
+    "company_name": "Vanguard Financial Technologies 84",
+    "industry": "Telecommunications",
+    "contact_name": "Hannah Harris",
+    "contact_email": "hannah.harris@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-08T00:00:00"
+  },
+  {
+    "id": 85,
+    "customer_code": "CUST-0085",
+    "company_name": "Monolith Datacenters 85",
+    "industry": "Retail",
+    "contact_name": "Hannah Jones",
+    "contact_email": "hannah.jones@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": 86,
+    "customer_code": "CUST-0086",
+    "company_name": "Vanguard Financial Technologies 86",
+    "industry": "Finance",
+    "contact_name": "Caleb Lopez",
+    "contact_email": "caleb.lopez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-04T00:00:00"
+  },
+  {
+    "id": 87,
+    "customer_code": "CUST-0087",
+    "company_name": "Strata Media Labs 87",
+    "industry": "Retail",
+    "contact_name": "Jack Nguyen",
+    "contact_email": "jack.nguyen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-20T00:00:00"
+  },
+  {
+    "id": 88,
+    "customer_code": "CUST-0088",
+    "company_name": "Vanguard Financial Technologies 88",
+    "industry": "Energy",
+    "contact_name": "Noah Harris",
+    "contact_email": "noah.harris@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-26T00:00:00"
+  },
+  {
+    "id": 89,
+    "customer_code": "CUST-0089",
+    "company_name": "BlueSky Cloud Solutions 89",
+    "industry": "Energy",
+    "contact_name": "Amelia Nelson",
+    "contact_email": "amelia.nelson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-13T00:00:00"
+  },
+  {
+    "id": 90,
+    "customer_code": "CUST-0090",
+    "company_name": "Pinnacle Automation Corp 90",
+    "industry": "Logistics",
+    "contact_name": "Kennedy Brown",
+    "contact_email": "kennedy.brown@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-17T00:00:00"
+  },
+  {
+    "id": 91,
+    "customer_code": "CUST-0091",
+    "company_name": "Terraform GeoEngineering 91",
+    "industry": "Energy",
+    "contact_name": "Asher Hall",
+    "contact_email": "asher.hall@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-11T00:00:00"
+  },
+  {
+    "id": 92,
+    "customer_code": "CUST-0092",
+    "company_name": "Aegis Defense Dynamics 92",
+    "industry": "Energy",
+    "contact_name": "Charles Mitchell",
+    "contact_email": "charles.mitchell@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-02T00:00:00"
+  },
+  {
+    "id": 93,
+    "customer_code": "CUST-0093",
+    "company_name": "Quantum Logistics 93",
+    "industry": "Healthcare",
+    "contact_name": "Ellie Moore",
+    "contact_email": "ellie.moore@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-08T00:00:00"
+  },
+  {
+    "id": 94,
+    "customer_code": "CUST-0094",
+    "company_name": "NextGen Mobility 94",
+    "industry": "Aerospace",
+    "contact_name": "Nova White",
+    "contact_email": "nova.white@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-15T00:00:00"
+  },
+  {
+    "id": 95,
+    "customer_code": "CUST-0095",
+    "company_name": "Apex Global Systems 95",
+    "industry": "Technology",
+    "contact_name": "Michael Thompson",
+    "contact_email": "michael.thompson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-31T00:00:00"
+  },
+  {
+    "id": 96,
+    "customer_code": "CUST-0096",
+    "company_name": "Solaria Solar Technologies 96",
+    "industry": "Manufacturing",
+    "contact_name": "Brooklyn Robinson",
+    "contact_email": "brooklyn.robinson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-06-03T00:00:00"
+  },
+  {
+    "id": 97,
+    "customer_code": "CUST-0097",
+    "company_name": "Monolith Datacenters 97",
+    "industry": "Retail",
+    "contact_name": "Violet Scott",
+    "contact_email": "violet.scott@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-23T00:00:00"
+  },
+  {
+    "id": 98,
+    "customer_code": "CUST-0098",
+    "company_name": "Monolith Datacenters 98",
+    "industry": "Healthcare",
+    "contact_name": "Anthony Williams",
+    "contact_email": "anthony.williams@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-12T00:00:00"
+  },
+  {
+    "id": 99,
+    "customer_code": "CUST-0099",
+    "company_name": "Krypton Robotics Ltd 99",
+    "industry": "Healthcare",
+    "contact_name": "Mateo Clark",
+    "contact_email": "mateo.clark@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-02T00:00:00"
+  },
+  {
+    "id": 100,
+    "customer_code": "CUST-0100",
+    "company_name": "Silverline Transit 100",
+    "industry": "Retail",
+    "contact_name": "Addison Rodriguez",
+    "contact_email": "addison.rodriguez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-06T00:00:00"
+  },
+  {
+    "id": 101,
+    "customer_code": "CUST-0101",
+    "company_name": "Zephyr Environmental 101",
+    "industry": "Technology",
+    "contact_name": "Theodore Davis",
+    "contact_email": "theodore.davis@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-11-14T00:00:00"
+  },
+  {
+    "id": 102,
+    "customer_code": "CUST-0102",
+    "company_name": "Frontier Mining Group 102",
+    "industry": "Energy",
+    "contact_name": "Andrew White",
+    "contact_email": "andrew.white@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-15T00:00:00"
+  },
+  {
+    "id": 103,
+    "customer_code": "CUST-0103",
+    "company_name": "Silverline Transit 103",
+    "industry": "Consulting",
+    "contact_name": "Josiah Torres",
+    "contact_email": "josiah.torres@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-12T00:00:00"
+  },
+  {
+    "id": 104,
+    "customer_code": "CUST-0104",
+    "company_name": "Pinnacle Automation Corp 104",
+    "industry": "Healthcare",
+    "contact_name": "Nora Lee",
+    "contact_email": "nora.lee@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-05-11T00:00:00"
+  },
+  {
+    "id": 105,
+    "customer_code": "CUST-0105",
+    "company_name": "Triton Marine Solutions 105",
+    "industry": "Aerospace",
+    "contact_name": "Kennedy Jackson",
+    "contact_email": "kennedy.jackson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-02T00:00:00"
+  },
+  {
+    "id": 106,
+    "customer_code": "CUST-0106",
+    "company_name": "Atlas Infrastructure 106",
+    "industry": "Technology",
+    "contact_name": "Wyatt Gonzalez",
+    "contact_email": "wyatt.gonzalez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-16T00:00:00"
+  },
+  {
+    "id": 107,
+    "customer_code": "CUST-0107",
+    "company_name": "Onyx Security Networks 107",
+    "industry": "Finance",
+    "contact_name": "Leo Flores",
+    "contact_email": "leo.flores@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-31T00:00:00"
+  },
+  {
+    "id": 108,
+    "customer_code": "CUST-0108",
+    "company_name": "Lumina Optics 108",
+    "industry": "Technology",
+    "contact_name": "Lincoln Thompson",
+    "contact_email": "lincoln.thompson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-03-09T00:00:00"
+  },
+  {
+    "id": 109,
+    "customer_code": "CUST-0109",
+    "company_name": "Vanguard Financial Technologies 109",
+    "industry": "Energy",
+    "contact_name": "Daniel Flores",
+    "contact_email": "daniel.flores@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-08-20T00:00:00"
+  },
+  {
+    "id": 110,
+    "customer_code": "CUST-0110",
+    "company_name": "OmniChannel Retailers 110",
+    "industry": "Healthcare",
+    "contact_name": "Lily Hill",
+    "contact_email": "lily.hill@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-03-09T00:00:00"
+  },
+  {
+    "id": 111,
+    "customer_code": "CUST-0111",
+    "company_name": "Valence Chemical Corp 111",
+    "industry": "Retail",
+    "contact_name": "Ryan Sanchez",
+    "contact_email": "ryan.sanchez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-01T00:00:00"
+  },
+  {
+    "id": 112,
+    "customer_code": "CUST-0112",
+    "company_name": "Echo Sound Engineering 112",
+    "industry": "Logistics",
+    "contact_name": "Christopher Sanchez",
+    "contact_email": "christopher.sanchez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-04-05T00:00:00"
+  },
+  {
+    "id": 113,
+    "customer_code": "CUST-0113",
+    "company_name": "Meridian Shipping Lines 113",
+    "industry": "Aerospace",
+    "contact_name": "Luke Jackson",
+    "contact_email": "luke.jackson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-02-20T00:00:00"
+  },
+  {
+    "id": 114,
+    "customer_code": "CUST-0114",
+    "company_name": "Sierra Agriculture 114",
+    "industry": "Energy",
+    "contact_name": "Lincoln Gonzalez",
+    "contact_email": "lincoln.gonzalez@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-10-02T00:00:00"
+  },
+  {
+    "id": 115,
+    "customer_code": "CUST-0115",
+    "company_name": "Apex Global Systems 115",
+    "industry": "Retail",
+    "contact_name": "Jack Flores",
+    "contact_email": "jack.flores@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-01-01T00:00:00"
+  },
+  {
+    "id": 116,
+    "customer_code": "CUST-0116",
+    "company_name": "Cascade Water Utilities 116",
+    "industry": "Logistics",
+    "contact_name": "Layla Anderson",
+    "contact_email": "layla.anderson@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": 117,
+    "customer_code": "CUST-0117",
+    "company_name": "Vortex Turbines 117",
+    "industry": "Energy",
+    "contact_name": "Audrey Smith",
+    "contact_email": "audrey.smith@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-25T00:00:00"
+  },
+  {
+    "id": 118,
+    "customer_code": "CUST-0118",
+    "company_name": "Titan Heavy Industries 118",
+    "industry": "Finance",
+    "contact_name": "Avery King",
+    "contact_email": "avery.king@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-07-04T00:00:00"
+  },
+  {
+    "id": 119,
+    "customer_code": "CUST-0119",
+    "company_name": "Terraform GeoEngineering 119",
+    "industry": "Finance",
+    "contact_name": "Josiah Nguyen",
+    "contact_email": "josiah.nguyen@synthetic-corp.test",
+    "status": "active",
+    "created_at": "2025-09-09T00:00:00"
+  },
+  {
+    "id": 120,
+    "customer_code": "CUST-0120",
+    "company_name": "Hyperion Telecom 120",
+    "industry": "Energy",
+    "contact_name": "Leo Wright",
+    "contact_email": "leo.wright@synthetic-corp.test",
+    "status": "prospect",
+    "created_at": "2025-11-07T00:00:00"
+  }
+]

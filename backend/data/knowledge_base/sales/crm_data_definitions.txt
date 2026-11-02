@@ -1,0 +1,11 @@
+# CRM Data Definitions and Dictionary
+Document ID: DOC-SALES-008
+Department: Sales
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Standard Fields
+- Deal Value: Total contract value across primary term excluding optional renewals.
+- Close Date: Target signature date agreed upon with client.
+- Owner ID: Assigned internal Account Executive responsible for opportunity updates.
+- Lead Source: Origin channel (Website, Outbound, Partner, Event).

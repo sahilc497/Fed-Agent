@@ -1,0 +1,11 @@
+# Employee Health and Welfare Benefits Handbook
+Document ID: DOC-HR-004
+Department: Human Resources
+Version: 3.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Medical and Dental Coverage
+Comprehensive health, dental, and vision insurance is provided to all full-time staff with 80% employer premium contribution.
+
+## 2. Retirement Matching
+The company matches employee 401(k) retirement contributions up to 5% of base salary.

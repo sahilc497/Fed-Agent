@@ -1,5 +1,4 @@
-from typing import List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
+from typing import Any, List, Optional
 from app.core.exceptions import PermissionDeniedError, NotFoundError
 from app.db.models.department_agent import DepartmentAgent
 from app.db.models.user import User
@@ -11,7 +10,7 @@ from app.core.logging import get_correlation_id
 
 
 class DepartmentAgentService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
         self.agent_repo = DepartmentAgentRepository(db)
         self.dept_repo = DepartmentRepository(db)

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
 import { api, type HealthReadyStatus } from '../api/client';
 import { 
   LayoutDashboard, 
@@ -12,11 +13,15 @@ import {
   Users, 
   LogOut,
   Activity,
-  Server
+  Server,
+  UserCircle,
+  Palette,
+  RotateCcw
 } from 'lucide-react';
 
 export const Layout: React.FC = () => {
   const { user, logout } = useAuth();
+  const { theme, themeMeta, setTheme, isCustomPreview, resetToUserDefault, availableThemes } = useTheme();
   const navigate = useNavigate();
   const [health, setHealth] = useState<HealthReadyStatus | null>(null);
 
@@ -46,7 +51,6 @@ export const Layout: React.FC = () => {
   const getRoleBadgeClass = (role?: string) => {
     switch (role) {
       case 'admin': return 'badge-danger';
-      case 'auditor': return 'badge-warning';
       case 'department_manager': return 'badge-primary';
       default: return 'badge-neutral';
     }
@@ -55,7 +59,6 @@ export const Layout: React.FC = () => {
   const formatRole = (role?: string) => {
     switch (role) {
       case 'admin': return 'Administrator';
-      case 'auditor': return 'Security Auditor';
       case 'department_manager': return 'Dept Manager';
       case 'department_employee': return 'Staff Employee';
       default: return role || '';
@@ -69,10 +72,36 @@ export const Layout: React.FC = () => {
       {/* Sidebar */}
       <aside className="sidebar">
         <div className="sidebar-header">
-          <Server size={24} color="#3b82f6" />
+          <div style={{
+            width: 38,
+            height: 38,
+            borderRadius: 10,
+            background: 'var(--theme-gradient)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            boxShadow: 'var(--theme-glow)',
+            flexShrink: 0
+          }}>
+            <Server size={20} color="#ffffff" />
+          </div>
           <div>
             <div className="sidebar-title">Agentic Mesh</div>
-            <div className="sidebar-subtitle">Federated Enterprise AI</div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6, marginTop: 2 }}>
+              <span className="sidebar-subtitle">Federated Enterprise AI</span>
+              <span style={{
+                fontSize: '0.65rem',
+                padding: '1px 5px',
+                borderRadius: 4,
+                backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                color: themeMeta.primaryColor,
+                fontWeight: 700,
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase'
+              }}>
+                {themeMeta.name.split(' ')[0]}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -102,17 +131,24 @@ export const Layout: React.FC = () => {
             <span>Approvals</span>
           </NavLink>
 
-          <NavLink to="/audit" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
-            <ShieldAlert size={18} />
-            <span>Audit Trail</span>
-          </NavLink>
+          {user && (user.role === 'admin' || user.role === 'department_manager') && (
+            <NavLink to="/audit" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+              <ShieldAlert size={18} />
+              <span>Audit Trail</span>
+            </NavLink>
+          )}
 
-          {user && (user.role === 'admin' || user.role === 'auditor') && (
+          {user && user.role === 'admin' && (
             <NavLink to="/admin/users" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
               <Users size={18} />
               <span>User Admin</span>
             </NavLink>
           )}
+
+          <NavLink to="/profile" className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}>
+            <UserCircle size={18} />
+            <span>My Profile</span>
+          </NavLink>
         </nav>
 
         {/* Sidebar Footer with Health & Profile */}
@@ -151,16 +187,74 @@ export const Layout: React.FC = () => {
       {/* Main Content Area */}
       <div className="main-content">
         <header className="top-bar">
-          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 500, color: '#64748b' }}>Enterprise Scope:</span>
-            <span className="badge badge-primary">Dept ID: {user?.department_id}</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 600, color: '#475569' }}>Mesh Scope:</span>
+            <span className={`badge badge-theme-${theme}`}>
+              Dept ID: {user?.department_id}
+            </span>
             <span className={`badge ${getRoleBadgeClass(user?.role)}`}>
               {formatRole(user?.role)}
+            </span>
+            <span 
+              className={`badge badge-theme-${theme}`} 
+              style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontWeight: 700 }}
+              title={themeMeta.description}
+            >
+              <span style={{ width: 8, height: 8, borderRadius: '50%', background: themeMeta.primaryColor, display: 'inline-block' }}></span>
+              {themeMeta.name}
             </span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+            {/* Admin Department Theme Switcher / Preview */}
+            {user?.role === 'admin' && (
+              <div style={{ display: 'flex', alignItems: 'center', gap: 6, background: '#f8fafc', padding: '3px 8px', borderRadius: 20, border: '1px solid #e2e8f0' }}>
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#64748b', display: 'flex', alignItems: 'center', gap: 4 }}>
+                  <Palette size={13} color="var(--primary)" /> Dept Theme:
+                </span>
+                {availableThemes.map((t) => {
+                  const isActive = theme === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      onClick={() => setTheme(t.id)}
+                      className={`theme-pill-btn ${isActive ? 'active' : ''}`}
+                      style={{
+                        background: isActive ? t.accentGradient : undefined,
+                        color: isActive ? '#ffffff' : undefined,
+                        borderColor: isActive ? 'transparent' : undefined,
+                        fontSize: '0.72rem',
+                        padding: '3px 8px'
+                      }}
+                      title={`Preview UI styled as ${t.name} (${t.badgeLabel})`}
+                    >
+                      <span 
+                        style={{ 
+                          width: 6, 
+                          height: 6, 
+                          borderRadius: '50%', 
+                          background: isActive ? '#ffffff' : t.primaryColor,
+                          display: 'inline-block'
+                        }} 
+                      />
+                      {t.id.toUpperCase()}
+                    </button>
+                  );
+                })}
+                {isCustomPreview && (
+                  <button
+                    onClick={resetToUserDefault}
+                    className="btn btn-secondary btn-sm"
+                    style={{ padding: '2px 6px', fontSize: '0.7rem', display: 'flex', alignItems: 'center', gap: 3 }}
+                    title="Reset to default Admin theme"
+                  >
+                    <RotateCcw size={11} /> Reset
+                  </button>
+                )}
+              </div>
+            )}
+
+            <div style={{ fontSize: '0.8rem', color: '#64748b', whiteSpace: 'nowrap' }}>
               Zero-Trust Isolation • Semantic RAG
             </div>
           </div>

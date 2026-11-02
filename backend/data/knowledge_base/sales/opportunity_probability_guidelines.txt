@@ -1,0 +1,8 @@
+# Opportunity Probability Guidelines
+Document ID: DOC-SALES-009
+Department: Sales
+Version: 1.2 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Objective Probability Assessment
+Sales representatives must not manually inflate probability scores. Probability must reflect verifiable customer actions, such as budget sign-off or procurement vendor setup.

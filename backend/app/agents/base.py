@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod
 from typing import Any, Dict, List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.models.user import User
 from app.schemas.chat import EvidenceReference
 
@@ -24,7 +23,7 @@ class AgentTaskResult:
 
 
 class BaseAgent(ABC):
-    def __init__(self, department_code: str, db: AsyncSession):
+    def __init__(self, department_code: str, db: Any):
         self.department_code = department_code
         self.db = db
 

@@ -1,6 +1,5 @@
-from typing import List
+from typing import Any, List
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.db.models.user import User
 from app.api.deps import get_current_user
@@ -14,7 +13,7 @@ router = APIRouter(prefix="/agents", tags=["Agents"])
 @router.get("", response_model=List[DepartmentAgentOut])
 async def list_agents(
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Lists registered department agents and their enabled/disabled health status."""
     service = DepartmentAgentService(db)
@@ -25,7 +24,7 @@ async def list_agents(
 async def get_agent(
     agent_code: str,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Retrieves an agent's configuration and status."""
     service = DepartmentAgentService(db)
@@ -40,7 +39,7 @@ async def update_agent(
     agent_code: str,
     data: DepartmentAgentUpdate,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Administrator-only: updates agent configuration (prompt, name, status)."""
     service = DepartmentAgentService(db)
@@ -57,7 +56,7 @@ async def toggle_agent(
     agent_code: str,
     is_enabled: bool,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Administrator-only: toggles department agent enabled or disabled state."""
     service = DepartmentAgentService(db)

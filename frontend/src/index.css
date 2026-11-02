@@ -1,10 +1,24 @@
-/* Enterprise Federated Agentic Mesh Design System */
+/* Enterprise Federated Agentic Mesh Multi-Department Design System */
 
 :root {
+  /* Default Theme (Electric Cobalt Blue - Sales fallback) */
   --primary: #2563eb;
   --primary-hover: #1d4ed8;
   --primary-light: #eff6ff;
   --primary-border: #bfdbfe;
+  --primary-rgb: 37, 99, 235;
+
+  --theme-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --theme-glow: 0 0 20px rgba(37, 99, 235, 0.28);
+  --theme-sidebar-bg: #0b132b;
+  --theme-sidebar-header: #080e22;
+  --theme-sidebar-active: #1d4ed8;
+  --theme-sidebar-active-text: #ffffff;
+  --theme-badge-bg: #eff6ff;
+  --theme-badge-text: #1e40af;
+  --theme-badge-border: #bfdbfe;
+  --theme-focus-ring: rgba(37, 99, 235, 0.25);
+  --theme-accent: #38bdf8;
   
   --bg-page: #f8fafc;
   --bg-card: #ffffff;
@@ -38,6 +52,116 @@
   --radius-lg: 14px;
 }
 
+/* ==========================================================================
+   THEME 1: ADMIN (Royal Indigo & Executive Amethyst)
+   ========================================================================== */
+[data-theme="admin"], .theme-admin {
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --primary-light: #eef2ff;
+  --primary-border: #c7d2fe;
+  --primary-rgb: 99, 102, 241;
+  --theme-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  --theme-glow: 0 0 24px rgba(99, 102, 241, 0.35);
+  --theme-sidebar-bg: #090d16;
+  --theme-sidebar-header: #05070e;
+  --theme-sidebar-active: #4f46e5;
+  --theme-sidebar-active-text: #ffffff;
+  --theme-badge-bg: #eef2ff;
+  --theme-badge-text: #4338ca;
+  --theme-badge-border: #c7d2fe;
+  --theme-focus-ring: rgba(99, 102, 241, 0.25);
+  --theme-accent: #a855f7;
+}
+
+/* ==========================================================================
+   THEME 2: SALES (Electric Cobalt & Sapphire Blue)
+   ========================================================================== */
+[data-theme="sales"], .theme-sales {
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --primary-border: #bfdbfe;
+  --primary-rgb: 37, 99, 235;
+  --theme-gradient: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  --theme-glow: 0 0 24px rgba(37, 99, 235, 0.35);
+  --theme-sidebar-bg: #0b132b;
+  --theme-sidebar-header: #080e22;
+  --theme-sidebar-active: #1d4ed8;
+  --theme-sidebar-active-text: #ffffff;
+  --theme-badge-bg: #eff6ff;
+  --theme-badge-text: #1e40af;
+  --theme-badge-border: #bfdbfe;
+  --theme-focus-ring: rgba(37, 99, 235, 0.25);
+  --theme-accent: #38bdf8;
+}
+
+/* ==========================================================================
+   THEME 3: HR (Vivid Emerald & Mint Teal)
+   ========================================================================== */
+[data-theme="hr"], .theme-hr {
+  --primary: #059669;
+  --primary-hover: #047857;
+  --primary-light: #ecfdf5;
+  --primary-border: #a7f3d0;
+  --primary-rgb: 5, 150, 105;
+  --theme-gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
+  --theme-glow: 0 0 24px rgba(16, 185, 129, 0.35);
+  --theme-sidebar-bg: #041d14;
+  --theme-sidebar-header: #03140e;
+  --theme-sidebar-active: #047857;
+  --theme-sidebar-active-text: #ffffff;
+  --theme-badge-bg: #ecfdf5;
+  --theme-badge-text: #065f46;
+  --theme-badge-border: #a7f3d0;
+  --theme-focus-ring: rgba(5, 150, 105, 0.25);
+  --theme-accent: #10b981;
+}
+
+/* ==========================================================================
+   THEME 4: FINANCE (Luxurious Amber & Burnished Gold)
+   ========================================================================== */
+[data-theme="finance"], .theme-finance {
+  --primary: #d97706;
+  --primary-hover: #b45309;
+  --primary-light: #fffbeb;
+  --primary-border: #fde68a;
+  --primary-rgb: 217, 119, 6;
+  --theme-gradient: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+  --theme-glow: 0 0 24px rgba(217, 119, 6, 0.35);
+  --theme-sidebar-bg: #1c1305;
+  --theme-sidebar-header: #130c02;
+  --theme-sidebar-active: #b45309;
+  --theme-sidebar-active-text: #ffffff;
+  --theme-badge-bg: #fffbeb;
+  --theme-badge-text: #92400e;
+  --theme-badge-border: #fde68a;
+  --theme-focus-ring: rgba(217, 119, 6, 0.25);
+  --theme-accent: #f59e0b;
+}
+
+/* ==========================================================================
+   THEME 5: OPERATIONS (Industrial Tangerine & Safety Coral)
+   ========================================================================== */
+[data-theme="operations"], .theme-operations {
+  --primary: #ea580c;
+  --primary-hover: #c2410c;
+  --primary-light: #fff7ed;
+  --primary-border: #fed7aa;
+  --primary-rgb: 234, 88, 12;
+  --theme-gradient: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+  --theme-glow: 0 0 24px rgba(234, 88, 12, 0.35);
+  --theme-sidebar-bg: #1e0f06;
+  --theme-sidebar-header: #140a03;
+  --theme-sidebar-active: #c2410c;
+  --theme-sidebar-active-text: #ffffff;
+  --theme-badge-bg: #fff7ed;
+  --theme-badge-text: #9a3412;
+  --theme-badge-border: #fed7aa;
+  --theme-focus-ring: rgba(234, 88, 12, 0.25);
+  --theme-accent: #f97316;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -66,20 +190,23 @@ a {
 
 .sidebar {
   width: 260px;
-  background-color: var(--bg-sidebar);
+  background: var(--theme-sidebar-bg, var(--bg-sidebar));
   color: var(--text-white);
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background 0.3s ease;
 }
 
 .sidebar-header {
   padding: 24px 20px;
+  background: var(--theme-sidebar-header, transparent);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   gap: 12px;
+  transition: background 0.3s ease;
 }
 
 .sidebar-title {
@@ -114,24 +241,27 @@ a {
   color: #cbd5e1;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
+  border-left: 3px solid transparent;
 }
 
 .nav-item:hover {
-  background-color: var(--bg-sidebar-hover);
+  background-color: rgba(255, 255, 255, 0.08);
   color: #ffffff;
 }
 
 .nav-item.active {
-  background-color: var(--primary);
+  background: var(--theme-sidebar-active, var(--primary));
   color: #ffffff;
   font-weight: 600;
+  box-shadow: var(--theme-glow, none);
+  border-left-color: var(--theme-accent, #ffffff);
 }
 
 .sidebar-footer {
   padding: 16px 20px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .main-content {
@@ -145,6 +275,7 @@ a {
 .top-bar {
   background-color: var(--bg-card);
   border-bottom: 1px solid var(--border-color);
+  border-top: 3px solid var(--primary);
   padding: 14px 28px;
   display: flex;
   align-items: center;
@@ -152,6 +283,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
 
 .page-body {
@@ -258,12 +391,16 @@ p.subtitle {
 }
 
 .btn-primary {
-  background-color: var(--primary);
+  background: var(--theme-gradient, var(--primary));
   color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-hover);
+  filter: brightness(1.08);
+  box-shadow: var(--theme-glow, 0 4px 12px rgba(0, 0, 0, 0.18));
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -331,6 +468,63 @@ p.subtitle {
   background-color: #f1f5f9;
   color: #475569;
   border: 1px solid #e2e8f0;
+}
+
+/* Department Specific Badges */
+.badge-theme-admin {
+  background-color: #eef2ff;
+  color: #4338ca;
+  border: 1px solid #c7d2fe;
+}
+
+.badge-theme-sales {
+  background-color: #eff6ff;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-theme-hr {
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+}
+
+.badge-theme-finance {
+  background-color: #fffbeb;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.badge-theme-operations {
+  background-color: #fff7ed;
+  color: #9a3412;
+  border: 1px solid #fed7aa;
+}
+
+.theme-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  color: #475569;
+  transition: all 0.15s ease;
+}
+
+.theme-pill-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.theme-pill-btn.active {
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
 }
 
 /* Tables */
@@ -402,7 +596,7 @@ input, select, textarea {
 
 input:focus, select:focus, textarea:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 0 0 3px var(--theme-focus-ring, rgba(37, 99, 235, 0.15));
 }
 
 /* Modals */
@@ -491,9 +685,10 @@ input:focus, select:focus, textarea:focus {
 
 .chat-bubble-user {
   align-self: flex-end;
-  background-color: var(--primary);
+  background: var(--theme-gradient, var(--primary));
   color: #ffffff;
   border-bottom-right-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
 .chat-bubble-assistant {

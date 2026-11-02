@@ -1,0 +1,8 @@
+# Personnel File Confidentiality Procedures
+Document ID: DOC-HR-011
+Department: Human Resources
+Version: 2.1 (Synthetic Enterprise Policy Demo)
+Access Level: confidential
+
+## 1. Record Retention
+Employee medical notes, disciplinary letters, and background checks are retained in encrypted storage for 7 years post-departure.

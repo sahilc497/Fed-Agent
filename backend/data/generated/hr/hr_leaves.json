@@ -1,0 +1,2402 @@
+[
+  {
+    "id": 1,
+    "employee_id": 16,
+    "leave_type": "bereavement",
+    "days": 9,
+    "status": "approved",
+    "start_date": "2025-07-15",
+    "end_date": "2025-07-24",
+    "created_at": "2025-07-15T00:00:00"
+  },
+  {
+    "id": 2,
+    "employee_id": 49,
+    "leave_type": "parental",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2025-06-14",
+    "end_date": "2025-06-19",
+    "created_at": "2025-06-14T00:00:00"
+  },
+  {
+    "id": 3,
+    "employee_id": 135,
+    "leave_type": "parental",
+    "days": 1,
+    "status": "approved",
+    "start_date": "2025-07-17",
+    "end_date": "2025-07-18",
+    "created_at": "2025-07-17T00:00:00"
+  },
+  {
+    "id": 4,
+    "employee_id": 37,
+    "leave_type": "annual",
+    "days": 11,
+    "status": "approved",
+    "start_date": "2025-08-14",
+    "end_date": "2025-08-25",
+    "created_at": "2025-08-14T00:00:00"
+  },
+  {
+    "id": 5,
+    "employee_id": 47,
+    "leave_type": "annual",
+    "days": 2,
+    "status": "rejected",
+    "start_date": "2025-06-15",
+    "end_date": "2025-06-17",
+    "created_at": "2025-06-15T00:00:00"
+  },
+  {
+    "id": 6,
+    "employee_id": 18,
+    "leave_type": "bereavement",
+    "days": 11,
+    "status": "pending",
+    "start_date": "2025-06-27",
+    "end_date": "2025-07-08",
+    "created_at": "2025-06-27T00:00:00"
+  },
+  {
+    "id": 7,
+    "employee_id": 108,
+    "leave_type": "bereavement",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2025-09-19",
+    "end_date": "2025-09-26",
+    "created_at": "2025-09-19T00:00:00"
+  },
+  {
+    "id": 8,
+    "employee_id": 34,
+    "leave_type": "sick",
+    "days": 3,
+    "status": "rejected",
+    "start_date": "2025-08-29",
+    "end_date": "2025-09-01",
+    "created_at": "2025-08-29T00:00:00"
+  },
+  {
+    "id": 9,
+    "employee_id": 79,
+    "leave_type": "parental",
+    "days": 13,
+    "status": "rejected",
+    "start_date": "2025-10-14",
+    "end_date": "2025-10-27",
+    "created_at": "2025-10-14T00:00:00"
+  },
+  {
+    "id": 10,
+    "employee_id": 46,
+    "leave_type": "personal",
+    "days": 4,
+    "status": "pending",
+    "start_date": "2025-11-20",
+    "end_date": "2025-11-24",
+    "created_at": "2025-11-20T00:00:00"
+  },
+  {
+    "id": 11,
+    "employee_id": 117,
+    "leave_type": "parental",
+    "days": 9,
+    "status": "pending",
+    "start_date": "2025-08-24",
+    "end_date": "2025-09-02",
+    "created_at": "2025-08-24T00:00:00"
+  },
+  {
+    "id": 12,
+    "employee_id": 60,
+    "leave_type": "parental",
+    "days": 5,
+    "status": "approved",
+    "start_date": "2025-07-31",
+    "end_date": "2025-08-05",
+    "created_at": "2025-07-31T00:00:00"
+  },
+  {
+    "id": 13,
+    "employee_id": 53,
+    "leave_type": "sick",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-08-08",
+    "end_date": "2025-08-22",
+    "created_at": "2025-08-08T00:00:00"
+  },
+  {
+    "id": 14,
+    "employee_id": 19,
+    "leave_type": "bereavement",
+    "days": 4,
+    "status": "pending",
+    "start_date": "2025-06-22",
+    "end_date": "2025-06-26",
+    "created_at": "2025-06-22T00:00:00"
+  },
+  {
+    "id": 15,
+    "employee_id": 58,
+    "leave_type": "annual",
+    "days": 10,
+    "status": "rejected",
+    "start_date": "2026-01-13",
+    "end_date": "2026-01-23",
+    "created_at": "2026-01-13T00:00:00"
+  },
+  {
+    "id": 16,
+    "employee_id": 104,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2025-07-22",
+    "end_date": "2025-07-29",
+    "created_at": "2025-07-22T00:00:00"
+  },
+  {
+    "id": 17,
+    "employee_id": 101,
+    "leave_type": "parental",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-03",
+    "created_at": "2025-06-01T00:00:00"
+  },
+  {
+    "id": 18,
+    "employee_id": 20,
+    "leave_type": "parental",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-09-04",
+    "end_date": "2025-09-05",
+    "created_at": "2025-09-04T00:00:00"
+  },
+  {
+    "id": 19,
+    "employee_id": 103,
+    "leave_type": "personal",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-06",
+    "created_at": "2025-06-01T00:00:00"
+  },
+  {
+    "id": 20,
+    "employee_id": 62,
+    "leave_type": "bereavement",
+    "days": 8,
+    "status": "approved",
+    "start_date": "2025-12-28",
+    "end_date": "2026-01-05",
+    "created_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": 21,
+    "employee_id": 80,
+    "leave_type": "personal",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2025-06-26",
+    "end_date": "2025-07-09",
+    "created_at": "2025-06-26T00:00:00"
+  },
+  {
+    "id": 22,
+    "employee_id": 45,
+    "leave_type": "annual",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-10-05",
+    "end_date": "2025-10-12",
+    "created_at": "2025-10-05T00:00:00"
+  },
+  {
+    "id": 23,
+    "employee_id": 34,
+    "leave_type": "sick",
+    "days": 13,
+    "status": "approved",
+    "start_date": "2025-09-27",
+    "end_date": "2025-10-10",
+    "created_at": "2025-09-27T00:00:00"
+  },
+  {
+    "id": 24,
+    "employee_id": 95,
+    "leave_type": "sick",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-12-28",
+    "end_date": "2025-12-31",
+    "created_at": "2025-12-28T00:00:00"
+  },
+  {
+    "id": 25,
+    "employee_id": 53,
+    "leave_type": "personal",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-08-11",
+    "end_date": "2025-08-25",
+    "created_at": "2025-08-11T00:00:00"
+  },
+  {
+    "id": 26,
+    "employee_id": 69,
+    "leave_type": "bereavement",
+    "days": 10,
+    "status": "rejected",
+    "start_date": "2025-10-24",
+    "end_date": "2025-11-03",
+    "created_at": "2025-10-24T00:00:00"
+  },
+  {
+    "id": 27,
+    "employee_id": 43,
+    "leave_type": "bereavement",
+    "days": 6,
+    "status": "approved",
+    "start_date": "2025-12-07",
+    "end_date": "2025-12-13",
+    "created_at": "2025-12-07T00:00:00"
+  },
+  {
+    "id": 28,
+    "employee_id": 123,
+    "leave_type": "parental",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-11-06",
+    "end_date": "2025-11-11",
+    "created_at": "2025-11-06T00:00:00"
+  },
+  {
+    "id": 29,
+    "employee_id": 99,
+    "leave_type": "personal",
+    "days": 4,
+    "status": "approved",
+    "start_date": "2025-10-08",
+    "end_date": "2025-10-12",
+    "created_at": "2025-10-08T00:00:00"
+  },
+  {
+    "id": 30,
+    "employee_id": 148,
+    "leave_type": "bereavement",
+    "days": 14,
+    "status": "approved",
+    "start_date": "2025-08-16",
+    "end_date": "2025-08-30",
+    "created_at": "2025-08-16T00:00:00"
+  },
+  {
+    "id": 31,
+    "employee_id": 110,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2026-01-17",
+    "end_date": "2026-01-24",
+    "created_at": "2026-01-17T00:00:00"
+  },
+  {
+    "id": 32,
+    "employee_id": 90,
+    "leave_type": "annual",
+    "days": 6,
+    "status": "approved",
+    "start_date": "2025-12-20",
+    "end_date": "2025-12-26",
+    "created_at": "2025-12-20T00:00:00"
+  },
+  {
+    "id": 33,
+    "employee_id": 98,
+    "leave_type": "sick",
+    "days": 11,
+    "status": "rejected",
+    "start_date": "2025-10-28",
+    "end_date": "2025-11-08",
+    "created_at": "2025-10-28T00:00:00"
+  },
+  {
+    "id": 34,
+    "employee_id": 84,
+    "leave_type": "annual",
+    "days": 12,
+    "status": "rejected",
+    "start_date": "2025-10-07",
+    "end_date": "2025-10-19",
+    "created_at": "2025-10-07T00:00:00"
+  },
+  {
+    "id": 35,
+    "employee_id": 133,
+    "leave_type": "personal",
+    "days": 2,
+    "status": "pending",
+    "start_date": "2025-08-19",
+    "end_date": "2025-08-21",
+    "created_at": "2025-08-19T00:00:00"
+  },
+  {
+    "id": 36,
+    "employee_id": 52,
+    "leave_type": "sick",
+    "days": 14,
+    "status": "approved",
+    "start_date": "2025-06-05",
+    "end_date": "2025-06-19",
+    "created_at": "2025-06-05T00:00:00"
+  },
+  {
+    "id": 37,
+    "employee_id": 131,
+    "leave_type": "sick",
+    "days": 9,
+    "status": "pending",
+    "start_date": "2025-06-16",
+    "end_date": "2025-06-25",
+    "created_at": "2025-06-16T00:00:00"
+  },
+  {
+    "id": 38,
+    "employee_id": 125,
+    "leave_type": "parental",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-08-04",
+    "end_date": "2025-08-07",
+    "created_at": "2025-08-04T00:00:00"
+  },
+  {
+    "id": 39,
+    "employee_id": 42,
+    "leave_type": "bereavement",
+    "days": 10,
+    "status": "approved",
+    "start_date": "2025-12-09",
+    "end_date": "2025-12-19",
+    "created_at": "2025-12-09T00:00:00"
+  },
+  {
+    "id": 40,
+    "employee_id": 13,
+    "leave_type": "annual",
+    "days": 3,
+    "status": "rejected",
+    "start_date": "2025-10-06",
+    "end_date": "2025-10-09",
+    "created_at": "2025-10-06T00:00:00"
+  },
+  {
+    "id": 41,
+    "employee_id": 40,
+    "leave_type": "parental",
+    "days": 14,
+    "status": "pending",
+    "start_date": "2025-11-23",
+    "end_date": "2025-12-07",
+    "created_at": "2025-11-23T00:00:00"
+  },
+  {
+    "id": 42,
+    "employee_id": 156,
+    "leave_type": "sick",
+    "days": 6,
+    "status": "pending",
+    "start_date": "2025-09-15",
+    "end_date": "2025-09-21",
+    "created_at": "2025-09-15T00:00:00"
+  },
+  {
+    "id": 43,
+    "employee_id": 53,
+    "leave_type": "parental",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2025-09-02",
+    "end_date": "2025-09-07",
+    "created_at": "2025-09-02T00:00:00"
+  },
+  {
+    "id": 44,
+    "employee_id": 140,
+    "leave_type": "annual",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-07-18",
+    "end_date": "2025-08-01",
+    "created_at": "2025-07-18T00:00:00"
+  },
+  {
+    "id": 45,
+    "employee_id": 150,
+    "leave_type": "parental",
+    "days": 4,
+    "status": "pending",
+    "start_date": "2025-07-08",
+    "end_date": "2025-07-12",
+    "created_at": "2025-07-08T00:00:00"
+  },
+  {
+    "id": 46,
+    "employee_id": 136,
+    "leave_type": "personal",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-08-25",
+    "end_date": "2025-08-26",
+    "created_at": "2025-08-25T00:00:00"
+  },
+  {
+    "id": 47,
+    "employee_id": 26,
+    "leave_type": "annual",
+    "days": 2,
+    "status": "rejected",
+    "start_date": "2025-10-10",
+    "end_date": "2025-10-12",
+    "created_at": "2025-10-10T00:00:00"
+  },
+  {
+    "id": 48,
+    "employee_id": 83,
+    "leave_type": "parental",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2026-01-09",
+    "end_date": "2026-01-22",
+    "created_at": "2026-01-09T00:00:00"
+  },
+  {
+    "id": 49,
+    "employee_id": 84,
+    "leave_type": "personal",
+    "days": 9,
+    "status": "rejected",
+    "start_date": "2025-12-08",
+    "end_date": "2025-12-17",
+    "created_at": "2025-12-08T00:00:00"
+  },
+  {
+    "id": 50,
+    "employee_id": 152,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-08-23",
+    "end_date": "2025-08-26",
+    "created_at": "2025-08-23T00:00:00"
+  },
+  {
+    "id": 51,
+    "employee_id": 92,
+    "leave_type": "bereavement",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2025-08-23",
+    "end_date": "2025-08-25",
+    "created_at": "2025-08-23T00:00:00"
+  },
+  {
+    "id": 52,
+    "employee_id": 12,
+    "leave_type": "parental",
+    "days": 11,
+    "status": "pending",
+    "start_date": "2025-12-18",
+    "end_date": "2025-12-29",
+    "created_at": "2025-12-18T00:00:00"
+  },
+  {
+    "id": 53,
+    "employee_id": 157,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "rejected",
+    "start_date": "2026-01-22",
+    "end_date": "2026-01-25",
+    "created_at": "2026-01-22T00:00:00"
+  },
+  {
+    "id": 54,
+    "employee_id": 115,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2026-01-20",
+    "end_date": "2026-01-27",
+    "created_at": "2026-01-20T00:00:00"
+  },
+  {
+    "id": 55,
+    "employee_id": 95,
+    "leave_type": "personal",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2025-07-24",
+    "end_date": "2025-07-31",
+    "created_at": "2025-07-24T00:00:00"
+  },
+  {
+    "id": 56,
+    "employee_id": 67,
+    "leave_type": "bereavement",
+    "days": 2,
+    "status": "rejected",
+    "start_date": "2025-12-30",
+    "end_date": "2026-01-01",
+    "created_at": "2025-12-30T00:00:00"
+  },
+  {
+    "id": 57,
+    "employee_id": 30,
+    "leave_type": "personal",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2025-11-28",
+    "end_date": "2025-11-30",
+    "created_at": "2025-11-28T00:00:00"
+  },
+  {
+    "id": 58,
+    "employee_id": 73,
+    "leave_type": "personal",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2026-01-04",
+    "end_date": "2026-01-16",
+    "created_at": "2026-01-04T00:00:00"
+  },
+  {
+    "id": 59,
+    "employee_id": 65,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "rejected",
+    "start_date": "2026-01-24",
+    "end_date": "2026-01-27",
+    "created_at": "2026-01-24T00:00:00"
+  },
+  {
+    "id": 60,
+    "employee_id": 129,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-08-22",
+    "end_date": "2025-08-25",
+    "created_at": "2025-08-22T00:00:00"
+  },
+  {
+    "id": 61,
+    "employee_id": 50,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-09-28",
+    "end_date": "2025-10-01",
+    "created_at": "2025-09-28T00:00:00"
+  },
+  {
+    "id": 62,
+    "employee_id": 100,
+    "leave_type": "annual",
+    "days": 10,
+    "status": "pending",
+    "start_date": "2025-09-10",
+    "end_date": "2025-09-20",
+    "created_at": "2025-09-10T00:00:00"
+  },
+  {
+    "id": 63,
+    "employee_id": 67,
+    "leave_type": "sick",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2026-01-06",
+    "end_date": "2026-01-11",
+    "created_at": "2026-01-06T00:00:00"
+  },
+  {
+    "id": 64,
+    "employee_id": 98,
+    "leave_type": "bereavement",
+    "days": 10,
+    "status": "pending",
+    "start_date": "2025-06-01",
+    "end_date": "2025-06-11",
+    "created_at": "2025-06-01T00:00:00"
+  },
+  {
+    "id": 65,
+    "employee_id": 140,
+    "leave_type": "bereavement",
+    "days": 13,
+    "status": "rejected",
+    "start_date": "2025-07-27",
+    "end_date": "2025-08-09",
+    "created_at": "2025-07-27T00:00:00"
+  },
+  {
+    "id": 66,
+    "employee_id": 126,
+    "leave_type": "personal",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2025-07-11",
+    "end_date": "2025-07-24",
+    "created_at": "2025-07-11T00:00:00"
+  },
+  {
+    "id": 67,
+    "employee_id": 93,
+    "leave_type": "bereavement",
+    "days": 8,
+    "status": "approved",
+    "start_date": "2025-08-02",
+    "end_date": "2025-08-10",
+    "created_at": "2025-08-02T00:00:00"
+  },
+  {
+    "id": 68,
+    "employee_id": 85,
+    "leave_type": "annual",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-12-25",
+    "end_date": "2025-12-30",
+    "created_at": "2025-12-25T00:00:00"
+  },
+  {
+    "id": 69,
+    "employee_id": 100,
+    "leave_type": "sick",
+    "days": 4,
+    "status": "pending",
+    "start_date": "2025-10-02",
+    "end_date": "2025-10-06",
+    "created_at": "2025-10-02T00:00:00"
+  },
+  {
+    "id": 70,
+    "employee_id": 152,
+    "leave_type": "sick",
+    "days": 12,
+    "status": "rejected",
+    "start_date": "2026-01-15",
+    "end_date": "2026-01-27",
+    "created_at": "2026-01-15T00:00:00"
+  },
+  {
+    "id": 71,
+    "employee_id": 122,
+    "leave_type": "personal",
+    "days": 14,
+    "status": "approved",
+    "start_date": "2025-06-07",
+    "end_date": "2025-06-21",
+    "created_at": "2025-06-07T00:00:00"
+  },
+  {
+    "id": 72,
+    "employee_id": 61,
+    "leave_type": "bereavement",
+    "days": 14,
+    "status": "pending",
+    "start_date": "2025-12-29",
+    "end_date": "2026-01-12",
+    "created_at": "2025-12-29T00:00:00"
+  },
+  {
+    "id": 73,
+    "employee_id": 8,
+    "leave_type": "parental",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-10-23",
+    "end_date": "2025-10-28",
+    "created_at": "2025-10-23T00:00:00"
+  },
+  {
+    "id": 74,
+    "employee_id": 70,
+    "leave_type": "bereavement",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2025-08-19",
+    "end_date": "2025-09-01",
+    "created_at": "2025-08-19T00:00:00"
+  },
+  {
+    "id": 75,
+    "employee_id": 67,
+    "leave_type": "personal",
+    "days": 1,
+    "status": "approved",
+    "start_date": "2025-09-26",
+    "end_date": "2025-09-27",
+    "created_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": 76,
+    "employee_id": 15,
+    "leave_type": "annual",
+    "days": 13,
+    "status": "approved",
+    "start_date": "2026-01-04",
+    "end_date": "2026-01-17",
+    "created_at": "2026-01-04T00:00:00"
+  },
+  {
+    "id": 77,
+    "employee_id": 51,
+    "leave_type": "personal",
+    "days": 6,
+    "status": "rejected",
+    "start_date": "2026-01-09",
+    "end_date": "2026-01-15",
+    "created_at": "2026-01-09T00:00:00"
+  },
+  {
+    "id": 78,
+    "employee_id": 115,
+    "leave_type": "sick",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-11-29",
+    "end_date": "2025-12-13",
+    "created_at": "2025-11-29T00:00:00"
+  },
+  {
+    "id": 79,
+    "employee_id": 19,
+    "leave_type": "annual",
+    "days": 14,
+    "status": "approved",
+    "start_date": "2026-01-12",
+    "end_date": "2026-01-26",
+    "created_at": "2026-01-12T00:00:00"
+  },
+  {
+    "id": 80,
+    "employee_id": 125,
+    "leave_type": "bereavement",
+    "days": 8,
+    "status": "approved",
+    "start_date": "2026-01-15",
+    "end_date": "2026-01-23",
+    "created_at": "2026-01-15T00:00:00"
+  },
+  {
+    "id": 81,
+    "employee_id": 153,
+    "leave_type": "parental",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-09-12",
+    "end_date": "2025-09-15",
+    "created_at": "2025-09-12T00:00:00"
+  },
+  {
+    "id": 82,
+    "employee_id": 47,
+    "leave_type": "sick",
+    "days": 14,
+    "status": "approved",
+    "start_date": "2025-09-19",
+    "end_date": "2025-10-03",
+    "created_at": "2025-09-19T00:00:00"
+  },
+  {
+    "id": 83,
+    "employee_id": 7,
+    "leave_type": "sick",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2025-06-25",
+    "end_date": "2025-06-30",
+    "created_at": "2025-06-25T00:00:00"
+  },
+  {
+    "id": 84,
+    "employee_id": 27,
+    "leave_type": "bereavement",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-06-21",
+    "end_date": "2025-07-03",
+    "created_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": 85,
+    "employee_id": 30,
+    "leave_type": "annual",
+    "days": 11,
+    "status": "pending",
+    "start_date": "2025-08-04",
+    "end_date": "2025-08-15",
+    "created_at": "2025-08-04T00:00:00"
+  },
+  {
+    "id": 86,
+    "employee_id": 112,
+    "leave_type": "personal",
+    "days": 9,
+    "status": "pending",
+    "start_date": "2025-09-13",
+    "end_date": "2025-09-22",
+    "created_at": "2025-09-13T00:00:00"
+  },
+  {
+    "id": 87,
+    "employee_id": 141,
+    "leave_type": "annual",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-12-25",
+    "end_date": "2025-12-28",
+    "created_at": "2025-12-25T00:00:00"
+  },
+  {
+    "id": 88,
+    "employee_id": 48,
+    "leave_type": "personal",
+    "days": 2,
+    "status": "pending",
+    "start_date": "2025-06-05",
+    "end_date": "2025-06-07",
+    "created_at": "2025-06-05T00:00:00"
+  },
+  {
+    "id": 89,
+    "employee_id": 1,
+    "leave_type": "parental",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-06-28",
+    "end_date": "2025-07-12",
+    "created_at": "2025-06-28T00:00:00"
+  },
+  {
+    "id": 90,
+    "employee_id": 50,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "rejected",
+    "start_date": "2025-12-21",
+    "end_date": "2025-12-24",
+    "created_at": "2025-12-21T00:00:00"
+  },
+  {
+    "id": 91,
+    "employee_id": 51,
+    "leave_type": "personal",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2025-06-14",
+    "end_date": "2025-06-21",
+    "created_at": "2025-06-14T00:00:00"
+  },
+  {
+    "id": 92,
+    "employee_id": 33,
+    "leave_type": "bereavement",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-08-28",
+    "end_date": "2025-08-31",
+    "created_at": "2025-08-28T00:00:00"
+  },
+  {
+    "id": 93,
+    "employee_id": 101,
+    "leave_type": "annual",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2026-01-18",
+    "end_date": "2026-01-20",
+    "created_at": "2026-01-18T00:00:00"
+  },
+  {
+    "id": 94,
+    "employee_id": 107,
+    "leave_type": "annual",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2026-01-22",
+    "end_date": "2026-01-29",
+    "created_at": "2026-01-22T00:00:00"
+  },
+  {
+    "id": 95,
+    "employee_id": 55,
+    "leave_type": "bereavement",
+    "days": 10,
+    "status": "rejected",
+    "start_date": "2025-06-24",
+    "end_date": "2025-07-04",
+    "created_at": "2025-06-24T00:00:00"
+  },
+  {
+    "id": 96,
+    "employee_id": 41,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-11-22",
+    "end_date": "2025-11-29",
+    "created_at": "2025-11-22T00:00:00"
+  },
+  {
+    "id": 97,
+    "employee_id": 101,
+    "leave_type": "parental",
+    "days": 11,
+    "status": "rejected",
+    "start_date": "2025-07-29",
+    "end_date": "2025-08-09",
+    "created_at": "2025-07-29T00:00:00"
+  },
+  {
+    "id": 98,
+    "employee_id": 84,
+    "leave_type": "personal",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-12-01",
+    "end_date": "2025-12-13",
+    "created_at": "2025-12-01T00:00:00"
+  },
+  {
+    "id": 99,
+    "employee_id": 130,
+    "leave_type": "bereavement",
+    "days": 11,
+    "status": "approved",
+    "start_date": "2025-11-06",
+    "end_date": "2025-11-17",
+    "created_at": "2025-11-06T00:00:00"
+  },
+  {
+    "id": 100,
+    "employee_id": 19,
+    "leave_type": "annual",
+    "days": 4,
+    "status": "rejected",
+    "start_date": "2025-07-09",
+    "end_date": "2025-07-13",
+    "created_at": "2025-07-09T00:00:00"
+  },
+  {
+    "id": 101,
+    "employee_id": 140,
+    "leave_type": "bereavement",
+    "days": 2,
+    "status": "rejected",
+    "start_date": "2025-09-24",
+    "end_date": "2025-09-26",
+    "created_at": "2025-09-24T00:00:00"
+  },
+  {
+    "id": 102,
+    "employee_id": 107,
+    "leave_type": "parental",
+    "days": 4,
+    "status": "approved",
+    "start_date": "2025-11-26",
+    "end_date": "2025-11-30",
+    "created_at": "2025-11-26T00:00:00"
+  },
+  {
+    "id": 103,
+    "employee_id": 84,
+    "leave_type": "bereavement",
+    "days": 11,
+    "status": "approved",
+    "start_date": "2025-10-13",
+    "end_date": "2025-10-24",
+    "created_at": "2025-10-13T00:00:00"
+  },
+  {
+    "id": 104,
+    "employee_id": 1,
+    "leave_type": "sick",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-10-22",
+    "end_date": "2025-10-27",
+    "created_at": "2025-10-22T00:00:00"
+  },
+  {
+    "id": 105,
+    "employee_id": 109,
+    "leave_type": "personal",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-08-22",
+    "end_date": "2025-08-29",
+    "created_at": "2025-08-22T00:00:00"
+  },
+  {
+    "id": 106,
+    "employee_id": 41,
+    "leave_type": "bereavement",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2025-08-06",
+    "end_date": "2025-08-08",
+    "created_at": "2025-08-06T00:00:00"
+  },
+  {
+    "id": 107,
+    "employee_id": 148,
+    "leave_type": "annual",
+    "days": 10,
+    "status": "pending",
+    "start_date": "2025-07-31",
+    "end_date": "2025-08-10",
+    "created_at": "2025-07-31T00:00:00"
+  },
+  {
+    "id": 108,
+    "employee_id": 148,
+    "leave_type": "personal",
+    "days": 11,
+    "status": "rejected",
+    "start_date": "2025-06-13",
+    "end_date": "2025-06-24",
+    "created_at": "2025-06-13T00:00:00"
+  },
+  {
+    "id": 109,
+    "employee_id": 126,
+    "leave_type": "sick",
+    "days": 1,
+    "status": "approved",
+    "start_date": "2025-11-29",
+    "end_date": "2025-11-30",
+    "created_at": "2025-11-29T00:00:00"
+  },
+  {
+    "id": 110,
+    "employee_id": 105,
+    "leave_type": "parental",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2025-11-23",
+    "end_date": "2025-11-30",
+    "created_at": "2025-11-23T00:00:00"
+  },
+  {
+    "id": 111,
+    "employee_id": 50,
+    "leave_type": "personal",
+    "days": 7,
+    "status": "rejected",
+    "start_date": "2025-10-31",
+    "end_date": "2025-11-07",
+    "created_at": "2025-10-31T00:00:00"
+  },
+  {
+    "id": 112,
+    "employee_id": 75,
+    "leave_type": "annual",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-12-14",
+    "end_date": "2025-12-19",
+    "created_at": "2025-12-14T00:00:00"
+  },
+  {
+    "id": 113,
+    "employee_id": 69,
+    "leave_type": "parental",
+    "days": 7,
+    "status": "rejected",
+    "start_date": "2026-01-27",
+    "end_date": "2026-02-03",
+    "created_at": "2026-01-27T00:00:00"
+  },
+  {
+    "id": 114,
+    "employee_id": 95,
+    "leave_type": "annual",
+    "days": 8,
+    "status": "rejected",
+    "start_date": "2025-07-29",
+    "end_date": "2025-08-06",
+    "created_at": "2025-07-29T00:00:00"
+  },
+  {
+    "id": 115,
+    "employee_id": 2,
+    "leave_type": "bereavement",
+    "days": 9,
+    "status": "approved",
+    "start_date": "2025-09-08",
+    "end_date": "2025-09-17",
+    "created_at": "2025-09-08T00:00:00"
+  },
+  {
+    "id": 116,
+    "employee_id": 118,
+    "leave_type": "parental",
+    "days": 8,
+    "status": "pending",
+    "start_date": "2026-01-21",
+    "end_date": "2026-01-29",
+    "created_at": "2026-01-21T00:00:00"
+  },
+  {
+    "id": 117,
+    "employee_id": 133,
+    "leave_type": "parental",
+    "days": 5,
+    "status": "approved",
+    "start_date": "2025-10-31",
+    "end_date": "2025-11-05",
+    "created_at": "2025-10-31T00:00:00"
+  },
+  {
+    "id": 118,
+    "employee_id": 27,
+    "leave_type": "sick",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-11-30",
+    "end_date": "2025-12-01",
+    "created_at": "2025-11-30T00:00:00"
+  },
+  {
+    "id": 119,
+    "employee_id": 56,
+    "leave_type": "annual",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-07-31",
+    "end_date": "2025-08-05",
+    "created_at": "2025-07-31T00:00:00"
+  },
+  {
+    "id": 120,
+    "employee_id": 18,
+    "leave_type": "parental",
+    "days": 14,
+    "status": "pending",
+    "start_date": "2025-06-19",
+    "end_date": "2025-07-03",
+    "created_at": "2025-06-19T00:00:00"
+  },
+  {
+    "id": 121,
+    "employee_id": 110,
+    "leave_type": "bereavement",
+    "days": 4,
+    "status": "approved",
+    "start_date": "2025-08-27",
+    "end_date": "2025-08-31",
+    "created_at": "2025-08-27T00:00:00"
+  },
+  {
+    "id": 122,
+    "employee_id": 138,
+    "leave_type": "bereavement",
+    "days": 10,
+    "status": "rejected",
+    "start_date": "2025-07-15",
+    "end_date": "2025-07-25",
+    "created_at": "2025-07-15T00:00:00"
+  },
+  {
+    "id": 123,
+    "employee_id": 75,
+    "leave_type": "personal",
+    "days": 7,
+    "status": "rejected",
+    "start_date": "2025-08-08",
+    "end_date": "2025-08-15",
+    "created_at": "2025-08-08T00:00:00"
+  },
+  {
+    "id": 124,
+    "employee_id": 139,
+    "leave_type": "parental",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-11-23",
+    "end_date": "2025-11-24",
+    "created_at": "2025-11-23T00:00:00"
+  },
+  {
+    "id": 125,
+    "employee_id": 38,
+    "leave_type": "parental",
+    "days": 8,
+    "status": "pending",
+    "start_date": "2025-07-19",
+    "end_date": "2025-07-27",
+    "created_at": "2025-07-19T00:00:00"
+  },
+  {
+    "id": 126,
+    "employee_id": 142,
+    "leave_type": "bereavement",
+    "days": 11,
+    "status": "pending",
+    "start_date": "2025-09-20",
+    "end_date": "2025-10-01",
+    "created_at": "2025-09-20T00:00:00"
+  },
+  {
+    "id": 127,
+    "employee_id": 44,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-12-01",
+    "end_date": "2025-12-04",
+    "created_at": "2025-12-01T00:00:00"
+  },
+  {
+    "id": 128,
+    "employee_id": 87,
+    "leave_type": "annual",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2026-01-07",
+    "end_date": "2026-01-08",
+    "created_at": "2026-01-07T00:00:00"
+  },
+  {
+    "id": 129,
+    "employee_id": 130,
+    "leave_type": "personal",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2025-07-26",
+    "end_date": "2025-08-08",
+    "created_at": "2025-07-26T00:00:00"
+  },
+  {
+    "id": 130,
+    "employee_id": 142,
+    "leave_type": "personal",
+    "days": 14,
+    "status": "approved",
+    "start_date": "2025-06-03",
+    "end_date": "2025-06-17",
+    "created_at": "2025-06-03T00:00:00"
+  },
+  {
+    "id": 131,
+    "employee_id": 65,
+    "leave_type": "annual",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-07-12",
+    "end_date": "2025-07-19",
+    "created_at": "2025-07-12T00:00:00"
+  },
+  {
+    "id": 132,
+    "employee_id": 63,
+    "leave_type": "sick",
+    "days": 2,
+    "status": "pending",
+    "start_date": "2025-10-06",
+    "end_date": "2025-10-08",
+    "created_at": "2025-10-06T00:00:00"
+  },
+  {
+    "id": 133,
+    "employee_id": 119,
+    "leave_type": "sick",
+    "days": 11,
+    "status": "pending",
+    "start_date": "2025-12-30",
+    "end_date": "2026-01-10",
+    "created_at": "2025-12-30T00:00:00"
+  },
+  {
+    "id": 134,
+    "employee_id": 102,
+    "leave_type": "annual",
+    "days": 5,
+    "status": "approved",
+    "start_date": "2025-09-21",
+    "end_date": "2025-09-26",
+    "created_at": "2025-09-21T00:00:00"
+  },
+  {
+    "id": 135,
+    "employee_id": 6,
+    "leave_type": "sick",
+    "days": 1,
+    "status": "rejected",
+    "start_date": "2026-01-15",
+    "end_date": "2026-01-16",
+    "created_at": "2026-01-15T00:00:00"
+  },
+  {
+    "id": 136,
+    "employee_id": 47,
+    "leave_type": "bereavement",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-06",
+    "created_at": "2025-07-01T00:00:00"
+  },
+  {
+    "id": 137,
+    "employee_id": 63,
+    "leave_type": "parental",
+    "days": 1,
+    "status": "approved",
+    "start_date": "2025-10-21",
+    "end_date": "2025-10-22",
+    "created_at": "2025-10-21T00:00:00"
+  },
+  {
+    "id": 138,
+    "employee_id": 117,
+    "leave_type": "annual",
+    "days": 10,
+    "status": "pending",
+    "start_date": "2025-08-13",
+    "end_date": "2025-08-23",
+    "created_at": "2025-08-13T00:00:00"
+  },
+  {
+    "id": 139,
+    "employee_id": 11,
+    "leave_type": "sick",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2025-10-01",
+    "end_date": "2025-10-03",
+    "created_at": "2025-10-01T00:00:00"
+  },
+  {
+    "id": 140,
+    "employee_id": 7,
+    "leave_type": "parental",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2025-11-08",
+    "end_date": "2025-11-21",
+    "created_at": "2025-11-08T00:00:00"
+  },
+  {
+    "id": 141,
+    "employee_id": 1,
+    "leave_type": "parental",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-09-01",
+    "end_date": "2025-09-13",
+    "created_at": "2025-09-01T00:00:00"
+  },
+  {
+    "id": 142,
+    "employee_id": 91,
+    "leave_type": "annual",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-09-17",
+    "end_date": "2025-10-01",
+    "created_at": "2025-09-17T00:00:00"
+  },
+  {
+    "id": 143,
+    "employee_id": 144,
+    "leave_type": "parental",
+    "days": 4,
+    "status": "approved",
+    "start_date": "2025-08-21",
+    "end_date": "2025-08-25",
+    "created_at": "2025-08-21T00:00:00"
+  },
+  {
+    "id": 144,
+    "employee_id": 96,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2025-07-13",
+    "end_date": "2025-07-20",
+    "created_at": "2025-07-13T00:00:00"
+  },
+  {
+    "id": 145,
+    "employee_id": 140,
+    "leave_type": "annual",
+    "days": 5,
+    "status": "approved",
+    "start_date": "2025-06-15",
+    "end_date": "2025-06-20",
+    "created_at": "2025-06-15T00:00:00"
+  },
+  {
+    "id": 146,
+    "employee_id": 1,
+    "leave_type": "annual",
+    "days": 4,
+    "status": "pending",
+    "start_date": "2025-06-20",
+    "end_date": "2025-06-24",
+    "created_at": "2025-06-20T00:00:00"
+  },
+  {
+    "id": 147,
+    "employee_id": 42,
+    "leave_type": "sick",
+    "days": 1,
+    "status": "rejected",
+    "start_date": "2025-10-14",
+    "end_date": "2025-10-15",
+    "created_at": "2025-10-14T00:00:00"
+  },
+  {
+    "id": 148,
+    "employee_id": 148,
+    "leave_type": "personal",
+    "days": 11,
+    "status": "pending",
+    "start_date": "2025-07-05",
+    "end_date": "2025-07-16",
+    "created_at": "2025-07-05T00:00:00"
+  },
+  {
+    "id": 149,
+    "employee_id": 114,
+    "leave_type": "personal",
+    "days": 10,
+    "status": "pending",
+    "start_date": "2025-07-08",
+    "end_date": "2025-07-18",
+    "created_at": "2025-07-08T00:00:00"
+  },
+  {
+    "id": 150,
+    "employee_id": 124,
+    "leave_type": "parental",
+    "days": 13,
+    "status": "rejected",
+    "start_date": "2025-12-06",
+    "end_date": "2025-12-19",
+    "created_at": "2025-12-06T00:00:00"
+  },
+  {
+    "id": 151,
+    "employee_id": 160,
+    "leave_type": "parental",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-06-17",
+    "end_date": "2025-06-24",
+    "created_at": "2025-06-17T00:00:00"
+  },
+  {
+    "id": 152,
+    "employee_id": 101,
+    "leave_type": "parental",
+    "days": 6,
+    "status": "approved",
+    "start_date": "2025-07-17",
+    "end_date": "2025-07-23",
+    "created_at": "2025-07-17T00:00:00"
+  },
+  {
+    "id": 153,
+    "employee_id": 152,
+    "leave_type": "bereavement",
+    "days": 13,
+    "status": "approved",
+    "start_date": "2025-11-30",
+    "end_date": "2025-12-13",
+    "created_at": "2025-11-30T00:00:00"
+  },
+  {
+    "id": 154,
+    "employee_id": 44,
+    "leave_type": "annual",
+    "days": 11,
+    "status": "approved",
+    "start_date": "2025-10-23",
+    "end_date": "2025-11-03",
+    "created_at": "2025-10-23T00:00:00"
+  },
+  {
+    "id": 155,
+    "employee_id": 25,
+    "leave_type": "bereavement",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-07-11",
+    "end_date": "2025-07-18",
+    "created_at": "2025-07-11T00:00:00"
+  },
+  {
+    "id": 156,
+    "employee_id": 117,
+    "leave_type": "bereavement",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-11-01",
+    "end_date": "2025-11-15",
+    "created_at": "2025-11-01T00:00:00"
+  },
+  {
+    "id": 157,
+    "employee_id": 145,
+    "leave_type": "parental",
+    "days": 8,
+    "status": "pending",
+    "start_date": "2025-11-08",
+    "end_date": "2025-11-16",
+    "created_at": "2025-11-08T00:00:00"
+  },
+  {
+    "id": 158,
+    "employee_id": 71,
+    "leave_type": "parental",
+    "days": 3,
+    "status": "rejected",
+    "start_date": "2025-07-27",
+    "end_date": "2025-07-30",
+    "created_at": "2025-07-27T00:00:00"
+  },
+  {
+    "id": 159,
+    "employee_id": 58,
+    "leave_type": "annual",
+    "days": 6,
+    "status": "rejected",
+    "start_date": "2026-01-03",
+    "end_date": "2026-01-09",
+    "created_at": "2026-01-03T00:00:00"
+  },
+  {
+    "id": 160,
+    "employee_id": 80,
+    "leave_type": "bereavement",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-07-11",
+    "end_date": "2025-07-14",
+    "created_at": "2025-07-11T00:00:00"
+  },
+  {
+    "id": 161,
+    "employee_id": 89,
+    "leave_type": "annual",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-06-11",
+    "end_date": "2025-06-23",
+    "created_at": "2025-06-11T00:00:00"
+  },
+  {
+    "id": 162,
+    "employee_id": 33,
+    "leave_type": "annual",
+    "days": 4,
+    "status": "pending",
+    "start_date": "2025-10-14",
+    "end_date": "2025-10-18",
+    "created_at": "2025-10-14T00:00:00"
+  },
+  {
+    "id": 163,
+    "employee_id": 25,
+    "leave_type": "annual",
+    "days": 9,
+    "status": "rejected",
+    "start_date": "2025-08-28",
+    "end_date": "2025-09-06",
+    "created_at": "2025-08-28T00:00:00"
+  },
+  {
+    "id": 164,
+    "employee_id": 159,
+    "leave_type": "bereavement",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-06-16",
+    "end_date": "2025-06-17",
+    "created_at": "2025-06-16T00:00:00"
+  },
+  {
+    "id": 165,
+    "employee_id": 12,
+    "leave_type": "sick",
+    "days": 10,
+    "status": "pending",
+    "start_date": "2025-10-16",
+    "end_date": "2025-10-26",
+    "created_at": "2025-10-16T00:00:00"
+  },
+  {
+    "id": 166,
+    "employee_id": 13,
+    "leave_type": "personal",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2025-07-22",
+    "end_date": "2025-07-24",
+    "created_at": "2025-07-22T00:00:00"
+  },
+  {
+    "id": 167,
+    "employee_id": 41,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-11-30",
+    "end_date": "2025-12-07",
+    "created_at": "2025-11-30T00:00:00"
+  },
+  {
+    "id": 168,
+    "employee_id": 141,
+    "leave_type": "parental",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-12-22",
+    "end_date": "2025-12-25",
+    "created_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": 169,
+    "employee_id": 138,
+    "leave_type": "parental",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-10-04",
+    "end_date": "2025-10-09",
+    "created_at": "2025-10-04T00:00:00"
+  },
+  {
+    "id": 170,
+    "employee_id": 14,
+    "leave_type": "bereavement",
+    "days": 11,
+    "status": "rejected",
+    "start_date": "2025-06-14",
+    "end_date": "2025-06-25",
+    "created_at": "2025-06-14T00:00:00"
+  },
+  {
+    "id": 171,
+    "employee_id": 115,
+    "leave_type": "annual",
+    "days": 8,
+    "status": "approved",
+    "start_date": "2025-12-17",
+    "end_date": "2025-12-25",
+    "created_at": "2025-12-17T00:00:00"
+  },
+  {
+    "id": 172,
+    "employee_id": 44,
+    "leave_type": "sick",
+    "days": 2,
+    "status": "approved",
+    "start_date": "2025-12-04",
+    "end_date": "2025-12-06",
+    "created_at": "2025-12-04T00:00:00"
+  },
+  {
+    "id": 173,
+    "employee_id": 114,
+    "leave_type": "bereavement",
+    "days": 3,
+    "status": "rejected",
+    "start_date": "2025-12-23",
+    "end_date": "2025-12-26",
+    "created_at": "2025-12-23T00:00:00"
+  },
+  {
+    "id": 174,
+    "employee_id": 101,
+    "leave_type": "parental",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-11-16",
+    "end_date": "2025-11-17",
+    "created_at": "2025-11-16T00:00:00"
+  },
+  {
+    "id": 175,
+    "employee_id": 24,
+    "leave_type": "sick",
+    "days": 4,
+    "status": "rejected",
+    "start_date": "2025-09-30",
+    "end_date": "2025-10-04",
+    "created_at": "2025-09-30T00:00:00"
+  },
+  {
+    "id": 176,
+    "employee_id": 108,
+    "leave_type": "personal",
+    "days": 10,
+    "status": "rejected",
+    "start_date": "2025-11-10",
+    "end_date": "2025-11-20",
+    "created_at": "2025-11-10T00:00:00"
+  },
+  {
+    "id": 177,
+    "employee_id": 57,
+    "leave_type": "sick",
+    "days": 1,
+    "status": "approved",
+    "start_date": "2025-07-07",
+    "end_date": "2025-07-08",
+    "created_at": "2025-07-07T00:00:00"
+  },
+  {
+    "id": 178,
+    "employee_id": 49,
+    "leave_type": "parental",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2026-01-06",
+    "end_date": "2026-01-19",
+    "created_at": "2026-01-06T00:00:00"
+  },
+  {
+    "id": 179,
+    "employee_id": 50,
+    "leave_type": "annual",
+    "days": 12,
+    "status": "approved",
+    "start_date": "2025-06-02",
+    "end_date": "2025-06-14",
+    "created_at": "2025-06-02T00:00:00"
+  },
+  {
+    "id": 180,
+    "employee_id": 41,
+    "leave_type": "parental",
+    "days": 12,
+    "status": "approved",
+    "start_date": "2025-10-28",
+    "end_date": "2025-11-09",
+    "created_at": "2025-10-28T00:00:00"
+  },
+  {
+    "id": 181,
+    "employee_id": 36,
+    "leave_type": "personal",
+    "days": 8,
+    "status": "pending",
+    "start_date": "2025-11-05",
+    "end_date": "2025-11-13",
+    "created_at": "2025-11-05T00:00:00"
+  },
+  {
+    "id": 182,
+    "employee_id": 142,
+    "leave_type": "bereavement",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-12-06",
+    "end_date": "2025-12-07",
+    "created_at": "2025-12-06T00:00:00"
+  },
+  {
+    "id": 183,
+    "employee_id": 39,
+    "leave_type": "bereavement",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-11-11",
+    "end_date": "2025-11-14",
+    "created_at": "2025-11-11T00:00:00"
+  },
+  {
+    "id": 184,
+    "employee_id": 58,
+    "leave_type": "sick",
+    "days": 10,
+    "status": "approved",
+    "start_date": "2025-11-14",
+    "end_date": "2025-11-24",
+    "created_at": "2025-11-14T00:00:00"
+  },
+  {
+    "id": 185,
+    "employee_id": 96,
+    "leave_type": "personal",
+    "days": 11,
+    "status": "pending",
+    "start_date": "2025-11-30",
+    "end_date": "2025-12-11",
+    "created_at": "2025-11-30T00:00:00"
+  },
+  {
+    "id": 186,
+    "employee_id": 16,
+    "leave_type": "bereavement",
+    "days": 13,
+    "status": "approved",
+    "start_date": "2025-11-27",
+    "end_date": "2025-12-10",
+    "created_at": "2025-11-27T00:00:00"
+  },
+  {
+    "id": 187,
+    "employee_id": 9,
+    "leave_type": "personal",
+    "days": 8,
+    "status": "approved",
+    "start_date": "2025-11-08",
+    "end_date": "2025-11-16",
+    "created_at": "2025-11-08T00:00:00"
+  },
+  {
+    "id": 188,
+    "employee_id": 119,
+    "leave_type": "bereavement",
+    "days": 13,
+    "status": "rejected",
+    "start_date": "2026-01-22",
+    "end_date": "2026-02-04",
+    "created_at": "2026-01-22T00:00:00"
+  },
+  {
+    "id": 189,
+    "employee_id": 156,
+    "leave_type": "bereavement",
+    "days": 14,
+    "status": "pending",
+    "start_date": "2025-09-26",
+    "end_date": "2025-10-10",
+    "created_at": "2025-09-26T00:00:00"
+  },
+  {
+    "id": 190,
+    "employee_id": 97,
+    "leave_type": "personal",
+    "days": 5,
+    "status": "approved",
+    "start_date": "2025-06-18",
+    "end_date": "2025-06-23",
+    "created_at": "2025-06-18T00:00:00"
+  },
+  {
+    "id": 191,
+    "employee_id": 158,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-06-12",
+    "end_date": "2025-06-15",
+    "created_at": "2025-06-12T00:00:00"
+  },
+  {
+    "id": 192,
+    "employee_id": 90,
+    "leave_type": "personal",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2025-06-21",
+    "end_date": "2025-06-26",
+    "created_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": 193,
+    "employee_id": 137,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "approved",
+    "start_date": "2025-12-10",
+    "end_date": "2025-12-17",
+    "created_at": "2025-12-10T00:00:00"
+  },
+  {
+    "id": 194,
+    "employee_id": 146,
+    "leave_type": "annual",
+    "days": 1,
+    "status": "rejected",
+    "start_date": "2025-06-21",
+    "end_date": "2025-06-22",
+    "created_at": "2025-06-21T00:00:00"
+  },
+  {
+    "id": 195,
+    "employee_id": 128,
+    "leave_type": "sick",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-08-14",
+    "end_date": "2025-08-19",
+    "created_at": "2025-08-14T00:00:00"
+  },
+  {
+    "id": 196,
+    "employee_id": 156,
+    "leave_type": "personal",
+    "days": 11,
+    "status": "rejected",
+    "start_date": "2025-07-16",
+    "end_date": "2025-07-27",
+    "created_at": "2025-07-16T00:00:00"
+  },
+  {
+    "id": 197,
+    "employee_id": 72,
+    "leave_type": "personal",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-09-08",
+    "end_date": "2025-09-13",
+    "created_at": "2025-09-08T00:00:00"
+  },
+  {
+    "id": 198,
+    "employee_id": 49,
+    "leave_type": "annual",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-11-20",
+    "end_date": "2025-12-04",
+    "created_at": "2025-11-20T00:00:00"
+  },
+  {
+    "id": 199,
+    "employee_id": 107,
+    "leave_type": "bereavement",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-09-16",
+    "end_date": "2025-09-28",
+    "created_at": "2025-09-16T00:00:00"
+  },
+  {
+    "id": 200,
+    "employee_id": 72,
+    "leave_type": "annual",
+    "days": 13,
+    "status": "rejected",
+    "start_date": "2025-06-10",
+    "end_date": "2025-06-23",
+    "created_at": "2025-06-10T00:00:00"
+  },
+  {
+    "id": 201,
+    "employee_id": 128,
+    "leave_type": "sick",
+    "days": 4,
+    "status": "rejected",
+    "start_date": "2025-10-06",
+    "end_date": "2025-10-10",
+    "created_at": "2025-10-06T00:00:00"
+  },
+  {
+    "id": 202,
+    "employee_id": 18,
+    "leave_type": "annual",
+    "days": 1,
+    "status": "rejected",
+    "start_date": "2025-08-17",
+    "end_date": "2025-08-18",
+    "created_at": "2025-08-17T00:00:00"
+  },
+  {
+    "id": 203,
+    "employee_id": 67,
+    "leave_type": "bereavement",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-12-19",
+    "end_date": "2025-12-22",
+    "created_at": "2025-12-19T00:00:00"
+  },
+  {
+    "id": 204,
+    "employee_id": 155,
+    "leave_type": "personal",
+    "days": 13,
+    "status": "pending",
+    "start_date": "2025-08-20",
+    "end_date": "2025-09-02",
+    "created_at": "2025-08-20T00:00:00"
+  },
+  {
+    "id": 205,
+    "employee_id": 137,
+    "leave_type": "personal",
+    "days": 6,
+    "status": "rejected",
+    "start_date": "2025-12-22",
+    "end_date": "2025-12-28",
+    "created_at": "2025-12-22T00:00:00"
+  },
+  {
+    "id": 206,
+    "employee_id": 84,
+    "leave_type": "sick",
+    "days": 7,
+    "status": "rejected",
+    "start_date": "2025-08-06",
+    "end_date": "2025-08-13",
+    "created_at": "2025-08-06T00:00:00"
+  },
+  {
+    "id": 207,
+    "employee_id": 102,
+    "leave_type": "personal",
+    "days": 1,
+    "status": "approved",
+    "start_date": "2025-10-30",
+    "end_date": "2025-10-31",
+    "created_at": "2025-10-30T00:00:00"
+  },
+  {
+    "id": 208,
+    "employee_id": 54,
+    "leave_type": "bereavement",
+    "days": 6,
+    "status": "approved",
+    "start_date": "2025-11-15",
+    "end_date": "2025-11-21",
+    "created_at": "2025-11-15T00:00:00"
+  },
+  {
+    "id": 209,
+    "employee_id": 68,
+    "leave_type": "annual",
+    "days": 12,
+    "status": "approved",
+    "start_date": "2025-10-19",
+    "end_date": "2025-10-31",
+    "created_at": "2025-10-19T00:00:00"
+  },
+  {
+    "id": 210,
+    "employee_id": 92,
+    "leave_type": "bereavement",
+    "days": 14,
+    "status": "rejected",
+    "start_date": "2025-08-17",
+    "end_date": "2025-08-31",
+    "created_at": "2025-08-17T00:00:00"
+  },
+  {
+    "id": 211,
+    "employee_id": 112,
+    "leave_type": "parental",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2026-01-26",
+    "end_date": "2026-01-29",
+    "created_at": "2026-01-26T00:00:00"
+  },
+  {
+    "id": 212,
+    "employee_id": 87,
+    "leave_type": "parental",
+    "days": 12,
+    "status": "approved",
+    "start_date": "2025-06-11",
+    "end_date": "2025-06-23",
+    "created_at": "2025-06-11T00:00:00"
+  },
+  {
+    "id": 213,
+    "employee_id": 134,
+    "leave_type": "parental",
+    "days": 4,
+    "status": "rejected",
+    "start_date": "2025-10-30",
+    "end_date": "2025-11-03",
+    "created_at": "2025-10-30T00:00:00"
+  },
+  {
+    "id": 214,
+    "employee_id": 40,
+    "leave_type": "personal",
+    "days": 13,
+    "status": "approved",
+    "start_date": "2025-06-13",
+    "end_date": "2025-06-26",
+    "created_at": "2025-06-13T00:00:00"
+  },
+  {
+    "id": 215,
+    "employee_id": 56,
+    "leave_type": "personal",
+    "days": 6,
+    "status": "rejected",
+    "start_date": "2025-07-12",
+    "end_date": "2025-07-18",
+    "created_at": "2025-07-12T00:00:00"
+  },
+  {
+    "id": 216,
+    "employee_id": 31,
+    "leave_type": "bereavement",
+    "days": 12,
+    "status": "rejected",
+    "start_date": "2025-09-13",
+    "end_date": "2025-09-25",
+    "created_at": "2025-09-13T00:00:00"
+  },
+  {
+    "id": 217,
+    "employee_id": 98,
+    "leave_type": "sick",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-06-26",
+    "end_date": "2025-07-08",
+    "created_at": "2025-06-26T00:00:00"
+  },
+  {
+    "id": 218,
+    "employee_id": 158,
+    "leave_type": "bereavement",
+    "days": 1,
+    "status": "pending",
+    "start_date": "2025-07-01",
+    "end_date": "2025-07-02",
+    "created_at": "2025-07-01T00:00:00"
+  },
+  {
+    "id": 219,
+    "employee_id": 88,
+    "leave_type": "personal",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-12-31",
+    "end_date": "2026-01-03",
+    "created_at": "2025-12-31T00:00:00"
+  },
+  {
+    "id": 220,
+    "employee_id": 90,
+    "leave_type": "annual",
+    "days": 3,
+    "status": "pending",
+    "start_date": "2025-08-26",
+    "end_date": "2025-08-29",
+    "created_at": "2025-08-26T00:00:00"
+  },
+  {
+    "id": 221,
+    "employee_id": 15,
+    "leave_type": "annual",
+    "days": 11,
+    "status": "rejected",
+    "start_date": "2025-11-20",
+    "end_date": "2025-12-01",
+    "created_at": "2025-11-20T00:00:00"
+  },
+  {
+    "id": 222,
+    "employee_id": 155,
+    "leave_type": "personal",
+    "days": 6,
+    "status": "rejected",
+    "start_date": "2025-10-02",
+    "end_date": "2025-10-08",
+    "created_at": "2025-10-02T00:00:00"
+  },
+  {
+    "id": 223,
+    "employee_id": 52,
+    "leave_type": "parental",
+    "days": 9,
+    "status": "approved",
+    "start_date": "2025-12-18",
+    "end_date": "2025-12-27",
+    "created_at": "2025-12-18T00:00:00"
+  },
+  {
+    "id": 224,
+    "employee_id": 116,
+    "leave_type": "parental",
+    "days": 2,
+    "status": "pending",
+    "start_date": "2025-06-16",
+    "end_date": "2025-06-18",
+    "created_at": "2025-06-16T00:00:00"
+  },
+  {
+    "id": 225,
+    "employee_id": 101,
+    "leave_type": "annual",
+    "days": 3,
+    "status": "approved",
+    "start_date": "2025-12-11",
+    "end_date": "2025-12-14",
+    "created_at": "2025-12-11T00:00:00"
+  },
+  {
+    "id": 226,
+    "employee_id": 77,
+    "leave_type": "parental",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-09-11",
+    "end_date": "2025-09-23",
+    "created_at": "2025-09-11T00:00:00"
+  },
+  {
+    "id": 227,
+    "employee_id": 34,
+    "leave_type": "parental",
+    "days": 7,
+    "status": "rejected",
+    "start_date": "2025-06-23",
+    "end_date": "2025-06-30",
+    "created_at": "2025-06-23T00:00:00"
+  },
+  {
+    "id": 228,
+    "employee_id": 130,
+    "leave_type": "personal",
+    "days": 5,
+    "status": "pending",
+    "start_date": "2026-01-01",
+    "end_date": "2026-01-06",
+    "created_at": "2026-01-01T00:00:00"
+  },
+  {
+    "id": 229,
+    "employee_id": 100,
+    "leave_type": "personal",
+    "days": 9,
+    "status": "pending",
+    "start_date": "2025-11-01",
+    "end_date": "2025-11-10",
+    "created_at": "2025-11-01T00:00:00"
+  },
+  {
+    "id": 230,
+    "employee_id": 28,
+    "leave_type": "bereavement",
+    "days": 5,
+    "status": "rejected",
+    "start_date": "2025-09-04",
+    "end_date": "2025-09-09",
+    "created_at": "2025-09-04T00:00:00"
+  },
+  {
+    "id": 231,
+    "employee_id": 131,
+    "leave_type": "bereavement",
+    "days": 2,
+    "status": "pending",
+    "start_date": "2025-07-27",
+    "end_date": "2025-07-29",
+    "created_at": "2025-07-27T00:00:00"
+  },
+  {
+    "id": 232,
+    "employee_id": 153,
+    "leave_type": "personal",
+    "days": 7,
+    "status": "pending",
+    "start_date": "2025-07-27",
+    "end_date": "2025-08-03",
+    "created_at": "2025-07-27T00:00:00"
+  },
+  {
+    "id": 233,
+    "employee_id": 37,
+    "leave_type": "annual",
+    "days": 6,
+    "status": "rejected",
+    "start_date": "2026-01-22",
+    "end_date": "2026-01-28",
+    "created_at": "2026-01-22T00:00:00"
+  },
+  {
+    "id": 234,
+    "employee_id": 43,
+    "leave_type": "annual",
+    "days": 13,
+    "status": "rejected",
+    "start_date": "2025-10-08",
+    "end_date": "2025-10-21",
+    "created_at": "2025-10-08T00:00:00"
+  },
+  {
+    "id": 235,
+    "employee_id": 5,
+    "leave_type": "personal",
+    "days": 14,
+    "status": "approved",
+    "start_date": "2025-08-14",
+    "end_date": "2025-08-28",
+    "created_at": "2025-08-14T00:00:00"
+  },
+  {
+    "id": 236,
+    "employee_id": 49,
+    "leave_type": "parental",
+    "days": 12,
+    "status": "approved",
+    "start_date": "2025-07-08",
+    "end_date": "2025-07-20",
+    "created_at": "2025-07-08T00:00:00"
+  },
+  {
+    "id": 237,
+    "employee_id": 119,
+    "leave_type": "bereavement",
+    "days": 6,
+    "status": "approved",
+    "start_date": "2025-07-08",
+    "end_date": "2025-07-14",
+    "created_at": "2025-07-08T00:00:00"
+  },
+  {
+    "id": 238,
+    "employee_id": 25,
+    "leave_type": "bereavement",
+    "days": 2,
+    "status": "pending",
+    "start_date": "2025-10-15",
+    "end_date": "2025-10-17",
+    "created_at": "2025-10-15T00:00:00"
+  },
+  {
+    "id": 239,
+    "employee_id": 152,
+    "leave_type": "parental",
+    "days": 14,
+    "status": "pending",
+    "start_date": "2025-07-09",
+    "end_date": "2025-07-23",
+    "created_at": "2025-07-09T00:00:00"
+  },
+  {
+    "id": 240,
+    "employee_id": 26,
+    "leave_type": "personal",
+    "days": 12,
+    "status": "pending",
+    "start_date": "2025-12-11",
+    "end_date": "2025-12-23",
+    "created_at": "2025-12-11T00:00:00"
+  }
+]

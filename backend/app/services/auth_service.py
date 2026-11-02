@@ -1,5 +1,4 @@
-from typing import Optional
-from sqlalchemy.ext.asyncio import AsyncSession
+from typing import Any, Optional
 from app.core.security import verify_password, hash_password, create_access_token, decode_access_token
 from app.core.exceptions import AuthenticationError
 from app.db.models.user import User
@@ -8,7 +7,7 @@ from app.schemas.auth import LoginRequest, Token, UserOut
 
 
 class AuthService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
         self.user_repo = UserRepository(db)
         self.dept_repo = DepartmentRepository(db)

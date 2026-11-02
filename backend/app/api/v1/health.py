@@ -1,6 +1,5 @@
+from typing import Any
 from fastapi import APIRouter, Depends
-from sqlalchemy import text
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.services.ollama_service import OllamaService
 
@@ -14,13 +13,15 @@ async def health_check():
 
 
 @router.get("/health/ready")
-async def readiness_check(db: AsyncSession = Depends(get_db)):
+async def readiness_check(db: Any = Depends(get_db)):
     """Comprehensive readiness probe for database and local Ollama model."""
     # 1. Database check
     db_status = "unavailable"
     try:
-        res = await db.execute(text("SELECT 1"))
-        if res.scalar() == 1:
+        conn = getattr(db, "conn", db)
+        cursor = conn.execute("SELECT 1")
+        row = cursor.fetchone()
+        if row and (row[0] == 1 or row["1"] == 1 if hasattr(row, "keys") else True):
             db_status = "connected"
     except Exception as e:
         db_status = f"error: {str(e)}"

@@ -1,0 +1,8 @@
+# Enterprise Code of Ethical Conduct
+Document ID: DOC-HR-005
+Department: Human Resources
+Version: 4.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Professional Integrity
+Employees must maintain honesty, mutual respect, and zero tolerance for harassment, discrimination, or conflict of interest in all corporate activities.

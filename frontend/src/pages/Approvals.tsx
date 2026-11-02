@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { 
   api, 
@@ -18,11 +19,13 @@ import {
   Plus,
   RefreshCw,
   Ban,
-  CheckCircle2
+  CheckCircle2,
+  MessageSquare
 } from 'lucide-react';
 
 export const Approvals: React.FC = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   
   // Tab state: 'federation' or 'operations'
   const [activeTab, setActiveTab] = useState<'federation' | 'operations'>('federation');
@@ -187,6 +190,30 @@ export const Approvals: React.FC = () => {
       setConsumeResult(result);
     } catch (err: any) {
       alert(`Access failed: ${err.message}`);
+    } finally {
+      setActionLoading(null);
+    }
+  };
+
+  // Launch dedicated CROSS Dept Chat for an approved federation grant
+  const handleStartCrossDeptChat = async (req: FederationRequestItem) => {
+    setActionLoading(req.id);
+    try {
+      const targetDept = req.source_department_code ? req.source_department_code.toUpperCase() : `DEPT #${req.source_department_id}`;
+      const title = `CROSS Dept Chat: ${targetDept} (#${req.id.slice(0, 8)})`;
+      const newConv = await api.createConversation({ title });
+      navigate('/chat', {
+        state: {
+          conversationId: newConv.id,
+          isCrossDeptChat: true,
+          targetDepartment: req.source_department_code?.toLowerCase(),
+          grantId: req.id,
+          approvedFields: req.approved_fields || req.requested_fields,
+          expiresAt: req.expires_at
+        }
+      });
+    } catch (err: any) {
+      alert(`Failed to launch Cross-Department chat: ${err.message}`);
     } finally {
       setActionLoading(null);
     }
@@ -491,6 +518,29 @@ export const Approvals: React.FC = () => {
 
                         {isApproved && (
                           <>
+                            {(isSelfRequest || isAdmin) && (
+                              <button
+                                type="button"
+                                className="btn btn-sm"
+                                onClick={() => handleStartCrossDeptChat(req)}
+                                disabled={actionLoading === req.id}
+                                style={{
+                                  background: 'linear-gradient(135deg, #6366f1 0%, #4f46e5 100%)',
+                                  color: '#ffffff',
+                                  borderColor: 'transparent',
+                                  gap: '6px',
+                                  fontWeight: 600,
+                                  boxShadow: '0 2px 4px rgba(99, 102, 241, 0.25)',
+                                  display: 'flex',
+                                  alignItems: 'center'
+                                }}
+                                title="Open a dedicated CROSS Dept Chat session with persistent history for this approved grant"
+                              >
+                                <MessageSquare size={14} />
+                                <span>Start CROSS Dept Chat</span>
+                              </button>
+                            )}
+
                             <button
                               type="button"
                               className="btn btn-primary btn-sm"

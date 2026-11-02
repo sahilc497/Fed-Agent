@@ -1,5 +1,5 @@
 import datetime
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 from pydantic import BaseModel, ConfigDict
 
 
@@ -17,7 +17,7 @@ class ApprovalDecisionRequest(BaseModel):
 
 
 class ApprovalOut(BaseModel):
-    model_config = ConfigDict(from_attributes=True)
+    model_config = ConfigDict(from_attributes=True, extra="ignore")
 
     id: str
     requester_id: int
@@ -27,10 +27,10 @@ class ApprovalOut(BaseModel):
     requested_operation: str
     payload: Dict[str, Any]
     status: str
-    approver_id: Optional[int]
+    approver_id: Optional[int] = None
     idempotency_key: str
-    created_at: datetime.datetime
-    decided_at: Optional[datetime.datetime]
-    expires_at: datetime.datetime
-    executed_at: Optional[datetime.datetime]
-    execution_result: Optional[Dict[str, Any]]
+    created_at: Optional[Union[datetime.datetime, str]] = None
+    decided_at: Optional[Union[datetime.datetime, str]] = None
+    expires_at: Optional[Union[datetime.datetime, str]] = None
+    executed_at: Optional[Union[datetime.datetime, str]] = None
+    execution_result: Optional[Dict[str, Any]] = None

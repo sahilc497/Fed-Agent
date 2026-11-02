@@ -1,0 +1,8 @@
+# Monthly Bank and Ledger Reconciliation
+Document ID: DOC-FIN-010
+Department: Finance
+Version: 1.9 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Month-End Close Timeline
+All bank accounts, corporate credit cards, and ledger clearing accounts must be fully reconciled by Day 5 of the subsequent calendar month.

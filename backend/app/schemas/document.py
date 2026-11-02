@@ -1,5 +1,5 @@
 import datetime
-from typing import List, Optional
+from typing import List, Optional, Union
 from pydantic import BaseModel, ConfigDict
 
 
@@ -24,5 +24,5 @@ class DocumentOut(BaseModel):
     access_level: str
     uploaded_by: int
     status: str
-    created_at: datetime.datetime
+    created_at: Optional[Union[datetime.datetime, str]] = None
     chunks: Optional[List[DocumentChunkOut]] = None

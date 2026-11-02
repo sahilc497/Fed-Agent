@@ -1,7 +1,6 @@
 import datetime
 import uuid
 from typing import List, Optional, Dict, Any
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.core.config import settings
 from app.core.exceptions import PermissionDeniedError, NotFoundError, ApprovalRequiredError
 from app.core.logging import get_correlation_id
@@ -13,8 +12,26 @@ from app.repositories.user_repo import DepartmentRepository
 from app.schemas.approval import ApprovalCreate, ApprovalOut
 
 
+def parse_dt(v) -> Optional[datetime.datetime]:
+    if v is None:
+        return None
+    if isinstance(v, datetime.datetime):
+        return v.replace(tzinfo=datetime.timezone.utc) if v.tzinfo is None else v
+    if isinstance(v, str):
+        try:
+            dt = datetime.datetime.fromisoformat(v.replace("Z", "+00:00"))
+            return dt.replace(tzinfo=datetime.timezone.utc) if dt.tzinfo is None else dt
+        except Exception:
+            try:
+                dt = datetime.datetime.strptime(v, "%Y-%m-%d %H:%M:%S")
+                return dt.replace(tzinfo=datetime.timezone.utc)
+            except Exception:
+                pass
+    return None
+
+
 class ApprovalService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
         self.approval_repo = ApprovalRepository(db)
         self.audit_repo = AuditRepository(db)
@@ -88,7 +105,8 @@ class ApprovalService:
 
         # Check expiration
         now = datetime.datetime.now(datetime.timezone.utc)
-        if req.expires_at < now:
+        exp_dt = parse_dt(req.expires_at)
+        if exp_dt and exp_dt < now:
             req.status = "expired"
             await self.db.commit()
             raise PermissionDeniedError("Approval request has expired.")
@@ -136,11 +154,11 @@ class ApprovalService:
         if not req:
             raise NotFoundError("Approval request not found.")
 
+        if req.status == "executed" or req.executed_at is not None:
+            raise PermissionDeniedError("Duplicate execution prevented: this action has already been executed.")
+
         if req.status != "approved":
             raise PermissionDeniedError(f"Cannot execute: approval status is '{req.status}', must be 'approved'.")
-
-        if req.executed_at is not None:
-            raise PermissionDeniedError("Duplicate execution prevented: this action has already been executed.")
 
         # Execute simulated safe business operation
         execution_result = {

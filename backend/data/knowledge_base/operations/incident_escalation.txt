@@ -1,0 +1,8 @@
+# Supply Chain Disruption Escalation Protocol
+Document ID: DOC-OPS-008
+Department: Operations
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Carrier Delays
+If shipping transit is delayed by more than 48 hours, carrier alerts are escalated to Logistics Coordinator and Sales team.

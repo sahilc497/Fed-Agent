@@ -1,0 +1,12 @@
+# Customer Onboarding and Handover Workflow
+Document ID: DOC-SALES-005
+Department: Sales
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Post-Signature Handoff
+Within 48 hours of contract execution ('Closed Won'):
+1. Account Executive creates transition ticket in CRM.
+2. Introduction call scheduled between Customer and Customer Success Lead.
+3. Access credentials provisioned through secure enterprise identity provider.
+4. Operations notified if physical hardware delivery is mandated.

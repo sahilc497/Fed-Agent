@@ -1,0 +1,12 @@
+# Talent Acquisition and Hiring Procedures
+Document ID: DOC-HR-002
+Department: Human Resources
+Version: 1.7 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Hiring Stages
+1. Job Requisition Approval: Authorized by Department Head and Finance.
+2. Sourcing and Screening: Initial HR phone interview.
+3. Technical/Functional Evaluation: Two panel interviews with hiring team.
+4. Executive and Culture Interview: Final alignment meeting.
+5. Offer Formulation: Standardized compensation benchmarks applied.

@@ -1,0 +1,16 @@
+# Sales Forecasting and Quota Methodology
+Document ID: DOC-SALES-006
+Department: Sales
+Version: 2.2 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Weighted Pipeline Valuation
+Forecasted quarterly revenue is computed based on stage probability weights:
+- Lead: 10% weight.
+- Qualified: 25% weight.
+- Proposal: 50% weight.
+- Contract Negotiation: 80% weight.
+- Closed Won: 100% recognized revenue.
+
+## 2. Weekly Reporting
+All Account Executives must reconcile opportunity stages in CRM by Friday 17:00 local time.

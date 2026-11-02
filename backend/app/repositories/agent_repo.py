@@ -1,40 +1,42 @@
-from typing import List, Optional
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
+from typing import List, Optional, Any
 from app.db.models.department_agent import DepartmentAgent
 from app.repositories.base import BaseRepository
 
 
 class DepartmentAgentRepository(BaseRepository[DepartmentAgent]):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__(DepartmentAgent, db)
 
     async def get_by_code(self, agent_code: str) -> Optional[DepartmentAgent]:
-        stmt = select(DepartmentAgent).where(DepartmentAgent.agent_code == agent_code.lower())
-        result = await self.db.execute(stmt)
-        return result.scalar_one_or_none()
+        conn = self._get_conn()
+        cursor = conn.execute("SELECT * FROM department_agents WHERE agent_code = ? LIMIT 1;", (agent_code.lower(),))
+        row = cursor.fetchone()
+        return DepartmentAgent.from_row(row) if row else None
 
     async def get_by_department_id(self, department_id: int) -> Optional[DepartmentAgent]:
-        stmt = select(DepartmentAgent).where(DepartmentAgent.department_id == department_id)
-        result = await self.db.execute(stmt)
-        return result.scalar_one_or_none()
+        conn = self._get_conn()
+        cursor = conn.execute("SELECT * FROM department_agents WHERE department_id = ? LIMIT 1;", (department_id,))
+        row = cursor.fetchone()
+        return DepartmentAgent.from_row(row) if row else None
 
     async def list_all_agents(self) -> List[DepartmentAgent]:
-        stmt = select(DepartmentAgent).order_by(DepartmentAgent.id)
-        result = await self.db.execute(stmt)
-        return list(result.scalars().all())
+        conn = self._get_conn()
+        cursor = conn.execute("SELECT * FROM department_agents ORDER BY id;")
+        rows = cursor.fetchall()
+        return [DepartmentAgent.from_row(r) for r in rows]
 
     async def toggle_enabled(self, agent_code: str, is_enabled: bool) -> Optional[DepartmentAgent]:
-        agent = await self.get_by_code(agent_code)
-        if agent:
-            agent.is_enabled = is_enabled
-            await self.db.flush()
-        return agent
+        conn = self._get_conn()
+        conn.execute(
+            "UPDATE department_agents SET is_enabled = ?, updated_at = CURRENT_TIMESTAMP WHERE agent_code = ?;",
+            (1 if is_enabled else 0, agent_code.lower())
+        )
+        return await self.get_by_code(agent_code)
 
     async def record_error(self, agent_code: str, error_msg: str) -> Optional[DepartmentAgent]:
-        agent = await self.get_by_code(agent_code)
-        if agent:
-            agent.error_count += 1
-            agent.last_error = error_msg
-            await self.db.flush()
-        return agent
+        conn = self._get_conn()
+        conn.execute(
+            "UPDATE department_agents SET error_count = error_count + 1, last_error = ?, updated_at = CURRENT_TIMESTAMP WHERE agent_code = ?;",
+            (error_msg, agent_code.lower())
+        )
+        return await self.get_by_code(agent_code)

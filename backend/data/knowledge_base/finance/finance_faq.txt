@@ -1,0 +1,8 @@
+# Finance Department Frequently Asked Questions
+Document ID: DOC-FIN-012
+Department: Finance
+Version: 3.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## FAQ 1: Can the Finance AI Agent execute a wire payment directly?
+No. Financial disbursements are sensitive actions that pause execution and create a Human Approval Request requiring authorized manager sign-off.

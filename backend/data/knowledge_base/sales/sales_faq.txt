@@ -1,0 +1,11 @@
+# Sales Department Frequently Asked Questions
+Document ID: DOC-SALES-012
+Department: Sales
+Version: 3.1 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## FAQ 1: Can I query finance invoice statuses for my clients?
+Yes, using the Sales AI Agent, cross-department requests to Finance for invoice status checks are authorized under the Federation Gateway policy agreement.
+
+## FAQ 2: What is the maximum discount I can offer without manager approval?
+Up to 5%. Any discount exceeding 5% requires Sales Head approval, and exceeding 15% requires Finance sign-off.

@@ -1,0 +1,11 @@
+# Client Escalation and Deal Salvage Procedures
+Document ID: DOC-SALES-011
+Department: Sales
+Version: 1.3 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Trigger Conditions
+If a tier-1 customer expresses dissatisfaction with contract terms or threatens cancellation:
+1. Account Executive must log an escalation incident within 2 hours.
+2. Sales Manager joins client sync within 24 hours.
+3. Product or Operations leads looped in if delivery issues are the root cause.

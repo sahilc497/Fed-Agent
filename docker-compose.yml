@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fedmesh-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=Federated Agentic Mesh
+      - APP_ENV=production
+      - APP_HOST=0.0.0.0
+      - APP_PORT=8000
+      - LAN_MODE=true
+      - DATABASE_PATH=/app/data/federated_mesh.db
+      - OLLAMA_BASE_URL=http://host.docker.internal:11434
+      - ANSWER_MODEL=qwen3:8b
+      - OLLAMA_TIMEOUT_SECONDS=120
+      - EMBEDDING_PROVIDER=sentence_transformers
+      - EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+      - EMBEDDING_DIMENSION=384
+      - ALLOW_MODEL_DOWNLOADS=false
+      - ROUTER_MODEL_PATH=/app/data/router/intent_router.joblib
+      - JWT_SECRET_KEY=b2c896503f8485292eb5f3c96644f1074e5033878b66858e8e78077d704ba41c
+    volumes:
+      # Persistent local storage for SQLite database, synthetic data, and knowledge documents
+      - ./backend/data:/app/data
+    extra_hosts:
+      # Allows backend container to connect directly to the Windows host's local Ollama runtime
+      - "host.docker.internal:host-gateway"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: fedmesh-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      backend:
+        condition: service_healthy

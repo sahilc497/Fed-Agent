@@ -1,5 +1,4 @@
-from typing import List, Optional
-from sqlalchemy.ext.asyncio import AsyncSession
+from typing import Any, List, Optional
 from app.core.exceptions import PermissionDeniedError
 from app.db.models.user import User
 from app.repositories.audit_repo import AuditRepository
@@ -8,7 +7,7 @@ from app.schemas.audit import AuditLogOut, AuditFilterParams
 
 
 class AuditService:
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         self.db = db
         self.audit_repo = AuditRepository(db)
         self.dept_repo = DepartmentRepository(db)
@@ -17,9 +16,9 @@ class AuditService:
         user_dept = await self.dept_repo.get_by_id(user.department_id)
         user_dept_code = user_dept.code if user_dept else "unknown"
 
-        # Access check
-        if user.role not in ["admin", "auditor", "department_manager"]:
-            raise PermissionDeniedError("Audit log access is restricted to Administrators, Auditors, and Department Managers.")
+        # Access check: Restricted to authorized administrators and department managers
+        if user.role not in ["admin", "department_manager"]:
+            raise PermissionDeniedError("Audit log access is restricted to Administrators and Department Managers.")
 
         # If department manager, scope strictly to their department
         scoped_dept = params.department

@@ -1,0 +1,1602 @@
+[
+  {
+    "id": 1,
+    "invoice_id": 209,
+    "payment_reference": "PAY-REF-000001",
+    "amount": 102269.27,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 2,
+    "invoice_id": 129,
+    "payment_reference": "PAY-REF-000002",
+    "amount": 105663.57,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 3,
+    "invoice_id": 1,
+    "payment_reference": "PAY-REF-000003",
+    "amount": 42968.46,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 4,
+    "invoice_id": 229,
+    "payment_reference": "PAY-REF-000004",
+    "amount": 76211.43,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 5,
+    "invoice_id": 295,
+    "payment_reference": "PAY-REF-000005",
+    "amount": 162833.71,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 6,
+    "invoice_id": 129,
+    "payment_reference": "PAY-REF-000006",
+    "amount": 105663.57,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 7,
+    "invoice_id": 23,
+    "payment_reference": "PAY-REF-000007",
+    "amount": 83946.8,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 8,
+    "invoice_id": 21,
+    "payment_reference": "PAY-REF-000008",
+    "amount": 35241.25,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 9,
+    "invoice_id": 82,
+    "payment_reference": "PAY-REF-000009",
+    "amount": 32271.17,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 10,
+    "invoice_id": 284,
+    "payment_reference": "PAY-REF-000010",
+    "amount": 44989.92,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 11,
+    "invoice_id": 312,
+    "payment_reference": "PAY-REF-000011",
+    "amount": 153002.98,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 12,
+    "invoice_id": 332,
+    "payment_reference": "PAY-REF-000012",
+    "amount": 49620.56,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 13,
+    "invoice_id": 37,
+    "payment_reference": "PAY-REF-000013",
+    "amount": 107925.37,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 14,
+    "invoice_id": 96,
+    "payment_reference": "PAY-REF-000014",
+    "amount": 63452.22,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 15,
+    "invoice_id": 256,
+    "payment_reference": "PAY-REF-000015",
+    "amount": 68613.67,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 16,
+    "invoice_id": 195,
+    "payment_reference": "PAY-REF-000016",
+    "amount": 181927.86,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 17,
+    "invoice_id": 172,
+    "payment_reference": "PAY-REF-000017",
+    "amount": 118216.99,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 18,
+    "invoice_id": 67,
+    "payment_reference": "PAY-REF-000018",
+    "amount": 72071.61,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 19,
+    "invoice_id": 346,
+    "payment_reference": "PAY-REF-000019",
+    "amount": 40840.05,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 20,
+    "invoice_id": 27,
+    "payment_reference": "PAY-REF-000020",
+    "amount": 6910.15,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 21,
+    "invoice_id": 215,
+    "payment_reference": "PAY-REF-000021",
+    "amount": 17800.33,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 22,
+    "invoice_id": 257,
+    "payment_reference": "PAY-REF-000022",
+    "amount": 159978.36,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 23,
+    "invoice_id": 75,
+    "payment_reference": "PAY-REF-000023",
+    "amount": 99495.94,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 24,
+    "invoice_id": 251,
+    "payment_reference": "PAY-REF-000024",
+    "amount": 179788.85,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 25,
+    "invoice_id": 307,
+    "payment_reference": "PAY-REF-000025",
+    "amount": 114045.81,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 26,
+    "invoice_id": 92,
+    "payment_reference": "PAY-REF-000026",
+    "amount": 48142.79,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 27,
+    "invoice_id": 326,
+    "payment_reference": "PAY-REF-000027",
+    "amount": 168640.64,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 28,
+    "invoice_id": 58,
+    "payment_reference": "PAY-REF-000028",
+    "amount": 173955.96,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 29,
+    "invoice_id": 151,
+    "payment_reference": "PAY-REF-000029",
+    "amount": 19072.4,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 30,
+    "invoice_id": 319,
+    "payment_reference": "PAY-REF-000030",
+    "amount": 171083.37,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 31,
+    "invoice_id": 155,
+    "payment_reference": "PAY-REF-000031",
+    "amount": 123812.13,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 32,
+    "invoice_id": 307,
+    "payment_reference": "PAY-REF-000032",
+    "amount": 114045.81,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 33,
+    "invoice_id": 168,
+    "payment_reference": "PAY-REF-000033",
+    "amount": 44113.53,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 34,
+    "invoice_id": 13,
+    "payment_reference": "PAY-REF-000034",
+    "amount": 49100.9,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 35,
+    "invoice_id": 142,
+    "payment_reference": "PAY-REF-000035",
+    "amount": 47354.05,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 36,
+    "invoice_id": 220,
+    "payment_reference": "PAY-REF-000036",
+    "amount": 13071.33,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 37,
+    "invoice_id": 74,
+    "payment_reference": "PAY-REF-000037",
+    "amount": 165337.76,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 38,
+    "invoice_id": 327,
+    "payment_reference": "PAY-REF-000038",
+    "amount": 36120.23,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 39,
+    "invoice_id": 259,
+    "payment_reference": "PAY-REF-000039",
+    "amount": 78644.49,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 40,
+    "invoice_id": 51,
+    "payment_reference": "PAY-REF-000040",
+    "amount": 78149.32,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 41,
+    "invoice_id": 39,
+    "payment_reference": "PAY-REF-000041",
+    "amount": 7497.39,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 42,
+    "invoice_id": 282,
+    "payment_reference": "PAY-REF-000042",
+    "amount": 181601.54,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 43,
+    "invoice_id": 60,
+    "payment_reference": "PAY-REF-000043",
+    "amount": 110153.76,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 44,
+    "invoice_id": 327,
+    "payment_reference": "PAY-REF-000044",
+    "amount": 36120.23,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 45,
+    "invoice_id": 1,
+    "payment_reference": "PAY-REF-000045",
+    "amount": 42968.46,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 46,
+    "invoice_id": 144,
+    "payment_reference": "PAY-REF-000046",
+    "amount": 89925.4,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 47,
+    "invoice_id": 294,
+    "payment_reference": "PAY-REF-000047",
+    "amount": 117844.72,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 48,
+    "invoice_id": 129,
+    "payment_reference": "PAY-REF-000048",
+    "amount": 105663.57,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 49,
+    "invoice_id": 271,
+    "payment_reference": "PAY-REF-000049",
+    "amount": 60150.39,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 50,
+    "invoice_id": 188,
+    "payment_reference": "PAY-REF-000050",
+    "amount": 97656.62,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 51,
+    "invoice_id": 91,
+    "payment_reference": "PAY-REF-000051",
+    "amount": 46325.58,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 52,
+    "invoice_id": 190,
+    "payment_reference": "PAY-REF-000052",
+    "amount": 36511.92,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 53,
+    "invoice_id": 262,
+    "payment_reference": "PAY-REF-000053",
+    "amount": 32153.96,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 54,
+    "invoice_id": 271,
+    "payment_reference": "PAY-REF-000054",
+    "amount": 60150.39,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 55,
+    "invoice_id": 118,
+    "payment_reference": "PAY-REF-000055",
+    "amount": 129071.13,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 56,
+    "invoice_id": 190,
+    "payment_reference": "PAY-REF-000056",
+    "amount": 36511.92,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 57,
+    "invoice_id": 23,
+    "payment_reference": "PAY-REF-000057",
+    "amount": 83946.8,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 58,
+    "invoice_id": 153,
+    "payment_reference": "PAY-REF-000058",
+    "amount": 122512.47,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 59,
+    "invoice_id": 314,
+    "payment_reference": "PAY-REF-000059",
+    "amount": 64533.09,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 60,
+    "invoice_id": 140,
+    "payment_reference": "PAY-REF-000060",
+    "amount": 77210.49,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 61,
+    "invoice_id": 345,
+    "payment_reference": "PAY-REF-000061",
+    "amount": 19095.68,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 62,
+    "invoice_id": 276,
+    "payment_reference": "PAY-REF-000062",
+    "amount": 155025.61,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 63,
+    "invoice_id": 342,
+    "payment_reference": "PAY-REF-000063",
+    "amount": 138613.39,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 64,
+    "invoice_id": 190,
+    "payment_reference": "PAY-REF-000064",
+    "amount": 36511.92,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 65,
+    "invoice_id": 92,
+    "payment_reference": "PAY-REF-000065",
+    "amount": 48142.79,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 66,
+    "invoice_id": 144,
+    "payment_reference": "PAY-REF-000066",
+    "amount": 89925.4,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 67,
+    "invoice_id": 63,
+    "payment_reference": "PAY-REF-000067",
+    "amount": 125282.24,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 68,
+    "invoice_id": 203,
+    "payment_reference": "PAY-REF-000068",
+    "amount": 169804.24,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 69,
+    "invoice_id": 240,
+    "payment_reference": "PAY-REF-000069",
+    "amount": 51262.47,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 70,
+    "invoice_id": 48,
+    "payment_reference": "PAY-REF-000070",
+    "amount": 110975.41,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 71,
+    "invoice_id": 254,
+    "payment_reference": "PAY-REF-000071",
+    "amount": 6851.81,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 72,
+    "invoice_id": 146,
+    "payment_reference": "PAY-REF-000072",
+    "amount": 40914.37,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 73,
+    "invoice_id": 238,
+    "payment_reference": "PAY-REF-000073",
+    "amount": 22001.97,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 74,
+    "invoice_id": 290,
+    "payment_reference": "PAY-REF-000074",
+    "amount": 137627.62,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 75,
+    "invoice_id": 150,
+    "payment_reference": "PAY-REF-000075",
+    "amount": 153034.67,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 76,
+    "invoice_id": 86,
+    "payment_reference": "PAY-REF-000076",
+    "amount": 177469.8,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 77,
+    "invoice_id": 81,
+    "payment_reference": "PAY-REF-000077",
+    "amount": 91942.96,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 78,
+    "invoice_id": 3,
+    "payment_reference": "PAY-REF-000078",
+    "amount": 75760.81,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 79,
+    "invoice_id": 7,
+    "payment_reference": "PAY-REF-000079",
+    "amount": 139768.1,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 80,
+    "invoice_id": 154,
+    "payment_reference": "PAY-REF-000080",
+    "amount": 182642.84,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 81,
+    "invoice_id": 313,
+    "payment_reference": "PAY-REF-000081",
+    "amount": 143976.97,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 82,
+    "invoice_id": 148,
+    "payment_reference": "PAY-REF-000082",
+    "amount": 27231.49,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 83,
+    "invoice_id": 223,
+    "payment_reference": "PAY-REF-000083",
+    "amount": 50061.01,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 84,
+    "invoice_id": 327,
+    "payment_reference": "PAY-REF-000084",
+    "amount": 36120.23,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 85,
+    "invoice_id": 46,
+    "payment_reference": "PAY-REF-000085",
+    "amount": 40587.17,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 86,
+    "invoice_id": 30,
+    "payment_reference": "PAY-REF-000086",
+    "amount": 127175.84,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 87,
+    "invoice_id": 123,
+    "payment_reference": "PAY-REF-000087",
+    "amount": 20077.4,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 88,
+    "invoice_id": 288,
+    "payment_reference": "PAY-REF-000088",
+    "amount": 98410.22,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 89,
+    "invoice_id": 236,
+    "payment_reference": "PAY-REF-000089",
+    "amount": 13518.52,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 90,
+    "invoice_id": 333,
+    "payment_reference": "PAY-REF-000090",
+    "amount": 104628.1,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 91,
+    "invoice_id": 67,
+    "payment_reference": "PAY-REF-000091",
+    "amount": 72071.61,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 92,
+    "invoice_id": 64,
+    "payment_reference": "PAY-REF-000092",
+    "amount": 157463.0,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 93,
+    "invoice_id": 149,
+    "payment_reference": "PAY-REF-000093",
+    "amount": 163941.62,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 94,
+    "invoice_id": 244,
+    "payment_reference": "PAY-REF-000094",
+    "amount": 5670.78,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 95,
+    "invoice_id": 301,
+    "payment_reference": "PAY-REF-000095",
+    "amount": 89685.53,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 96,
+    "invoice_id": 61,
+    "payment_reference": "PAY-REF-000096",
+    "amount": 9084.55,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 97,
+    "invoice_id": 85,
+    "payment_reference": "PAY-REF-000097",
+    "amount": 136132.05,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 98,
+    "invoice_id": 237,
+    "payment_reference": "PAY-REF-000098",
+    "amount": 103662.41,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 99,
+    "invoice_id": 344,
+    "payment_reference": "PAY-REF-000099",
+    "amount": 13108.37,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 100,
+    "invoice_id": 250,
+    "payment_reference": "PAY-REF-000100",
+    "amount": 180583.63,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 101,
+    "invoice_id": 131,
+    "payment_reference": "PAY-REF-000101",
+    "amount": 25406.4,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 102,
+    "invoice_id": 308,
+    "payment_reference": "PAY-REF-000102",
+    "amount": 137565.99,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 103,
+    "invoice_id": 137,
+    "payment_reference": "PAY-REF-000103",
+    "amount": 27607.92,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 104,
+    "invoice_id": 347,
+    "payment_reference": "PAY-REF-000104",
+    "amount": 27697.21,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 105,
+    "invoice_id": 273,
+    "payment_reference": "PAY-REF-000105",
+    "amount": 41480.31,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 106,
+    "invoice_id": 142,
+    "payment_reference": "PAY-REF-000106",
+    "amount": 47354.05,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 107,
+    "invoice_id": 60,
+    "payment_reference": "PAY-REF-000107",
+    "amount": 110153.76,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 108,
+    "invoice_id": 193,
+    "payment_reference": "PAY-REF-000108",
+    "amount": 177492.77,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 109,
+    "invoice_id": 260,
+    "payment_reference": "PAY-REF-000109",
+    "amount": 60941.05,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 110,
+    "invoice_id": 126,
+    "payment_reference": "PAY-REF-000110",
+    "amount": 8476.44,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 111,
+    "invoice_id": 295,
+    "payment_reference": "PAY-REF-000111",
+    "amount": 162833.71,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 112,
+    "invoice_id": 290,
+    "payment_reference": "PAY-REF-000112",
+    "amount": 137627.62,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 113,
+    "invoice_id": 36,
+    "payment_reference": "PAY-REF-000113",
+    "amount": 103470.01,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 114,
+    "invoice_id": 262,
+    "payment_reference": "PAY-REF-000114",
+    "amount": 32153.96,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 115,
+    "invoice_id": 189,
+    "payment_reference": "PAY-REF-000115",
+    "amount": 98991.92,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 116,
+    "invoice_id": 31,
+    "payment_reference": "PAY-REF-000116",
+    "amount": 27885.98,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 117,
+    "invoice_id": 133,
+    "payment_reference": "PAY-REF-000117",
+    "amount": 48569.11,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 118,
+    "invoice_id": 119,
+    "payment_reference": "PAY-REF-000118",
+    "amount": 58277.38,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 119,
+    "invoice_id": 184,
+    "payment_reference": "PAY-REF-000119",
+    "amount": 172335.43,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 120,
+    "invoice_id": 187,
+    "payment_reference": "PAY-REF-000120",
+    "amount": 105393.61,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 121,
+    "invoice_id": 12,
+    "payment_reference": "PAY-REF-000121",
+    "amount": 165301.49,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 122,
+    "invoice_id": 86,
+    "payment_reference": "PAY-REF-000122",
+    "amount": 177469.8,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 123,
+    "invoice_id": 346,
+    "payment_reference": "PAY-REF-000123",
+    "amount": 40840.05,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 124,
+    "invoice_id": 232,
+    "payment_reference": "PAY-REF-000124",
+    "amount": 4772.41,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 125,
+    "invoice_id": 182,
+    "payment_reference": "PAY-REF-000125",
+    "amount": 107304.0,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 126,
+    "invoice_id": 273,
+    "payment_reference": "PAY-REF-000126",
+    "amount": 41480.31,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 127,
+    "invoice_id": 322,
+    "payment_reference": "PAY-REF-000127",
+    "amount": 171445.34,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 128,
+    "invoice_id": 310,
+    "payment_reference": "PAY-REF-000128",
+    "amount": 161393.07,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 129,
+    "invoice_id": 220,
+    "payment_reference": "PAY-REF-000129",
+    "amount": 13071.33,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 130,
+    "invoice_id": 13,
+    "payment_reference": "PAY-REF-000130",
+    "amount": 49100.9,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 131,
+    "invoice_id": 60,
+    "payment_reference": "PAY-REF-000131",
+    "amount": 110153.76,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 132,
+    "invoice_id": 156,
+    "payment_reference": "PAY-REF-000132",
+    "amount": 26727.0,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 133,
+    "invoice_id": 66,
+    "payment_reference": "PAY-REF-000133",
+    "amount": 30591.01,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 134,
+    "invoice_id": 185,
+    "payment_reference": "PAY-REF-000134",
+    "amount": 60193.71,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 135,
+    "invoice_id": 276,
+    "payment_reference": "PAY-REF-000135",
+    "amount": 155025.61,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 136,
+    "invoice_id": 294,
+    "payment_reference": "PAY-REF-000136",
+    "amount": 117844.72,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 137,
+    "invoice_id": 64,
+    "payment_reference": "PAY-REF-000137",
+    "amount": 157463.0,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 138,
+    "invoice_id": 186,
+    "payment_reference": "PAY-REF-000138",
+    "amount": 147420.57,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 139,
+    "invoice_id": 173,
+    "payment_reference": "PAY-REF-000139",
+    "amount": 148704.26,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 140,
+    "invoice_id": 10,
+    "payment_reference": "PAY-REF-000140",
+    "amount": 156165.33,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 141,
+    "invoice_id": 220,
+    "payment_reference": "PAY-REF-000141",
+    "amount": 13071.33,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 142,
+    "invoice_id": 13,
+    "payment_reference": "PAY-REF-000142",
+    "amount": 49100.9,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 143,
+    "invoice_id": 254,
+    "payment_reference": "PAY-REF-000143",
+    "amount": 6851.81,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 144,
+    "invoice_id": 252,
+    "payment_reference": "PAY-REF-000144",
+    "amount": 22503.67,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 145,
+    "invoice_id": 295,
+    "payment_reference": "PAY-REF-000145",
+    "amount": 162833.71,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 146,
+    "invoice_id": 253,
+    "payment_reference": "PAY-REF-000146",
+    "amount": 104164.69,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 147,
+    "invoice_id": 291,
+    "payment_reference": "PAY-REF-000147",
+    "amount": 74821.95,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 148,
+    "invoice_id": 120,
+    "payment_reference": "PAY-REF-000148",
+    "amount": 162291.32,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 149,
+    "invoice_id": 63,
+    "payment_reference": "PAY-REF-000149",
+    "amount": 125282.24,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 150,
+    "invoice_id": 346,
+    "payment_reference": "PAY-REF-000150",
+    "amount": 40840.05,
+    "payment_method": "credit_line",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 151,
+    "invoice_id": 168,
+    "payment_reference": "PAY-REF-000151",
+    "amount": 44113.53,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 152,
+    "invoice_id": 257,
+    "payment_reference": "PAY-REF-000152",
+    "amount": 159978.36,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 153,
+    "invoice_id": 184,
+    "payment_reference": "PAY-REF-000153",
+    "amount": 172335.43,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 154,
+    "invoice_id": 335,
+    "payment_reference": "PAY-REF-000154",
+    "amount": 150846.52,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 155,
+    "invoice_id": 236,
+    "payment_reference": "PAY-REF-000155",
+    "amount": 13518.52,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 156,
+    "invoice_id": 60,
+    "payment_reference": "PAY-REF-000156",
+    "amount": 110153.76,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 157,
+    "invoice_id": 290,
+    "payment_reference": "PAY-REF-000157",
+    "amount": 137627.62,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 158,
+    "invoice_id": 242,
+    "payment_reference": "PAY-REF-000158",
+    "amount": 182527.95,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 159,
+    "invoice_id": 239,
+    "payment_reference": "PAY-REF-000159",
+    "amount": 123189.28,
+    "payment_method": "ach",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  },
+  {
+    "id": 160,
+    "invoice_id": 332,
+    "payment_reference": "PAY-REF-000160",
+    "amount": 49620.56,
+    "payment_method": "wire_transfer",
+    "status": "completed",
+    "department_id": 3,
+    "created_at": "2026-10-21T17:16:04.088785+00:00"
+  }
+]

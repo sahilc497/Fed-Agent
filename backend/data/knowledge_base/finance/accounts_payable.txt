@@ -1,0 +1,8 @@
+# Accounts Payable Settlement Protocol
+Document ID: DOC-FIN-002
+Department: Finance
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Payment Terms
+Standard vendor disbursements occur on Net 30 terms. Early settlement discounts (2% Net 10) must be evaluated and captured where cash flow permits.

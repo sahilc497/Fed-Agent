@@ -1,0 +1,8 @@
+# Financial Irregularity and Fraud Escalation Procedure
+Document ID: DOC-FIN-011
+Department: Finance
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: confidential
+
+## 1. Immediate Suspension
+Upon detection of suspected invoice tampering or unauthorized disbursements, the associated vendor account is frozen immediately and the Audit Committee notified.

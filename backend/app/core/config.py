@@ -14,19 +14,16 @@ class Settings(BaseSettings):
     # Application settings
     APP_NAME: str = "Federated Agentic Mesh"
     APP_ENV: str = "development"
-    APP_HOST: str = "127.0.0.1"
+    APP_HOST: str = "0.0.0.0"
     APP_PORT: int = 8000
+    LAN_MODE: bool = True
     DEBUG: bool = False
     API_V1_STR: str = "/api/v1"
 
-    # Database
-    DATABASE_URL: str = Field(
-        default="postgresql+asyncpg://postgres@127.0.0.1:5432/federated_mesh_dev",
-        description="Async SQLAlchemy database URL"
-    )
-    SYNC_DATABASE_URL: str = Field(
-        default="postgresql+psycopg2://postgres@127.0.0.1:5432/federated_mesh_dev",
-        description="Sync SQLAlchemy database URL for Alembic migrations"
+    # SQLite Database (Python standard library sqlite3)
+    DATABASE_PATH: str = Field(
+        default="backend/data/federated_mesh.db",
+        description="Path to SQLite database file"
     )
 
     # Security & JWT
@@ -46,8 +43,8 @@ class Settings(BaseSettings):
 
     # Embeddings Configuration
     # Options: local_hash, ollama, sentence_transformers, none
-    EMBEDDING_PROVIDER: str = "local_hash"
-    EMBEDDING_MODEL: str = "local-deterministic-384"
+    EMBEDDING_PROVIDER: str = "sentence_transformers"
+    EMBEDDING_MODEL: str = "sentence-transformers/all-MiniLM-L6-v2"
     EMBEDDING_DIMENSION: int = 384
     ALLOW_MODEL_DOWNLOADS: bool = False
 
@@ -59,6 +56,10 @@ class Settings(BaseSettings):
     # Approvals & Policies
     APPROVAL_EXPIRY_MINUTES: int = 60
     PREVENT_SELF_APPROVAL: bool = True
+
+    # Router & Data Paths
+    DATA_DIR: str = "backend/data"
+    ROUTER_MODEL_PATH: str = "backend/data/router/intent_router.joblib"
 
     # CORS
     CORS_ORIGINS: List[str] = [

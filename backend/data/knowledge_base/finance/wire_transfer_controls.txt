@@ -1,0 +1,8 @@
+# Wire Transfer and Electronic Funds Security
+Document ID: DOC-FIN-008
+Department: Finance
+Version: 3.5 (Synthetic Enterprise Policy Demo)
+Access Level: confidential
+
+## 1. Anti-Fraud Out-of-Band Verification
+Any change to vendor bank account or remittance coordinates requires an out-of-band telephone verification before funds release. AI agents are strictly prohibited from executing wire transfers autonomously.

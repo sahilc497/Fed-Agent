@@ -1,0 +1,10 @@
+# Accounts Receivable and Dunning Policy
+Document ID: DOC-FIN-003
+Department: Finance
+Version: 2.2 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Overdue Classification
+- 1 to 15 Days Overdue: Automated reminder email sent to client billing contact.
+- 16 to 30 Days Overdue: Account Executive alerted to perform direct outreach.
+- Over 30 Days Overdue: Customer account placed on credit hold.

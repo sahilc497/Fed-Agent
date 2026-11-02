@@ -1,0 +1,8 @@
+# Standard Invoice Processing Guideline
+Document ID: DOC-FIN-001
+Department: Finance
+Version: 2.3 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Invoice Ingestion and Verification
+Invoices submitted by vendors must match an approved Purchase Order (PO). Invoices without a valid PO reference will be rejected automatically.

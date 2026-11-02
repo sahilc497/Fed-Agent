@@ -30,6 +30,9 @@ secrets/
 
 # Database & Runtime Uploads
 *.sqlite3
+*.db
+*.db-wal
+*.db-shm
 data/uploads/*
 !data/uploads/.gitkeep
 

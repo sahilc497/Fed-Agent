@@ -1,51 +1,47 @@
+import json
 import datetime
-from typing import List, Optional
-from sqlalchemy import select, and_, or_
-from sqlalchemy.ext.asyncio import AsyncSession
+from typing import List, Optional, Any
 from app.db.models.federation_request import FederationAccessRequest
 from app.repositories.base import BaseRepository
 
 
 class FederationRequestRepository(BaseRepository[FederationAccessRequest]):
-    def __init__(self, db: AsyncSession):
+    def __init__(self, db: Any):
         super().__init__(FederationAccessRequest, db)
 
     async def get_by_id(self, request_id: str) -> Optional[FederationAccessRequest]:
-        stmt = select(FederationAccessRequest).where(FederationAccessRequest.id == request_id)
-        result = await self.db.execute(stmt)
-        return result.scalar_one_or_none()
+        conn = self._get_conn()
+        cursor = conn.execute("SELECT * FROM federation_access_requests WHERE id = ? LIMIT 1;", (request_id,))
+        row = cursor.fetchone()
+        return FederationAccessRequest.from_row(row) if row else None
 
     async def get_by_idempotency_key(self, idempotency_key: str) -> Optional[FederationAccessRequest]:
-        stmt = select(FederationAccessRequest).where(FederationAccessRequest.idempotency_key == idempotency_key)
-        result = await self.db.execute(stmt)
-        return result.scalar_one_or_none()
+        conn = self._get_conn()
+        cursor = conn.execute("SELECT * FROM federation_access_requests WHERE idempotency_key = ? LIMIT 1;", (idempotency_key,))
+        row = cursor.fetchone()
+        return FederationAccessRequest.from_row(row) if row else None
 
     async def list_requests(
         self,
         department_id: Optional[int] = None,
         status: Optional[str] = None
     ) -> List[FederationAccessRequest]:
-        stmt = select(FederationAccessRequest)
-        conditions = []
-
+        conn = self._get_conn()
+        query = "SELECT * FROM federation_access_requests"
+        clauses = []
+        params = []
         if department_id is not None:
-            # Users can see requests where their department is either requester or source
-            conditions.append(
-                or_(
-                    FederationAccessRequest.requester_department_id == department_id,
-                    FederationAccessRequest.source_department_id == department_id
-                )
-            )
-
+            clauses.append("(requester_department_id = ? OR source_department_id = ?)")
+            params.extend([department_id, department_id])
         if status:
-            conditions.append(FederationAccessRequest.status == status.upper())
-
-        if conditions:
-            stmt = stmt.where(and_(*conditions))
-
-        stmt = stmt.order_by(FederationAccessRequest.created_at.desc())
-        result = await self.db.execute(stmt)
-        return list(result.scalars().all())
+            clauses.append("status = ?")
+            params.append(status.upper())
+        if clauses:
+            query += " WHERE " + " AND ".join(clauses)
+        query += " ORDER BY created_at DESC, rowid DESC;"
+        cursor = conn.execute(query, tuple(params))
+        rows = cursor.fetchall()
+        return [FederationAccessRequest.from_row(r) for r in rows]
 
     async def mark_decision(
         self,
@@ -54,33 +50,40 @@ class FederationRequestRepository(BaseRepository[FederationAccessRequest]):
         approver_id: int,
         reason: Optional[str] = None,
         approved_fields: Optional[List[str]] = None,
-        approved_record_ids: Optional[List[str]] = None
+        approved_record_ids: Optional[List[str]] = None,
+        expires_at: Optional[str] = None
     ) -> Optional[FederationAccessRequest]:
-        req = await self.get_by_id(request_id)
-        if req:
-            req.status = status.upper()
-            req.approver_user_id = approver_id
-            req.decision_reason = reason or f"Decision: {status}"
-            req.decided_at = datetime.datetime.now(datetime.timezone.utc)
-            if approved_fields is not None:
-                req.approved_fields = approved_fields
-            if approved_record_ids is not None:
-                req.approved_record_ids = approved_record_ids
-            await self.db.flush()
-        return req
+        conn = self._get_conn()
+        now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        app_f_str = json.dumps(approved_fields) if approved_fields is not None else None
+        app_rec_str = json.dumps(approved_record_ids) if approved_record_ids is not None else None
+
+        conn.execute(
+            """UPDATE federation_access_requests 
+               SET status = ?, approver_user_id = ?, decision_reason = ?,
+                   approved_fields = COALESCE(?, approved_fields),
+                   approved_record_ids = COALESCE(?, approved_record_ids),
+                   decided_at = ?,
+                   expires_at = COALESCE(?, expires_at)
+               WHERE id = ?;""",
+            (status.upper(), approver_id, reason or f"Decision: {status}", app_f_str, app_rec_str, now, expires_at, request_id)
+        )
+        return await self.get_by_id(request_id)
 
     async def mark_revoked(self, request_id: str) -> Optional[FederationAccessRequest]:
-        req = await self.get_by_id(request_id)
-        if req:
-            req.status = "REVOKED"
-            req.revoked_at = datetime.datetime.now(datetime.timezone.utc)
-            await self.db.flush()
-        return req
+        conn = self._get_conn()
+        now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        conn.execute(
+            "UPDATE federation_access_requests SET status = 'REVOKED', revoked_at = ? WHERE id = ?;",
+            (now, request_id)
+        )
+        return await self.get_by_id(request_id)
 
     async def mark_completed(self, request_id: str) -> Optional[FederationAccessRequest]:
-        req = await self.get_by_id(request_id)
-        if req:
-            req.status = "COMPLETED"
-            req.used_at = datetime.datetime.now(datetime.timezone.utc)
-            await self.db.flush()
-        return req
+        conn = self._get_conn()
+        now = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        conn.execute(
+            "UPDATE federation_access_requests SET status = 'COMPLETED', used_at = ? WHERE id = ?;",
+            (now, request_id)
+        )
+        return await self.get_by_id(request_id)

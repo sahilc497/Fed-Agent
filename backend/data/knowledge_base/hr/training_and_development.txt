@@ -1,0 +1,8 @@
+# Professional Training and Development Stipend
+Document ID: DOC-HR-007
+Department: Human Resources
+Version: 1.6 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Annual Learning Allowance
+Full-time employees with at least 6 months tenure are entitled to an annual $2,500 training stipend for approved certifications, conferences, and coursework.

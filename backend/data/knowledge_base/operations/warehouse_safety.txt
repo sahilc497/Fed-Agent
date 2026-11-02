@@ -1,0 +1,8 @@
+# Warehouse Occupational Safety and PPE Standard
+Document ID: DOC-OPS-009
+Department: Operations
+Version: 3.1 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Mandatory PPE
+High-visibility vests, steel-toed boots, and hard hats are mandatory across all warehouse staging zones.

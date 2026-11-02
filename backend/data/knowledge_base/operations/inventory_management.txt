@@ -1,0 +1,8 @@
+# Warehouse Inventory Management Standard
+Document ID: DOC-OPS-001
+Department: Operations
+Version: 2.2 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Inventory Organization and SKUs
+All physical items in enterprise warehouses must bear a scannable barcode matching their unique SKU. Stock is segmented across Zone A (Fast-moving), Zone B (Standard), and Zone C (Bulk).

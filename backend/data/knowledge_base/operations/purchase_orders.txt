@@ -1,0 +1,8 @@
+# Purchase Order Issuance and Fulfillment Tracking
+Document ID: DOC-OPS-010
+Department: Operations
+Version: 2.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. PO Numbering
+All purchase orders follow standard nomenclature `PO-YYYY-XXXXX` and bind the supplier to fixed commercial pricing.

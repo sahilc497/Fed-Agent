@@ -1,6 +1,5 @@
-from typing import List, Optional
+from typing import Any, List, Optional
 from fastapi import APIRouter, Depends, HTTPException, Query, status
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.db.models.user import User
 from app.api.deps import get_current_user
@@ -20,7 +19,7 @@ router = APIRouter(prefix="/federation", tags=["Federation"])
 async def create_federation_request(
     data: FederationRequestCreate,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Submits a narrowly scoped Federation Access Request for cross-department data."""
     service = FederationService(db)
@@ -36,7 +35,7 @@ async def create_federation_request(
 async def list_federation_requests(
     status_filter: Optional[str] = Query(None, alias="status"),
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Lists federation access requests. Administrators view all; employees view departmental requests."""
     service = FederationService(db)
@@ -47,7 +46,7 @@ async def list_federation_requests(
 async def get_federation_request(
     request_id: str,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Retrieves specific federation access request details."""
     service = FederationService(db)
@@ -64,7 +63,7 @@ async def decide_federation_request(
     request_id: str,
     decision_data: FederationRequestDecision,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """
     Administrator-only: approves or rejects a federation access request with mandatory reason.
@@ -84,7 +83,7 @@ async def revoke_federation_request(
     request_id: str,
     reason: Optional[str] = None,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """Administrator-only: immediately revokes an approved federation grant."""
     service = FederationService(db)
@@ -100,7 +99,7 @@ async def revoke_federation_request(
 async def consume_federation_grant(
     request_id: str,
     current_user: User = Depends(get_current_user),
-    db: AsyncSession = Depends(get_db)
+    db: Any = Depends(get_db)
 ):
     """
     Consumes an approved federation grant via the Federation Gateway.

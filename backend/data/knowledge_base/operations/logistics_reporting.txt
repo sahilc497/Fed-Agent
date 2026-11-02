@@ -1,0 +1,10 @@
+# Logistics Metrics and Fleet Reporting
+Document ID: DOC-OPS-011
+Department: Operations
+Version: 1.3 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Operational KPIs
+- Inventory Turnover Ratio
+- On-Time In-Full (OTIF) Delivery Percentage
+- Order Lead Time in Hours

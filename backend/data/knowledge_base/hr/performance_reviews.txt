@@ -1,0 +1,11 @@
+# Annual Performance Appraisal Framework
+Document ID: DOC-HR-006
+Department: Human Resources
+Version: 2.1 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## 1. Review Cycle
+Evaluations take place annually in November:
+- Self-Evaluation (20% weight)
+- Manager Review (50% weight)
+- Peer 360 Feedback (30% weight)

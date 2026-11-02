@@ -1,5 +1,5 @@
+from typing import Any
 from fastapi import APIRouter, Depends, HTTPException, status
-from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.db.models.user import User
 from app.services.auth_service import AuthService
@@ -12,7 +12,7 @@ router = APIRouter(prefix="/auth", tags=["Authentication"])
 
 
 @router.post("/login", response_model=Token)
-async def login(credentials: LoginRequest, db: AsyncSession = Depends(get_db)):
+async def login(credentials: LoginRequest, db: Any = Depends(get_db)):
     """Authenticate user with Argon2id verified credentials and issue signed JWT."""
     auth_service = AuthService(db)
     try:

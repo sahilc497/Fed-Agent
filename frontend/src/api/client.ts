@@ -1,15 +1,49 @@
 // Centralized Typed API Client for Federated Agentic Mesh
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000/api/v1';
+const getApiBaseUrl = (): string => {
+  if (import.meta.env.VITE_API_BASE_URL) {
+    return import.meta.env.VITE_API_BASE_URL;
+  }
+  // When running in the browser, routing through '/api/v1' enables Vite's built-in dev proxy
+  // on port 5173. This eliminates Windows Firewall blocking port 8000 on LAN/Wi-Fi devices!
+  return '/api/v1';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 export interface User {
   id: number;
   email: string;
   full_name: string;
   department_id: number;
-  role: 'admin' | 'auditor' | 'department_manager' | 'department_employee';
+  role: 'admin' | 'department_manager' | 'department_employee';
   is_active: boolean;
+  bio?: string;
   created_at: string;
+}
+
+export interface Conversation {
+  id: string;
+  user_id: number;
+  title: string;
+  department_scope: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface ChatMessageOut {
+  id: number;
+  conversation_id: string;
+  sender_role: string;
+  message?: string;
+  content?: string;
+  intent?: string;
+  routed_departments?: string[];
+  evidence_json?: any[];
+  user_id?: number;
+  agent_code?: string;
+  evidence_metadata?: any;
+  created_at?: string;
 }
 
 export interface Department {
@@ -57,6 +91,7 @@ export interface ChatRequest {
   message: string;
   conversation_id?: string;
   requested_department?: string;
+  department_hint?: string;
 }
 
 export interface ChatResponse {
@@ -191,13 +226,34 @@ class ApiClient {
     const isFormData = options.body instanceof FormData;
     const url = endpoint.startsWith('http') ? endpoint : `${API_BASE_URL}${endpoint}`;
     
-    const response = await fetch(url, {
-      ...options,
-      headers: {
-        ...this.getHeaders(isFormData),
-        ...(options.headers || {})
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        ...options,
+        headers: {
+          ...this.getHeaders(isFormData),
+          ...(options.headers || {})
+        }
+      });
+    } catch (fetchErr: any) {
+      // Dual-path fallback: If proxy path fails, automatically connect directly to port 8000
+      if (!endpoint.startsWith('http') && typeof window !== 'undefined' && window.location.hostname) {
+        const directUrl = `http://${window.location.hostname}:8000/api/v1${endpoint}`;
+        try {
+          response = await fetch(directUrl, {
+            ...options,
+            headers: {
+              ...this.getHeaders(isFormData),
+              ...(options.headers || {})
+            }
+          });
+        } catch {
+          throw new Error(`Failed to fetch from backend. Unable to connect to ${url} or ${directUrl}.`);
+        }
+      } else {
+        throw fetchErr;
       }
-    });
+    }
 
     if (response.status === 401) {
       localStorage.removeItem('mesh_access_token');
@@ -420,6 +476,51 @@ class ApiClient {
   async consumeFederationGrant(requestId: string): Promise<FederationConsumeResult> {
     return this.request<FederationConsumeResult>(`/federation/requests/${requestId}/consume`, {
       method: 'POST'
+    });
+  }
+
+  // Persistent Conversations & History
+  async getConversations(): Promise<Conversation[]> {
+    return this.request<Conversation[]>('/chat/conversations');
+  }
+
+  async createConversation(data?: { title?: string; department_scope?: string }): Promise<Conversation> {
+    return this.request<Conversation>('/chat/conversations', {
+      method: 'POST',
+      body: JSON.stringify(data || {})
+    });
+  }
+
+  async getConversationMessages(conversationId: string): Promise<ChatMessageOut[]> {
+    return this.request<ChatMessageOut[]>(`/chat/conversations/${conversationId}/messages`);
+  }
+
+  async deleteConversation(conversationId: string): Promise<{ status: string }> {
+    return this.request<{ status: string }>(`/chat/conversations/${conversationId}`, {
+      method: 'DELETE'
+    });
+  }
+
+  // User Profile
+  async updateProfile(data: { full_name?: string; bio?: string }): Promise<User> {
+    const updated = await this.request<User>('/users/me', {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+    localStorage.setItem('mesh_user', JSON.stringify(updated));
+    return updated;
+  }
+
+  async updateUser(userId: number, data: { full_name?: string; role?: string; department_id?: number; is_active?: boolean }): Promise<User> {
+    return this.request<User>(`/users/${userId}`, {
+      method: 'PUT',
+      body: JSON.stringify(data)
+    });
+  }
+
+  async deactivateUser(userId: number): Promise<{ status: string; id: number }> {
+    return this.request<{ status: string; id: number }>(`/users/${userId}`, {
+      method: 'DELETE'
     });
   }
 }

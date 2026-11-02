@@ -1,0 +1,11 @@
+# Human Resources Frequently Asked Questions
+Document ID: DOC-HR-012
+Department: Human Resources
+Version: 3.0 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+
+## FAQ 1: How do I check my remaining vacation balance?
+You can ask the HR AI Agent: "What is my current leave balance?"
+
+## FAQ 2: Can other employees see my salary?
+No. All compensation attributes are filtered server-side by the Zero-Trust RBAC layer.

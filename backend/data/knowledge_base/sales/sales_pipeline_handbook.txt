@@ -1,0 +1,17 @@
+# Enterprise Sales Pipeline Handbook
+Document ID: DOC-SALES-001
+Department: Sales
+Version: 2.1 (Synthetic Enterprise Policy Demo)
+Access Level: internal
+Effective Date: 2025-01-01 | Review Date: 2026-12-31
+
+## 1. Overview and Lifecycle Stages
+The Enterprise Sales Pipeline governs client acquisition across 5 standardized stages:
+1. Lead: Initial contact identified, company verified, preliminary pain points logged.
+2. Qualified: BANT criteria validated, decision maker identified, budget envelope confirmed.
+3. Proposal: Solution architecture scoped, commercial terms drafted, executive summary delivered.
+4. Closed Won: Contract counter-signed, initial invoice generated, customer success handoff scheduled.
+5. Closed Lost: Prospect declined or delayed, competitor analysis logged, post-mortem review completed.
+
+## 2. Velocity and Pipeline Health
+Sales representatives must advance or close deals within 90 days. Deals lingering in Proposal stage exceeding 45 days automatically trigger a pipeline review with the Sales Manager.
